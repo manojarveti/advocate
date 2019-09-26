@@ -19,16 +19,16 @@
             <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
               <div class="col-sm-12">
                 <div class="row">
-                    <div class="col-sm-6">
+                  <div class="col-sm-6">
+                  </div>
+                  <div class="col-sm-6">
+                    <div id="example1_filter" class="dataTables_filter">
+                      <label>Search:<input type="search" class="form-control input-sm" placeholder=""
+                          aria-controls="example1" [(ngModel)]="searchText"></label>
                     </div>
-                    <div class="col-sm-6">
-                        <div id="example1_filter" class="dataTables_filter">
-                            <label>Search:<input type="search" class="form-control input-sm" placeholder=""
-                                    aria-controls="example1" [(ngModel)]="searchText"></label>
-                        </div>
-                    </div>
+                  </div>
                 </div>
-            </div>
+              </div>
               <div class="col-sm-12">
                 <div class="row">
                   <table id="example1" class="table table-bordered table-striped dataTable no-footer" role="grid"
@@ -52,7 +52,8 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr class="gc_row odd" role="row" *ngFor="let i = index;let item of addtask | filter:searchText | paginate: { itemsPerPage: 10, currentPage: p }">
+                      <tr class="gc_row odd" role="row"
+                        *ngFor="let i = index;let item of addtask | filter:searchText | paginate: { itemsPerPage: 10, currentPage: p }">
                         <td class="sorting_1">{{ (p - 1) * 10 + i +1 }}</td>
                         <td>{{item.name}}</td>
                         <td><small>
@@ -60,15 +61,20 @@
                             <p class="label pull-right bg-orange" *ngIf="item.priority==2">Medium</p>
                             <p class="label pull-right bg-red" *ngIf="item.priority==3">High</p>
                           </small></td>
-                        <td>{{item.due_date}}  </td>
+                        <td>{{item.due_date}} </td>
                         <!-- <small class="label pull-right bg-red">Over Due</small> -->
                         <td>{{item.created_by}} <small class="label pull-right bg-blue">Admin</small></td>
                         <td width="50%">
-                          <div class="btn-group">
-                            <a [routerLink]="['/main/tasks/viewtasks', item.id]" class="btn btn-default"><i
-                                class="fa fa-eye"></i> View</a>
-                            <a [routerLink]="['/main/tasks/commenttasks', item.id]" class="btn btn-warning"
-                              style="margin-left:20px;"><i class="fa fa-comments"></i> Comments</a>
+                          <div>
+                            <a [routerLink]="['/main/tasks/viewtasks', item.id]"
+                              style="margin-left:20px;cursor: pointer;" data-toggle="tooltip" data-placement="bottom"
+                              title="View"><i class="fa fa-eye"></i>
+                            </a>
+
+                            <a [routerLink]="['/main/tasks/commenttasks', item.id]"
+                              style="margin-left:20px;cursor: pointer;" data-toggle="tooltip" data-placement="bottom"
+                              title="Comments"><i class="fa fa-comments"></i>
+                            </a>
                           </div>
                         </td>
                       </tr>

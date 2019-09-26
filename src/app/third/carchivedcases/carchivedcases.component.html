@@ -73,15 +73,21 @@
                         <td>{{item.client_name}}</td>
 
 
-                        <td width="53%">
+                        <td>
 
-                          <a class="btn btn-default" style="margin-right: 3px;"
-                            [routerLink]="['/main/cases/viewcase',item.id]"><i class="fa fa-eye"></i> View</a>
+                          <a [routerLink]="['/main/cases/viewcase',item.id]" style="margin-left:20px;"
+                            data-toggle="tooltip" data-placement="bottom" title="View"><i class="fa fa-eye fa-lg"></i>
+                          </a>
 
-                          <a class="btn btn-danger" style="margin-left:20px;"
-                          (click)="restoreacase(item.id)"><i class="fa fa-check"></i> Restore</a>
-                          <a class="btn btn-danger" style="margin-left:20px;"
-                          (click)="deleteacase(item.id)"><i class="fa fa-check"></i> Delete</a>
+                          <a (click)="restoreacase(item.id)" style="margin-left:20px;cursor: pointer;"
+                            data-toggle="tooltip" data-placement="bottom" title="Restore"><i
+                              class="fa fa-check fa-lg"></i>
+                          </a>
+
+                          <a (click)="deleteacase(item.id)" style="margin-left:20px;cursor: pointer;"
+                            data-toggle="tooltip" data-placement="bottom" title="Delete"><i
+                              class="fa fa-trash fa-lg"></i>
+                          </a>
                         </td>
                       </tr>
 
@@ -111,90 +117,90 @@
 
 <div class="modal fade deleteRequest" tabindex="-1" role="dialog">
   <div class="modal-dialog  modal-sm" role="document">
-      <div class="modal-content">
-          <div class="modal-header">
-              <h4 class="modal-title" id="myModalLabel">Delete Request</h4>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-              </button>
-          </div>
-          <div class="modal-body">
-              <p>
-                  <i class="fa fa-check fa-2"></i>
-                  <span>&nbsp;Are you sure Want to Delete ?</span>
-              </p>
-          </div>
-          <div class="modal-footer">
-              <button type="button" class="btn btn-success" (click)=" deletecases()">Yes</button>
-              <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
-          </div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Delete Request</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
+      <div class="modal-body">
+        <p>
+          <i class="fa fa-check fa-2"></i>
+          <span>&nbsp;Are you sure Want to Delete ?</span>
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" (click)=" deletecases()">Yes</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+      </div>
+    </div>
   </div>
 </div>
 
 <div class="modal fade successmechPopup" tabindex="-1" role="dialog">
-      <div class="modal-dialog  modal-sm" role="document">
-          <div class="modal-content">
-              <div class="modal-header">
-                  <h4 class="modal-title" id="myModalLabel">Case Delete</h4>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                  </button>
-              </div>
-              <div class="modal-body">
-                  <p>
-                      <i class="fa fa-check fa-2"></i>&nbsp;
-                      <span>Case Deleted sucessfully</span>
-                  </p>
-              </div>
-              <div class="modal-footer">
-                  <button type="button" class="btn btn-danger" data-dismiss="modal">close</button>
-              </div>
-          </div>
+  <div class="modal-dialog  modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Case Delete</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>
+          <i class="fa fa-check fa-2"></i>&nbsp;
+          <span>Case Deleted sucessfully</span>
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">close</button>
       </div>
     </div>
+  </div>
+</div>
 
-    <div class="modal fade restoreRequest" tabindex="-1" role="dialog">
-      <div class="modal-dialog  modal-sm" role="document">
-          <div class="modal-content">
-              <div class="modal-header">
-                  <h4 class="modal-title" id="myModalLabel">Case Restore Request</h4>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                  </button>
-              </div>
-              <div class="modal-body">
-                  <p>
-                      <i class="fa fa-check fa-2"></i>
-                      <span>&nbsp;Are you sure Want to Restore the case ?</span>
-                  </p>
-              </div>
-              <div class="modal-footer">
-                  <button type="button" class="btn btn-success" (click)="restorecases()">Yes</button>
-                  <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
-              </div>
-          </div>
+<div class="modal fade restoreRequest" tabindex="-1" role="dialog">
+  <div class="modal-dialog  modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Case Restore Request</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>
+          <i class="fa fa-check fa-2"></i>
+          <span>&nbsp;Are you sure Want to Restore the case ?</span>
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" (click)="restorecases()">Yes</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
       </div>
     </div>
-    
-    <div class="modal fade successmechPopup1" tabindex="-1" role="dialog">
-          <div class="modal-dialog  modal-sm" role="document">
-              <div class="modal-content">
-                  <div class="modal-header">
-                      <h4 class="modal-title" id="myModalLabel">Case Restore</h4>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                      </button>
-                  </div>
-                  <div class="modal-body">
-                      <p>
-                          <i class="fa fa-check fa-2"></i>&nbsp;
-                          <span>Case has been restored sucessfully</span>
-                      </p>
-                  </div>
-                  <div class="modal-footer">
-                      <button type="button" class="btn btn-danger" data-dismiss="modal">close</button>
-                  </div>
-              </div>
-          </div>
-        </div>
+  </div>
+</div>
+
+<div class="modal fade successmechPopup1" tabindex="-1" role="dialog">
+  <div class="modal-dialog  modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Case Restore</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>
+          <i class="fa fa-check fa-2"></i>&nbsp;
+          <span>Case has been restored sucessfully</span>
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">close</button>
+      </div>
+    </div>
+  </div>
+</div>

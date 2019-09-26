@@ -22,7 +22,7 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="box">
-                   <!-- /.box-header -->
+                    <!-- /.box-header -->
                     <div class="box-body table-responsive">
                         <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
                             <div class="col-sm-12">
@@ -32,7 +32,8 @@
                                     <div class="col-sm-6">
                                         <div id="example1_filter" class="dataTables_filter">
                                             <label>Search:<input type="search" class="form-control input-sm"
-                                                    placeholder="" aria-controls="example1" [(ngModel)]="searchText"></label>
+                                                    placeholder="" aria-controls="example1"
+                                                    [(ngModel)]="searchText"></label>
                                         </div>
                                     </div>
                                 </div>
@@ -62,14 +63,17 @@
                                                 <td class="sorting_1">{{ (p - 1) * 10 + i +1 }}</td>
                                                 <td>{{item.user_type}}</td>
                                                 <td>
-                                                    <div class="btn-group">
+                                                    <div>
                                                         <p>
-                                                        <a class="btn btn-primary"
-                                                            [routerLink]="['/main/hrmange/user-role/edituserrole',item.id]"><i
-                                                                class="fa fa-edit"></i> Edit</a> 
-                                                        <a class="btn btn-danger" *ngIf="i >= '2'"
-                                                            (click)="deleteuserrole(item.id)"><i
-                                                                class="fa fa-trash"></i> Delete</a></p>
+                                                            <a [routerLink]="['/main/hrmange/user-role/edituserrole',item.id]"
+                                                                style="margin-left:20px;" data-toggle="tooltip"
+                                                                data-placement="bottom" title="Edit"><i
+                                                                    class="fa fa-edit fa-lg"></i>
+                                                            </a>
+                                                            <a *ngIf="i >= '2'" (click)="deleteuserrole(item.id)"
+                                                                style="margin-left:20px;cursor: pointer;"
+                                                                data-toggle="tooltip" data-placement="bottom"
+                                                                title="Delete"><i class="fa fa-trash fa-lg"></i></a></p>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -95,46 +99,46 @@
 </div>
 
 <div class="modal fade deleteRequest" tabindex="-1" role="dialog">
-        <div class="modal-dialog  modal-sm" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Delete Request</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p>
-                        <i class="fa fa-check fa-2"></i>
-                        <span>&nbsp;Are you sure Want to Delete ?</span>
-                    </p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-success" (click)=" deleteuserroles()">Yes</button>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
-                </div>
+    <div class="modal-dialog  modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Delete Request</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    <i class="fa fa-check fa-2"></i>
+                    <span>&nbsp;Are you sure Want to Delete ?</span>
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" (click)=" deleteuserroles()">Yes</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
             </div>
         </div>
     </div>
-    
-    <div class="modal fade successmechPopup" tabindex="-1" role="dialog">
-            <div class="modal-dialog  modal-sm" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title" id="myModalLabel">User Role Delete</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p>
-                            <i class="fa fa-check fa-2"></i>&nbsp;
-                            <span>User Role Deleted sucessfully</span>
-                        </p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">close</button>
-                    </div>
-                </div>
+</div>
+
+<div class="modal fade successmechPopup" tabindex="-1" role="dialog">
+    <div class="modal-dialog  modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">User Role Delete</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
-          </div>
+            <div class="modal-body">
+                <p>
+                    <i class="fa fa-check fa-2"></i>&nbsp;
+                    <span>User Role Deleted sucessfully</span>
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">close</button>
+            </div>
+        </div>
+    </div>
+</div>

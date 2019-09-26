@@ -13,7 +13,7 @@ import leavenotification from './leavenotification';
     navigate(arg0: any[]): any {
       throw new Error("Method not implemented.");
     }
-    baseUrl = 'http://13.232.118.211/advocate_api';
+    baseUrl = 'http://localhost/advocate_api';
   dashboards: any;
   leaveapply: any;
   leavenotification:any;
@@ -25,6 +25,20 @@ import leavenotification from './leavenotification';
       map((res) => {
         this.leavenotification = res['data'];
         return this.leavenotification;
+      }),
+      catchError(this.handleError));
+  }
+
+  statusupdate(id: number): Observable<leavenotification[]> {
+    const params = new HttpParams()
+      .set('id', id.toString());
+
+    return this.http.delete(`${this.baseUrl}/hr/leave_notification/statusupdate`, { params: params })
+      .pipe(map(res => {
+        const filteredAdds = this.leavenotification.filter((car) => {
+          return +car['id'] !== +id;
+        });
+        return this.leavenotification= filteredAdds;
       }),
       catchError(this.handleError));
   }

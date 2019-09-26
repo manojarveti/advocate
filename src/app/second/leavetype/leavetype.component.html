@@ -22,13 +22,13 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="box">
-                   <!-- /.box-header -->
+                    <!-- /.box-header -->
                     <div class="box-body table-responsive">
                         <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
                             <div class="col-sm-12">
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        
+
                                     </div>
                                     <div class="col-sm-6 ">
                                         <div id="example1_filter" class="dataTables_filter"><label>Search:<input
@@ -79,13 +79,17 @@
                                                     <td class="col-md-3">
                                                         <div class="btn-group">
 
-                                                            <a class="btn btn-primary" style="margin-left:8px;"
-                                                                [routerLink]="['/main/hrmange/leavetype/editleaves',item.id]"><i
-                                                                    class="fa fa-edit"></i> Edit</a>
+                                                            <a [routerLink]="['/main/hrmange/leavetype/editleaves',item.id]"
+                                                                style="margin-left:20px;" data-toggle="tooltip"
+                                                                data-placement="bottom" title="Edit">
+                                                                <i class="fa fa-edit fa-lg"></i>
+                                                            </a>
 
 
-                                                            <a class="btn btn-danger" style="margin-left:8px;"
-                                                                (click)="deleteleaves(item.id)" ><i class="fa fa-trash"></i> Delete</a>
+                                                            <a (click)="deleteleaves(item.id)" style="margin-left:20px;cursor: pointer;"
+                                                            data-toggle="tooltip" data-placement="bottom" title="Delete"><i
+                                                              class="fa fa-trash fa-lg"></i>
+                                                            </a>
 
                                                         </div>
                                                     </td>
@@ -96,15 +100,15 @@
                                 </div>
                             </div>
                             <div class="col-sm-12">
-                                    <div class="row">
-                                        <div class="col-sm-5">
-        
-                                        </div>
-                                        <div class="col-sm-7" style="text-align: right;">
-                                            <pagination-controls (pageChange)="p = $event"></pagination-controls>
-                                        </div>
+                                <div class="row">
+                                    <div class="col-sm-5">
+
+                                    </div>
+                                    <div class="col-sm-7" style="text-align: right;">
+                                        <pagination-controls (pageChange)="p = $event"></pagination-controls>
                                     </div>
                                 </div>
+                            </div>
 
                         </div>
 
@@ -139,23 +143,23 @@
 </div>
 
 <div class="modal fade successmechPopup" tabindex="-1" role="dialog">
-        <div class="modal-dialog  modal-sm" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Leave Policy Delete</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p>
-                        <i class="fa fa-check fa-2"></i>&nbsp;
-                        <span>Leave Policy Deleted sucessfully</span>
-                    </p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">close</button>
-                </div>
+    <div class="modal-dialog  modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Leave Policy Delete</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    <i class="fa fa-check fa-2"></i>&nbsp;
+                    <span>Leave Policy Deleted sucessfully</span>
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">close</button>
             </div>
         </div>
-      </div>
+    </div>
+</div>

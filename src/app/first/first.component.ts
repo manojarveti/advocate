@@ -150,7 +150,7 @@ addapplyleave:any;
 				right: 'month,agendaWeek,agendaDay'
 			},
 		
-			events: 'http://localhost/advocate_api/appointment/allappointments',
+			events: 'http://13.232.118.211/advocate_api/appointment/allappointments',
       eventClick:function(event)
     {
      alert(event.color);

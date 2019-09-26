@@ -42,10 +42,7 @@
                                             </div>
                                         </span>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="row">
+
                                     <div class="col-md-4">
                                         <label for="name" style="clear:both;">Contact name</label>
                                         <div>
@@ -61,15 +58,12 @@
                                                     </div>
                                                 </div>
                                             </span>
-                                            <span class="pull-right"><small><a [routerLink]="['/main/contacts/addcontact']"><i
-                                                class="fa fa-plus"></i> Add New Contact</a></small></span>
+                                            <span class="pull-right"><small><a
+                                                        [routerLink]="['/main/contacts/addcontact']"><i
+                                                            class="fa fa-plus"></i> Add New Contact</a></small></span>
                                         </div>
                                     </div>
-                                   
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="row">
+
                                     <div class="col-md-4">
                                         <label for="name" style="clear:both;">Motive</label>
                                         <textarea name="motive" [(ngModel)]="appointment.motive" #motive="ngModel"
@@ -98,10 +92,7 @@
                                             </div>
                                         </span>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="row">
+
                                     <div class="col-md-4">
                                         <label for="name" style="clear:both;">Notes</label>
                                         <textarea name="notes" [(ngModel)]="appointment.notes" #notes="ngModel"
@@ -114,9 +105,10 @@
                                             </div>
                                         </span>
                                     </div>
+                                    
                                 </div>
                             </div>
-                    </div><!-- /.box-body -->
+                        </div><!-- /.box-body -->
                         <div class="box-footer">
                             <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Save</button>
                         </div>
@@ -147,4 +139,4 @@
             </div>
         </div>
     </div>
-  </div>
+</div>

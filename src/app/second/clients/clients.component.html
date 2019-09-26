@@ -29,18 +29,19 @@
                     <div class="box-body table-responsive">
                         <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
                             <div class="col-sm-12">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                   
-                                </div>
-                                <div class="col-sm-6">
-                                    <div id="example1_filter" class="dataTables_filter">
-                                        <label>Search:<input type="search" class="form-control input-sm" placeholder=""
-                                                aria-controls="example1" [(ngModel)]="searchText"></label>
+                                <div class="row">
+                                    <div class="col-sm-6">
+
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div id="example1_filter" class="dataTables_filter">
+                                            <label>Search:<input type="search" class="form-control input-sm"
+                                                    placeholder="" aria-controls="example1"
+                                                    [(ngModel)]="searchText"></label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                             <div class="col-sm-12">
                                 <div class="row">
                                     <table id="example1" class="table table-bordered table-striped dataTable no-footer"
@@ -76,20 +77,22 @@
                                                 <td width="27%">
                                                     <div class="btn-group">
 
-                                                        <a class="btn btn-default"
-                                                            [routerLink]="['/main/hrmange/clients/viewclients',item.id]"><i
-                                                                class="fa fa-eye"></i> View</a>
+                                                        <a [routerLink]="['/main/hrmange/clients/viewclients',item.id]"
+                                                            style="margin-left:20px;" data-toggle="tooltip"
+                                                            data-placement="bottom" title="View"><i
+                                                                class="fa fa-eye fa-lg"></i> </a>
 
+                                                        <a [routerLink]="['/main/hrmange/clients/editclients',item.id]"
+                                                            style="margin-left:20px;" data-toggle="tooltip"
+                                                            data-placement="bottom" title="Edit"><i
+                                                                class="fa fa-edit fa-lg"></i>
+                                                        </a>
 
-                                                        <a class="btn btn-primary"
-                                                            [routerLink]="['/main/hrmange/clients/editclients',item.id]"
-                                                            style="margin-left:12px;"><i class="fa fa-edit"></i>
-                                                            Edit</a>
-
-
-                                                        <a class="btn btn-danger" (click)="deleteclients(item.id)"
-                                                            style="margin-left:20px;"><i class="fa fa-trash"></i>
-                                                            Delete</a>
+                                                        <a (click)="deleteclients(item.id)"
+                                                            style="margin-left:20px;cursor: pointer;"
+                                                            data-toggle="tooltip" data-placement="bottom"
+                                                            title="Delete"><i class="fa fa-trash fa-lg"></i>
+                                                        </a>
 
                                                     </div>
                                                 </td>
@@ -99,14 +102,14 @@
                                 </div>
                                 <div class="col-sm-12">
                                     <div class="row">
-                                      <div class="col-sm-5">
-                  
-                                      </div>
-                                      <div class="col-sm-7" style="text-align: right;">
-                                        <pagination-controls (pageChange)="p = $event"></pagination-controls>
-                                      </div>
+                                        <div class="col-sm-5">
+
+                                        </div>
+                                        <div class="col-sm-7" style="text-align: right;">
+                                            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                                        </div>
                                     </div>
-                                  </div>
+                                </div>
                             </div>
                         </div>
 
@@ -140,23 +143,23 @@
 </div>
 
 <div class="modal fade successmechPopup" tabindex="-1" role="dialog">
-        <div class="modal-dialog  modal-sm" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Applicant Delete</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p>
-                        <i class="fa fa-check fa-2"></i>&nbsp;
-                        <span>Applicant Deleted sucessfully</span>
-                    </p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">close</button>
-                </div>
+    <div class="modal-dialog  modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Applicant Delete</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    <i class="fa fa-check fa-2"></i>&nbsp;
+                    <span>Applicant Deleted sucessfully</span>
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">close</button>
             </div>
         </div>
-      </div>
+    </div>
+</div>

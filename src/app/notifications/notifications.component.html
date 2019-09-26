@@ -21,7 +21,7 @@
         <div class="row" style="display:block!important">
             <div class="col-xs-12">
                 <div class="box">
-<!-- /.box-header -->
+                    <!-- /.box-header -->
                     <div class="box-body table-responsive">
                         <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap no-footer">
                             <div class="col-sm-12">
@@ -63,16 +63,18 @@
                                                 <td class="sorting_1">{{ (p - 1) * 10 + i +1 }}</td>
                                                 <td>{{item.name}}</td>
                                                 <td width="27%">
-                                                    <div class="btn-group">
-                                                        <a class="btn btn-default"
-                                                            [routerLink]="['/main/contacts/viewcontact', item.id]"><i
-                                                                class="fa fa-eye"></i> View</a>
-                                                        <a class="btn btn-primary" style="margin-left:12px;"
-                                                            [routerLink]="['/main/contacts/editcontact', item.id]"><i
-                                                                class="fa fa-edit"></i> Edit</a>
-                                                        <a class="btn btn-danger" style="margin-left:20px;"
-                                                            (click)="deletecontactAdd(item.id)"><i
-                                                                class="fa fa-trash"></i> Delete</a>
+                                                    <div>
+                                                        <a [routerLink]="['/main/contacts/viewcontact', item.id]" style="margin-left:20px;cursor: pointer;"
+                                                        data-toggle="tooltip" data-placement="bottom" title="View"><i class="fa fa-eye fa-lg"></i>
+                                                        </a>
+                                                        
+                                                        <a [routerLink]="['/main/contacts/editcontact', item.id]" style="margin-left:20px;cursor: pointer;"
+                                                        data-toggle="tooltip" data-placement="bottom" title="Edit"><i class="fa fa-edit fa-lg"></i>
+                                                        </a>
+                                                        
+                                                        <a (click)="deletecontactAdd(item.id)" style="margin-left:20px;cursor: pointer;"
+                                                        data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fa fa-trash"></i>
+                                                        </a>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -123,23 +125,23 @@
 </div>
 
 <div class="modal fade successmechPopup" tabindex="-1" role="dialog">
-        <div class="modal-dialog  modal-sm" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Contact Delete</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p>
-                        <i class="fa fa-check fa-2"></i>&nbsp;
-                        <span>Contact Deleted sucessfully</span>
-                    </p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">close</button>
-                </div>
+    <div class="modal-dialog  modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Contact Delete</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    <i class="fa fa-check fa-2"></i>&nbsp;
+                    <span>Contact Deleted sucessfully</span>
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">close</button>
             </div>
         </div>
-      </div>
+    </div>
+</div>

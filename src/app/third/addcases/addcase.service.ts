@@ -14,7 +14,7 @@ export class AddcaseService {
   navigate(arg0: any[]): any {
     throw new Error("Method not implemented.");
   }
-  baseUrl = 'http://13.232.118.211/advocate_api';
+  baseUrl = 'http://localhost/advocate_api';
 addcase: Addcases[];
 addcase1:any[];
 addcase2:any[];
@@ -40,6 +40,45 @@ storecase(addcase: Addcases): Observable<Addcases[]> {
         return this.addcase;
     }),
     catchError(this.handleError));
+  }
+
+  fetchfees(id:number): Observable<Addcases[]> {
+    const params = new HttpParams()
+      .set('id', id.toString());
+    return this.http.get(`${this.baseUrl}/cases/fees/fetchfee`, { params: params }).pipe(
+      map((res) => {
+        this.addcase = res['data'];
+        return this.addcase;
+    }),
+    catchError(this.handleError));
+  }
+  getpaydetails(): Observable<Addcases[]> {
+    return this.http.get(`${this.baseUrl}/cases/fees/paymentlist`).pipe(
+      map((res) => {
+        
+        this.addcase = res['data'];
+        return this.addcase;
+    }),
+    catchError(this.handleError));
+  }
+
+  gettaxdetails(): Observable<Addcases[]> {
+    return this.http.get(`${this.baseUrl}/cases/fees/taxlist`).pipe(
+      map((res) => {
+        
+        this.addcase = res['data'];
+        return this.addcase;
+    }),
+    catchError(this.handleError));
+  }
+
+  addinv(addcase: Addcases): Observable<Addcases[]> {
+    return this.http.post(`${this.baseUrl}/cases/fees/store`, { data: addcase })
+      .pipe(map((res:any) => {
+        //this.adds.push(res['data']);
+        return res;
+      }),
+      catchError(this.handleError));
   }
 
   editAll(id:number): Observable<Addcases[]> {

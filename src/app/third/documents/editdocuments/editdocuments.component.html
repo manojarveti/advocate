@@ -5,6 +5,7 @@
     </h1>
     <ol class="breadcrumb">
       <li><a [routerLink]="['/main/dashboard']"><i class="fa fa-dashboard"></i> Dasbhoard</a></li>
+      <li><a [routerLink]="['/main/cases/allcases']">Cases</a></li>
       <li><a [routerLink]="['/main/cases/documents']">Documents</a></li>
       <li class="active">Edit</li>
     </ol>
@@ -33,11 +34,6 @@
                       <option value="other">Other</option>
                     </select>
                   </div>
-                </div>
-              </div>
-
-              <div class="form-group" >
-                <div class="row">
                   <div class="col-md-4" [hidden]="newcase !='case'">
                     <label for="name" style="clear:both;">Case</label>
                     <select name="case_id" [(ngModel)]="addcases1[i].case_name" class="form-control"
@@ -47,11 +43,6 @@
                         {{adddocument[i].case_title}}</option>
                     </select>
                   </div>
-                </div>
-              </div>
-
-              <div class="form-group" id="title">
-                <div class="row">
                   <div class="col-md-4">
                     <label for="name" style="clear:both;">Title</label>
                     <input type="text" name="title" [(ngModel)]="addcases1[i].title"

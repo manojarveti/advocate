@@ -23,7 +23,7 @@
     <div class="row" style="margin-top: 5px">
       <div class="col-xs-12">
         <div class="box">
-         <!-- /.box-header -->
+          <!-- /.box-header -->
 
           <div class="box-body table-responsive">
             <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
@@ -35,7 +35,8 @@
                   <div class="col-sm-6">
                     <div id="example1_filter" class="dataTables_filter">
                       <label>Search:
-                        <input type="search" class="form-control input-sm" placeholder="" aria-controls="example1" [(ngModel)]="searchText">
+                        <input type="search" class="form-control input-sm" placeholder="" aria-controls="example1"
+                          [(ngModel)]="searchText">
                       </label>
                     </div>
                   </div>
@@ -78,15 +79,21 @@
                         <td width="30%">
                           <div class="btn-group">
 
-                            <a class="btn btn-default" [routerLink]="['/main/appointments/viewappointment',item.id]"><i
-                                class="fa fa-eye"></i> View</a>
+                            <a [routerLink]="['/main/appointments/viewappointment',item.id]"
+                              style="margin-left:20px;cursor: pointer;" data-toggle="tooltip" data-placement="bottom"
+                              title="View"><i class="fa fa-eye fa-lg"></i>
+                            </a>
 
-                            <a class="btn btn-primary" [routerLink]="['/main/appointments/editappointment',item.id]"
-                              style="margin-left:15px;"><i class="fa fa-edit"></i> Edit</a>
+                            <a [routerLink]="['/main/appointments/editappointment',item.id]"
+                              style="margin-left:20px;cursor: pointer;" data-toggle="tooltip" data-placement="bottom"
+                              title="Edit"><i class="fa fa-edit fa-lg"></i>
+                            </a>
 
 
-                            <a class="btn btn-danger" style="margin-left:20px;"
-                              (click)="deleteappointmentadd(item.id)"><i class="fa fa-trash"></i> Delete</a>
+                            <a (click)="deleteappointmentadd(item.id)" style="margin-left:20px;cursor: pointer;"
+                              data-toggle="tooltip" data-placement="bottom" title="Delete"><i
+                                class="fa fa-trash fa-lg"></i>
+                            </a>
 
                           </div>
                         </td>

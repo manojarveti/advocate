@@ -41,4 +41,22 @@ searchText;
     );
   }
 
+  statusupdate(id: string | number) {
+    this.resetErrors();
+
+    this.addleaveservice.statusupdate(+id)
+      .subscribe(
+        (res: Addleaveservice[]) => {
+          this.addleaveserv = res;
+          this.getleavenotify();
+        },
+        (err) => this.error = err
+      );
+      
+  }
+
+  private resetErrors(){
+    this.success = '';
+    this.error   = '';
+  }
 }

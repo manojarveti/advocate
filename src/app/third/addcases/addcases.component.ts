@@ -56,8 +56,6 @@ export class AddcasesComponent implements OnInit {
   }
 
   addtodolist(cases: Addcases) {
-   
-    
     this.addcaseservice.storecase(cases)
       .subscribe(
         (res) => {

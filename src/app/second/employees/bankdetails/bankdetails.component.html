@@ -5,8 +5,8 @@
       Bank Details
     </h1>
     <ol class="breadcrumb">
-      <li><a  [routerLink]="['/main/dashboard']" ><i class="fa fa-dashboard"></i> Dasbhoard</a></li>
-      <li><a  [routerLink]="['/main/hrmange/employees']">Staff</a></li>
+      <li><a [routerLink]="['/main/dashboard']"><i class="fa fa-dashboard"></i> Dasbhoard</a></li>
+      <li><a [routerLink]="['/main/hrmange/employees']">Staff</a></li>
       <li class="active"><b>Bank Details</b></li>
     </ol>
   </section>
@@ -17,7 +17,8 @@
         <div class="row" style="margin-bottom:10px;">
           <div class="col-xs-12">
             <div class="btn-group pull-right">
-              <a class="btn btn-default"  [routerLink]="['/main/hrmange/employees/bankdetails/addbank', subscribedParam]" ><i
+              <a class="btn btn-default"
+                [routerLink]="['/main/hrmange/employees/bankdetails/addbank', subscribedParam]"><i
                   class="fa fa-plus"></i> Add New</a>
             </div>
           </div>
@@ -50,8 +51,9 @@
                   <td>{{item.pan_number}}</td>
                   <td>{{item.branch}}</td>
                   <td class="col-md-1">
-                    <div class="btn-group">
-                      <a class="btn btn-danger" style="margin-left:20px;" (click)="deletebank(item.id)"><i class="fa fa-trash"></i> Delete</a>
+                    <div>
+                      <a (click)="deletebank(item.id)" style="margin-left:20px;cursor: pointer;" data-toggle="tooltip"
+                        data-placement="bottom" title="Delete"><i class="fa fa-trash fa-lg"></i></a>
                     </div>
                   </td>
                 </tr>
@@ -66,45 +68,45 @@
 
 <div class="modal fade deleteRequest" tabindex="-1" role="dialog">
   <div class="modal-dialog  modal-sm" role="document">
-      <div class="modal-content">
-          <div class="modal-header">
-              <h4 class="modal-title" id="myModalLabel">Delete Request</h4>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-              </button>
-          </div>
-          <div class="modal-body">
-              <p>
-                  <i class="fa fa-check fa-2"></i>
-                  <span>&nbsp;Are you sure Want to Delete ?</span>
-              </p>
-          </div>
-          <div class="modal-footer">
-              <button type="button" class="btn btn-success" (click)=" deleteclient()">Yes</button>
-              <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
-          </div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Delete Request</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
+      <div class="modal-body">
+        <p>
+          <i class="fa fa-check fa-2"></i>
+          <span>&nbsp;Are you sure Want to Delete ?</span>
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" (click)=" deleteclient()">Yes</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+      </div>
+    </div>
   </div>
 </div>
 
 <div class="modal fade successmechPopup" tabindex="-1" role="dialog">
-      <div class="modal-dialog  modal-sm" role="document">
-          <div class="modal-content">
-              <div class="modal-header">
-                  <h4 class="modal-title" id="myModalLabel">Bank details Delete</h4>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                  </button>
-              </div>
-              <div class="modal-body">
-                  <p>
-                      <i class="fa fa-check fa-2"></i>&nbsp;
-                      <span>Bank details Deleted sucessfully</span>
-                  </p>
-              </div>
-              <div class="modal-footer">
-                  <button type="button" class="btn btn-danger" data-dismiss="modal">close</button>
-              </div>
-          </div>
+  <div class="modal-dialog  modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Bank details Delete</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>
+          <i class="fa fa-check fa-2"></i>&nbsp;
+          <span>Bank details Deleted sucessfully</span>
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">close</button>
       </div>
     </div>
+  </div>
+</div>

@@ -5,6 +5,7 @@
     </h1>
     <ol class="breadcrumb">
       <li><a [routerLink]="['/main/dashboard']"><i class="fa fa-dashboard"></i> Dasbhoard</a></li>
+      <li><a [routerLink]="['/main/cases/allcases']">Cases</a></li>
       <li><a [routerLink]="['/main/cases/documents']">Documents</a></li>
       <li class="active">Manage</li>
     </ol>
@@ -108,12 +109,13 @@
                         <td class="col-md-3">
                           <div class="btn-group">
                             <a download href="C:/xampp/htdocs/advocate_api/cases/documents/uploads/{{item.document_file}}"
-                              target="_blank" class="btn btn-default" style="margin-left:2px;"><i
-                                class="fa fa-download"></i> Download</a>
+                              target="_blank" style="margin-left:20px;cursor: pointer;"
+                              data-toggle="tooltip" data-placement="bottom" title="Download"><i class="fa fa-download fa-lg"></i>
+                            </a>
 
-
-                            <a (click)="deletedocument(item.id)" class="btn btn-danger" style="margin-left:2px;"><i
-                                class="fa fa-trash"></i> Delete</a>
+                            <a (click)="deletedocument(item.id)" style="margin-left:20px;cursor: pointer;"
+                            data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fa fa-trash fa-lg"></i>
+                            </a>
                           </div>
                         </td>
                       </tr>

@@ -4,7 +4,7 @@
             Leave Notification <small>List</small>
         </h1>
         <ol class="breadcrumb">
-            <li><a><i class="fa fa-dashboard"></i> Dasbhoard</a></li>
+            <li><a [routerLink]="['/main/dashboard']"><i class="fa fa-dashboard"></i> Dasbhoard</a></li>
             <li class="active">Leave Notification</li>
         </ol>
     </section>
@@ -36,26 +36,55 @@
                                         role="grid" aria-describedby="example1_info">
                                         <thead>
                                             <tr role="row">
-                                                <th >Sr No</th>
-                                                <th >Date</th>
-                                                <th >Employee</th>
-                                                <th >Leave Type</th>
-                                                <th >Reason</th>
-                                                <th >Status</th>
-                                                <th >Action</th>
+                                                <th>Sr No</th>
+                                                <th>Date</th>
+                                                <th>Employee</th>
+                                                <th>Leave Type</th>
+                                                <th>Reason</th>
+                                                <th>Status</th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
 
                                         <tbody>
-                                            <tr class="odd">
-                                                
+                                            <tr class="gc_row odd" role="row"
+                                                *ngFor="let i = index;let item of addleaveserv | filter:searchText | paginate: { itemsPerPage: 10, currentPage: p }">
+                                                <td class="sorting_1">{{ (p - 1) * 10 + i +1 }}</td>
+                                                <td>{{item.date}}</td>
+                                                <td>{{item.user_id}}</td>
+                                                <td>{{item.leave_type}}</td>
+                                                <td>{{item.reason}}</td>
+                                                <td >
+                                                    <div *ngIf="item.status== null">Pending</div>
+                            <div *ngIf="item.status == 'accept'">Accepted</div>
+                                                </td>
+                                                <td class="col-md-3">
+                                                    <div class="btn-group">
+
+                                                        <a (click)="statusupdate(item.id)" *ngIf="item.status== null" style="margin-left:20px;cursor: pointer;"
+                                                            data-toggle="tooltip" data-placement="bottom"
+                                                            title="Approve"><i class="fa fa-check fa-lg"></i>
+                                                        </a>
+
+                                                        <a (click)="statusupdate(item.id)" *ngIf="item.status== 'accept'" style="margin-left:20px;cursor: pointer;"
+                                                            data-toggle="tooltip" data-placement="bottom"
+                                                            title="Pending"><i class="fa fa-clock-o fa-lg"></i>
+                                                        </a>
+
+                                                        <a style="margin-left:20px;cursor: pointer;"
+                                                            data-toggle="tooltip" data-placement="bottom"
+                                                            title="Delete"><i class="fa fa-trash fa-lg"></i>
+                                                        </a>
+
+                                                    </div>
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                             <div class="col-sm-12">
-                                
+
                             </div>
                         </div>
 

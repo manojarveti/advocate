@@ -12,7 +12,7 @@
   <div class="row">
     <div class="col-md-12">
       <div class="box">
-      <br><!-- /.box-header -->
+        <br><!-- /.box-header -->
         <div class="box-body">
 
 
@@ -58,7 +58,8 @@
 
               <div class="row ">
                 <div class="col-xs-12" style="padding:20px;">
-                  <input type="submit" (click)="addattachment(user)" [disabled]="!f.valid"  value="Save" class="btn btn-primary">
+                  <input type="submit" (click)="addattachment(user)" [disabled]="!f.valid" value="Save"
+                    class="btn btn-primary">
                 </div>
               </div>
 
@@ -83,7 +84,7 @@
                 </div>
               </div>
 
-              <div >
+              <div>
                 <div class="col-sm-12">
                   <table id="example1" class="table table-bordered table-striped dataTable no-footer" role="grid"
                     aria-describedby="example1_info">
@@ -106,14 +107,17 @@
                         <td class="sorting_1">{{ (p - 1) * 10 + i +1 }}</td>
                         <td>{{item.title}}</td>
                         <td class="col-md-3">
-                          <div class="btn-group">
+                          <div>
                             <a download href="C:/xampp/htdocs/advocate_api/casestudy/{{item.attachment}}"
-                              target="_blank" class="btn btn-default" style="margin-left:2px;"><i
-                                class="fa fa-download"></i> Download</a>
+                              target="_blank" style="margin-left:20px;cursor: pointer;"
+                              data-toggle="tooltip" data-placement="bottom" title="Download"><i
+                                class="fa fa-download"></i>
+                            </a>
 
-
-                            <a (click)="deleteattach(item.id)" class="btn btn-danger" style="margin-left:2px;"><i
-                                class="fa fa-trash"></i> Delete</a>
+                            <a (click)="deleteattach(item.id)" style="margin-left:20px;cursor: pointer;"
+                            data-toggle="tooltip" data-placement="bottom" title="Delete"><i
+                                class="fa fa-trash fa-lg"></i>
+                            </a>
                           </div>
                         </td>
                       </tr>
@@ -164,45 +168,45 @@
 
 <div class="modal fade deleteRequest" tabindex="-1" role="dialog">
   <div class="modal-dialog  modal-sm" role="document">
-      <div class="modal-content">
-          <div class="modal-header">
-              <h4 class="modal-title" id="myModalLabel">Delete Request</h4>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-              </button>
-          </div>
-          <div class="modal-body">
-              <p>
-                  <i class="fa fa-check fa-2"></i>
-                  <span>&nbsp;Are you sure Want to Delete ?</span>
-              </p>
-          </div>
-          <div class="modal-footer">
-              <button type="button" class="btn btn-success" (click)=" deleteattachment()">Yes</button>
-              <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
-          </div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Delete Request</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
+      <div class="modal-body">
+        <p>
+          <i class="fa fa-check fa-2"></i>
+          <span>&nbsp;Are you sure Want to Delete ?</span>
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" (click)=" deleteattachment()">Yes</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+      </div>
+    </div>
   </div>
 </div>
 
 <div class="modal fade successmechPopup1" tabindex="-1" role="dialog">
-      <div class="modal-dialog  modal-sm" role="document">
-          <div class="modal-content">
-              <div class="modal-header">
-                  <h4 class="modal-title" id="myModalLabel">Casestudy Attachment Delete</h4>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                  </button>
-              </div>
-              <div class="modal-body">
-                  <p>
-                      <i class="fa fa-check fa-2"></i>&nbsp;
-                      <span>Attachment Deleted sucessfully</span>
-                  </p>
-              </div>
-              <div class="modal-footer">
-                  <button type="button" class="btn btn-danger" data-dismiss="modal">close</button>
-              </div>
-          </div>
+  <div class="modal-dialog  modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Casestudy Attachment Delete</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>
+          <i class="fa fa-check fa-2"></i>&nbsp;
+          <span>Attachment Deleted sucessfully</span>
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">close</button>
       </div>
     </div>
+  </div>
+</div>

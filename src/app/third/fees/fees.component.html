@@ -18,17 +18,17 @@
           <div class="box-body no-padding">
             <table class="table table-striped" border="1">
               <tbody>
-                <tr>
+                <tr *ngFor="let item of addcases;let i = index;">
                   <th width="25%">Case No</th>
-                  <td width="25%">Z2223</td>
+                  <td width="25%">{{item.case_no}}</td>
                   <th width="25%">Case Title</th>
-                  <td width="25%">Assult</td>
+                  <td width="25%">{{item.case_title}}</td>
                 </tr>
-                <tr>
+                <tr *ngFor="let item of addcases;let i = index;">
                   <th width="25%">Fee Agreed </th>
-                  <td width="25%">10000.00</td>
+                  <td width="25%">{{item.total_fees}}</td>
                   <th width="25%">Paid</th>
-                  <td width="25%">5000.00</td>
+                  <td width="25%">{{item.amount_paid}}</td>
                 </tr>
               </tbody>
             </table>
@@ -41,10 +41,8 @@
             <div class="tab-content">
               <div class="tab-pane active" id="1">
                 <!-- form start -->
-                <form method="post" enctype="multipart/form-data">
-                  <input type="hidden" name="inr" id="inr" value="10000.00">
-                  <input type="hidden" name="bal" id="bal" value="5000.00">
-                  <div class="form-group" style="margin-top:20px;">
+                <form name="addinvoice" #f="ngForm">
+                <div class="form-group" style="margin-top:20px;">
                     <legend>Add Payment Details</legend>
                   </div>
                   <div class="form-group" style="margin-top:20px;">
@@ -52,8 +50,8 @@
                       <div class="col-md-3">
                         <b>Invoice Number</b>
                       </div>
-                      <div class="col-md-4">
-                        <input type="text" name="invoice_no" value="2" class="form-control" readonly="readonly">
+                      <div class="col-md-4" *ngFor="let invoice of addcases;let i = index;">
+                        <input type="text" name="inv_no" class="form-control" readonly [(ngModel)]="invoice.inv_no" #inv_no="ngModel">
                       </div>
                     </div>
                   </div>
@@ -63,12 +61,10 @@
                         <b>Payment Mode</b>
                       </div>
                       <div class="col-md-4">
-                        <select name="payment_mode_id" class="form-control">
+                        <select name="payment_mode_id" [(ngModel)]="invoice.payment_mode_id" #payment_mode_id="ngModel" class="form-control">
                           <option value="">--Select Payment Mode --</option>
-                          <option value="1">Mpesa</option>
-                          <option value="2">Cash</option>
-                          <option value="3">Cheque</option>
-                          <option value="4">Pro Bono</option>
+                          <option *ngFor="let item of addpay;let i = index;" value="{{addpay[i].id}}">
+                            {{addpay[i].name}}</option>
                         </select>
                       </div>
                     </div>
@@ -79,7 +75,7 @@
                         <b>Date</b>
                       </div>
                       <div class="col-md-4">
-                        <input type="text" name="date" value="" class="form-control datepicker">
+                        <input type="date" name="date" class="form-control datepicker" [(ngModel)]="invoice.date" #date="ngModel">
                       </div>
                     </div>
                   </div>
@@ -89,7 +85,7 @@
                         <b>Amount</b>
                       </div>
                       <div class="col-md-4">
-                        <input type="text" name="amount" value="" id="amount" class="form-control">
+                        <input type="text" name="amount" value="" [(ngModel)]="invoice.amount" #amount="ngModel" id="amount" class="form-control">
                       </div>
                     </div>
                   </div>
@@ -100,19 +96,20 @@
                       </div>
                       <div class="col-md-4">
                         <div>
-                          <select name="tax_id[]" class="form-control tax" required="" id="tax1">
+                          <select name="tax_id" class="form-control tax" required [(ngModel)]="invoice.tax_id" #tax_id="ngModel">
                             <option value="">-- Select Tax --</option>
-                            <option value="1">Itax - 10 </option>
+                            <option *ngFor="let item of addtax;let i = index;" value="{{addtax[i].tax_percent}}">
+                              {{addtax[i].name}} {{addtax[i].tax_percent}}</option>
                           </select>
                         </div>
                       </div>
-                      <div class="form-group">
+                      <!-- <div class="form-group">
                         <div class="row">
                           <div class="col-md-offset-2" style="padding-left:12px;">
                             <button class="add_field_button btn btn-success">Add More </button>
                           </div>
                         </div>
-                      </div>
+                      </div> -->
                     </div>
                   </div>
                   <div class="form-group">
@@ -121,12 +118,12 @@
                         <b>Total</b>
                       </div>
                       <div class="col-md-4">
-                        <input type="text" name="total" value="" class="form-control" id="total" readonly="readonly">
+                        <input type="text" name="total" value="{{invoice.amount--(invoice.amount*(invoice.tax_id/100))}}" [(ngModel)]="invoice.total" #total="ngModel" class="form-control" readonly>
                       </div>
                     </div>
                   </div>
                   <div class="box-footer">
-                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="submit" (click)="addinvoice(invoice)" class="btn btn-primary">Save</button>
                   </div>
                 </form>
                 <div class="box-body table-responsive" style="margin-top:10px;">
@@ -180,10 +177,13 @@
                               <td>5000.00</td>
                               <td>Cash</td>
                               <td>
-                                <a class="btn btn-default" style="margin-left:20px;">
-                                  <i class="fa fa-list"></i> Invoice</a>
-                                <a class="btn btn-danger" style="margin-left:20px;"><i class="fa fa-trash"></i>
-                                  Delete</a>
+                                <a style="margin-left:20px;cursor: pointer;"
+                                data-toggle="tooltip" data-placement="bottom" title="Invoice">
+                                  <i class="fa fa-list fa-lg"></i>
+                                </a>
+                                <a style="margin-left:20px;cursor: pointer;"
+                                data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fa fa-trash fa-lg"></i>
+                                </a>
                               </td>
                             </tr>
                           </tbody>
@@ -302,10 +302,12 @@
                               <td>2018-07-02</td>
                               <td>5000.00</td>
                               <td>
-                                <a class="btn btn-default" style="margin-left:20px;"><i class="fa fa-list"></i>
-                                  Receipt</a>
-                                <a class="btn btn-danger" style="margin-left:20px;" onclick="return areyousure()"><i
-                                    class="fa fa-trash"></i> Delete</a>
+                                <a style="margin-left:20px;cursor: pointer;"
+                                data-toggle="tooltip" data-placement="bottom" title="Receipt"><i class="fa fa-list fa-lg"></i>
+                                  </a>
+                                <a style="margin-left:20px;cursor: pointer;"
+                                data-toggle="tooltip" data-placement="bottom" title="Delete"><i
+                                    class="fa fa-trash fa-lg"></i> </a>
                               </td>
                             </tr>
                           </tbody>

@@ -27,7 +27,8 @@
                                     </div>
                                     <div class="col-md-4">
 
-                                        <input type="date" name="nextdate" [(ngModel)]="user.nextdate" #nextdate="ngModel"class="form-control datepicker">
+                                        <input type="date" name="nextdate" [(ngModel)]="user.nextdate"
+                                            #nextdate="ngModel" class="form-control datepicker">
                                     </div>
                                 </div>
                             </div>
@@ -39,7 +40,8 @@
                                     </div>
                                     <div class="col-md-4">
 
-                                        <input type="date" name="lastdate" [(ngModel)]="user.lastdate" #lastdate="ngModel" class="form-control datepicker">
+                                        <input type="date" name="lastdate" [(ngModel)]="user.lastdate"
+                                            #lastdate="ngModel" class="form-control datepicker">
                                     </div>
                                 </div>
                             </div>
@@ -51,8 +53,8 @@
                                         <b>Notes</b>
                                     </div>
                                     <div class="col-md-4">
-                                        <textarea name="notes" [(ngModel)]="user.notes"
-                                        #notes="ngModel" class="form-control"></textarea>
+                                        <textarea name="notes" [(ngModel)]="user.notes" #notes="ngModel"
+                                            class="form-control"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -64,7 +66,8 @@
                                         <b>Attachement Document</b>
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="file" name="file" id="file" multiple (change)="getFileDetails($event)"class="form-control" required>
+                                        <input type="file" name="file" id="file" multiple
+                                            (change)="getFileDetails($event)" class="form-control" required>
                                     </div>
                                 </div>
                             </div>
@@ -75,7 +78,7 @@
                                 <div class="col-md-4 offset-md-2">
                                     <div class="box-footer">
                                         <button type="submit" class="btn btn-primary" (click)="addhearing(user)"
-                                        ng-disabled="myForm.$invalid" [disabled]="!f.valid">Save</button>
+                                            ng-disabled="myForm.$invalid" [disabled]="!f.valid">Save</button>
                                     </div>
                                 </div>
                             </div>
@@ -87,12 +90,12 @@
                                 <div class="col-sm-12">
                                     <div class="row">
                                         <div class="col-sm-6">
-                                           
+
                                         </div>
                                         <div class="col-sm-6">
                                             <div id="example1_filter" class="dataTables_filter">
-                                                <label>Search:<input type="search" class="form-control input-sm" placeholder=""
-                                                        aria-controls="example1" ></label>
+                                                <label>Search:<input type="search" class="form-control"
+                                                        placeholder="" aria-controls="example1"></label>
                                             </div>
                                         </div>
                                     </div>
@@ -134,26 +137,32 @@
 
                                             <tbody>
 
-                                                <tr class="gc_row odd" role="row" 
-                                                *ngFor="let i = index;let item of addcases | filter:searchText | paginate: { itemsPerPage: 10, currentPage: p }">
+                                                <tr class="gc_row odd" role="row"
+                                                    *ngFor="let i = index;let item of addcases | filter:searchText | paginate: { itemsPerPage: 10, currentPage: p }">
                                                     <td class="sorting_1">{{ (p - 1) * 10 + i +1 }}</td>
                                                     <td>{{item.next_date}}</td>
                                                     <td>{{item.last_date}}</td>
                                                     <td>{{item.notes}}</td>
-                                                    <td> <a class="btn btn-default" target="_blank"><i
-                                                                class="fa fa-download"></i> Attachment</a>
+                                                    <td> <a target="_blank" style="margin-left:20px;"
+                                                            data-toggle="tooltip" data-placement="bottom"
+                                                            title="Attachment"><i class="fa fa-download"></i>
+                                                        </a>
 
                                                     </td>
 
                                                     <td width="30%">
 
-                                                        <a class="btn btn-primary"
-                                                            [routerLink]="['/main/cases/hearingdetails', item.id]"><i
-                                                                class="fa fa-eye"></i> View</a>
+                                                        <a [routerLink]="['/main/cases/hearingdetails', item.id]"
+                                                            style="margin-left:20px;" data-toggle="tooltip"
+                                                            data-placement="bottom" title="View"><i
+                                                                class="fa fa-eye fa-lg"></i>
+                                                        </a>
 
-                                                        <a class="btn btn-danger" style="margin-left:20px;"
-                                                        (click)="deletehearing(item.id)"><i class="fa fa-trash"></i>
-                                                            Delete</a>
+                                                        <a (click)="deletehearing(item.id)"
+                                                            style="margin-left:20px;cursor: pointer;"
+                                                            data-toggle="tooltip" data-placement="bottom"
+                                                            title="Delete"><i class="fa fa-trash fa-lg"></i>
+                                                        </a>
 
                                                     </td>
                                                 </tr>
