@@ -1,0 +1,96 @@
+<div class="container">
+    <section class="content-header">
+        <h1>
+            Leave Notification <small>List</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a [routerLink]="['/main/dashboard']"><i class="fa fa-dashboard"></i> Dasbhoard</a></li>
+            <li class="active">Leave Notification</li>
+        </ol>
+    </section>
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Leave Notification</h3>
+                    </div><!-- /.box-header -->
+
+                    <div class="box-body table-responsive">
+                        <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+                            <div class="col-sm-12">
+                                <div class="row">
+                                    <div class="col-sm-6">
+
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div id="example1_filter" class="dataTables_filter"><label>Search:<input
+                                                    type="search" class="form-control input-sm" placeholder=""
+                                                    aria-controls="example1"></label></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12" style="margin-top: 10px">
+                                <div class="row">
+                                    <table id="example1" class="table table-bordered table-striped dataTable no-footer"
+                                        role="grid" aria-describedby="example1_info">
+                                        <thead>
+                                            <tr role="row">
+                                                <th>Sr No</th>
+                                                <th>Date</th>
+                                                <th>Employee</th>
+                                                <th>Leave Type</th>
+                                                <th>Reason</th>
+                                                <th>Status</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <tr class="gc_row odd" role="row"
+                                                *ngFor="let i = index;let item of addleaveserv | filter:searchText | paginate: { itemsPerPage: 10, currentPage: p }">
+                                                <td class="sorting_1">{{ (p - 1) * 10 + i +1 }}</td>
+                                                <td>{{item.date}}</td>
+                                                <td>{{item.user_id}}</td>
+                                                <td>{{item.leave_type}}</td>
+                                                <td>{{item.reason}}</td>
+                                                <td >
+                                                    <div *ngIf="item.status== null">Pending</div>
+                            <div *ngIf="item.status == 'accept'">Accepted</div>
+                                                </td>
+                                                <td class="col-md-3">
+                                                    <div class="btn-group">
+
+                                                        <a (click)="statusupdate(item.id)" *ngIf="item.status== null" style="margin-left:20px;cursor: pointer;"
+                                                            data-toggle="tooltip" data-placement="bottom"
+                                                            title="Approve"><i class="fa fa-check fa-lg"></i>
+                                                        </a>
+
+                                                        <a (click)="statusupdate(item.id)" *ngIf="item.status== 'accept'" style="margin-left:20px;cursor: pointer;"
+                                                            data-toggle="tooltip" data-placement="bottom"
+                                                            title="Pending"><i class="fa fa-clock-o fa-lg"></i>
+                                                        </a>
+
+                                                        <a style="margin-left:20px;cursor: pointer;"
+                                                            data-toggle="tooltip" data-placement="bottom"
+                                                            title="Delete"><i class="fa fa-trash fa-lg"></i>
+                                                        </a>
+
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+
+                            </div>
+                        </div>
+
+                    </div><!-- /.box-body -->
+                </div><!-- /.box -->
+            </div>
+        </div>
+    </section>
+</div>
