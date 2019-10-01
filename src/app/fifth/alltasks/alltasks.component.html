@@ -81,20 +81,24 @@
                         <td>{{item.created_by}} <small class="label pull-right bg-blue">Admin</small></td>
                         <td width="50%">
                           <div class="btn-group">
-                            <a [routerLink]="['/main/tasks/viewtasks', item.id]" style="margin-left:20px;cursor: pointer;"
-                            data-toggle="tooltip" data-placement="bottom" title="View"><i class="fa fa-eye fa-lg"></i>
+                            <a [routerLink]="['/main/tasks/viewtasks', item.id]"
+                              style="margin-left:20px;cursor: pointer;" data-toggle="tooltip" data-placement="bottom"
+                              title="View"><i class="fa fa-eye fa-lg"></i>
                             </a>
 
-                            <a [routerLink]="['/main/tasks/edittasks', item.id]"  style="margin-left:20px;cursor: pointer;"
-                            data-toggle="tooltip" data-placement="bottom" title="Edit"><i class="fa fa-edit fa-lg"></i>
+                            <a [routerLink]="['/main/tasks/edittasks', item.id]"
+                              style="margin-left:20px;cursor: pointer;" data-toggle="tooltip" data-placement="bottom"
+                              title="Edit"><i class="fa fa-edit fa-lg"></i>
                             </a>
-                            
-                              <a (click)="deletetask(item.id)" style="margin-left:20px;cursor: pointer;"
-                            data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fa fa-trash fa-lg"></i>
+
+                            <a (click)="deletetask(item.id)" style="margin-left:20px;cursor: pointer;"
+                              data-toggle="tooltip" data-placement="bottom" title="Delete"><i
+                                class="fa fa-trash fa-lg"></i>
                             </a>
-                            
-                            <a [routerLink]="['/main/tasks/commenttasks', item.id]" style="margin-left:20px;cursor: pointer;"
-                            data-toggle="tooltip" data-placement="bottom" title="Comments"><i class="fa fa-comments fa-lg"></i>
+
+                            <a [routerLink]="['/main/tasks/commenttasks', item.id]"
+                              style="margin-left:20px;cursor: pointer;" data-toggle="tooltip" data-placement="bottom"
+                              title="Comments"><i class="fa fa-comments fa-lg"></i>
                             </a>
                           </div>
                         </td>
@@ -120,14 +124,6 @@
       </div>
     </div>
   </section>
-
-  <script type="text/javascript">
-    $(function () {
-      $('#example1').dataTable({
-      });
-    });
-
-  </script>
 </div>
 
 <div class="modal fade deleteRequest" tabindex="-1" role="dialog">

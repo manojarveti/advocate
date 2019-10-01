@@ -13,7 +13,7 @@ declare var $: any;
 export class AddcaseComponent implements OnInit {
   myForm: FormGroup;
   addcasess: Addcase[];
-  addcasess1:any;
+  addcasess1: any;
   case_category_id = [];
   dropdownList1 = [];
   dropdownSettings1 = {};
@@ -27,21 +27,22 @@ export class AddcaseComponent implements OnInit {
   }
   error = '';
   success = '';
-  cases={
-    notes:"",
+  cases = {
+    notes: "",
     case_category_id: "",
-    result:"",
-    title:""
+    result: "",
+    title: ""
 
   }
 
-  constructor(private addcaseservice: AddcaseService, private router: Router, private fb: FormBuilder) {  this.getcasecategory();
+  constructor(private addcaseservice: AddcaseService, private router: Router, private fb: FormBuilder) {
+    this.getcasecategory();
   }
 
   getcasecategory(): void {
-    this.addcaseservice.getcasecategoryname().subscribe(data=> {
+    this.addcaseservice.getcasecategoryname().subscribe(data => {
       this.dropdownList1 = data;
-      },
+    },
       (err) => {
         this.error = err;
       }
@@ -54,12 +55,11 @@ export class AddcaseComponent implements OnInit {
         (res: Addcase[]) => {
           // Update the list of to do list
           this.addcasess1 = res;
-          if(this.addcasess1.output==true)
-          {
+          if (this.addcasess1.output == true) {
             $('.successmechPopup').modal('show');
-           // this.router.navigate(["/main/dashboard"]);
+            // this.router.navigate(["/main/dashboard"]);
           }
-          
+
         },
         (err) => {
           return this.error = err;
@@ -67,9 +67,9 @@ export class AddcaseComponent implements OnInit {
       );
   }
 
-  redirect(){
+  redirect() {
     this.router.navigate(["/main/casestudy"]);
-   }
+  }
 
   ngOnInit() {
     // this.dropdownList1 = [
@@ -77,7 +77,7 @@ export class AddcaseComponent implements OnInit {
     //   { item_id: 2, item_text: 'Crime' },
     //   { item_id: 3, item_text: 'Contract' },
     // ];
-     this.dropdownSettings1 = {
+    this.dropdownSettings1 = {
       singleSelection: false,
       idField: 'item_id',
       textField: 'item_text',

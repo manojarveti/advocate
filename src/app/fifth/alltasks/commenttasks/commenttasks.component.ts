@@ -10,24 +10,24 @@ import { CookieService } from 'ngx-cookie-service';
   styleUrls: ['./commenttasks.component.css']
 })
 export class CommenttasksComponent implements OnInit {
-  addtask:Addtask[];
-  addtask1:Addtask[];
+  addtask: Addtask[];
+  addtask1: Addtask[];
   error = '';
   success = '';
-  taskmessage={
-    message:"",
-    task_id:"",
-    userId:""
+  taskmessage = {
+    message: "",
+    task_id: "",
+    userId: ""
   }
-  
+
   id: number;
   private sub: any;
-  
+
   constructor(private route: ActivatedRoute, private cookieService: CookieService, private addtaskservice: AddtasksService) { }
 
   addmessage(message: Addtask) {
-    
-     console.log(message);
+
+    console.log(message);
     this.addtaskservice.storetaskmessage(message)
       .subscribe(
         (res: Addtask[]) => {
@@ -40,15 +40,15 @@ export class CommenttasksComponent implements OnInit {
           return this.error = err;
         }
       );
-      this.fetchtodolist(this.id);
-      this.taskmessage.message="";
+    this.fetchtodolist(this.id);
+    this.taskmessage.message = "";
   }
 
   fetchtodolist(id: string | number): void {
     this.addtaskservice.fetchtaskmessage(+id).subscribe(
       (res: Addtask[]) => {
         this.addtask = res;
-        
+
       },
       (err) => {
         this.error = err;
@@ -59,7 +59,7 @@ export class CommenttasksComponent implements OnInit {
     this.addtaskservice.fetchtaskmessage1(+id).subscribe(
       (res: Addtask[]) => {
         this.addtask1 = res;
-        
+
       },
       (err) => {
         this.error = err;
@@ -70,12 +70,12 @@ export class CommenttasksComponent implements OnInit {
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.id = +params['id']; // (+) converts string 'id' to a number
-      this.taskmessage.task_id=String(this.id);
+      this.taskmessage.task_id = String(this.id);
       this.taskmessage.userId = this.cookieService.get("userId");
       // console.log();
       this.fetchtodolist(this.id);
       this.fetchtodolist1(this.id);
       // In a real app: dispatch action to load the details here.
-   });
+    });
   }
 }

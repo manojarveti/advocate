@@ -15,34 +15,33 @@ declare var $: any;
 export class AddtasksComponent implements OnInit {
   addtask: any;
   addcases: Addcase[];
-  addemployee:Addemployee[];
+  addemployee: Addemployee[];
   roleid;
-  tasks={
-    name:"",
-    priority:"",
-    due_date:"",
-    case_id:"",
-    employee_id:"",
-    progress:"",
-    description:"",
-    created_by:""
+  tasks = {
+    name: "",
+    priority: "",
+    due_date: "",
+    case_id: "",
+    employee_id: "",
+    progress: "",
+    description: "",
+    created_by: ""
   }
   error = '';
   success = '';
-  constructor(private addtaskservice: AddtasksService, private router: Router,private addemployeeservice: AddemployeesService, private addcaseservice: AddcaseService) { }
+  constructor(private addtaskservice: AddtasksService, private router: Router, private addemployeeservice: AddemployeesService, private addcaseservice: AddcaseService) { }
   addtasks(tasks: Addtasks) {
-    
+
     // console.log(tasks);
     this.addtaskservice.storetask(tasks)
       .subscribe(
         (res: Addtasks[]) => {
           // Update the list of to do list
-          
+
           this.addtask = res;
-          if(this.addtask.output==true)
-          {
+          if (this.addtask.output == true) {
             $('.successmechPopup').modal('show');
-           // this.router.navigate(["/main/dashboard"]);
+            // this.router.navigate(["/main/dashboard"]);
           }
         },
         (err) => {
@@ -51,34 +50,34 @@ export class AddtasksComponent implements OnInit {
       );
   }
 
-  redirect(){
+  redirect() {
     this.router.navigate(["/main/tasks/alltasks"]);
   }
-  
+
 
   getcases(): void {
-    this.addcaseservice.getcasename().subscribe(data=> {
-        this.addcases = data;
-      },
+    this.addcaseservice.getcasename().subscribe(data => {
+      this.addcases = data;
+    },
       (err) => {
         this.error = err;
       }
     );
   }
 
-  getemployee():void{
-    this.addemployeeservice.getemployeenames().subscribe(data=>{
-      this.addemployee =data;
+  getemployee(): void {
+    this.addemployeeservice.getemployeenames().subscribe(data => {
+      this.addemployee = data;
     },
-    (err)=>{
-      this.error=err;
-    })
+      (err) => {
+        this.error = err;
+      })
   }
 
 
   ngOnInit() {
     this.roleid = sessionStorage.getItem('userId');
-    this.tasks.created_by=sessionStorage.getItem("userId");
+    this.tasks.created_by = sessionStorage.getItem("userId");
     // console.log(this.tasks.created_by)
     this.getemployee();
     this.getcases();

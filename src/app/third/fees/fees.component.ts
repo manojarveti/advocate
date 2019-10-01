@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AddcaseService } from '../addcases/addcase.service';
 import Addcases from '../addcases/addcase';
+import { Router } from '@angular/router';
 declare var $:any;
 
 @Component({
@@ -17,6 +18,10 @@ export class FeesComponent implements OnInit {
   addtax:any;
   addpay:any;
   addinvoice1:any;
+  listfees:any;
+  listreciept:any;
+  addrecinvo:any;
+  addrec1:any;
   p=1;
   cases = {
     case_title: "",
@@ -31,15 +36,27 @@ export class FeesComponent implements OnInit {
     date:"",
     amount:"",
     tax_id:"",
-    total:""
+    totalinv:"",
+    case_id:""
   }
+  receipt={
+    fees_id:"",
+    r_date:"",
+    r_amount:"",
+    case_id:""
+  }
+  getinvam:any;
   id: number;
   private sub: any;
-  constructor(private route: ActivatedRoute,private addcaseService: AddcaseService) { }
+  constructor(private route: ActivatedRoute,private addcaseService: AddcaseService, private router: Router, ) { 
+  
+  }
   fetchfee(id: string | number): void {
     this.addcaseService.fetchfees(+id).subscribe(
       (res: Addcases[]) => {
         this.addcases = res;
+
+this.invoice.inv_no =  this.addcases[0].inv_no;
       },
       (err) => {
         this.error = err;
@@ -69,20 +86,28 @@ export class FeesComponent implements OnInit {
     );
   }
 
+  getrecinvoicedetails(id: string | number):void{
+    this.addcaseService.getallinvoice(+id).subscribe(
+      (res: Addcases[]) => {
+        this.addrecinvo = res;
+      },
+      (err) => {
+        this.error = err;
+      }
+    );
+  }
+
   addinvoice(invoice) {
-    console.log(invoice);
     this.addcaseService.addinv(invoice)
       .subscribe(
         (res) => {
           // Update the list of to do list
           this.addinvoice1 = res;
-          console.log(this.addinvoice1);
           if(this.addinvoice1.output==true)
           {
             $('.successmechPopup').modal('show');
-           // this.router.navigate(["/main/dashboard"]);
           }
-          
+
         },
         (err) => {
           return this.error = err;
@@ -90,18 +115,84 @@ export class FeesComponent implements OnInit {
       );
   }
 
+  addreceipt(receipt){
+    this.addcaseService.addrec(receipt)
+      .subscribe(
+        (res) => {
+          // Update the list of to do list
+          this.addrec1 = res;
+          if(this.addrec1.output==true)
+          {
+            $('.successmechPopup1').modal('show');
+          }
+
+        },
+        (err) => {
+          return this.error = err;
+        }
+      );
+  }
+  amountchange(invoice){
+    var x = invoice.amount;
+    var y = invoice.amount*(invoice.tax_id/100);
+    var result = Number(x) + Number(y);
+    this.invoice.totalinv = result.toString();
+  }
+
+  invoicechange(receipt){
+    var inv=receipt.fees_id;
+  //  console.log(receipt);
+      this.addcaseService.getinvoiceamt(+inv).subscribe(
+        (res:any) => {
+          // console.log(res[0].amount);
+          this.receipt.r_amount = res[0].amount;
+        },
+        (err) => {
+          this.error = err;
+        }
+      );
+    
+}
+  redirect(){
+    this.router.navigate(["/main/cases/allcases"]);
+   }
+
+  gettodolist(id: string | number): void {
+    this.addcaseService.getlist(+id).subscribe(
+      (res: Addcases[]) => {
+        this.listfees = res;
+      },
+      (err) => {
+        this.error = err;
+      }
+    );
+  }
+
+  getrecieptdolist(id: string | number): void {
+    this.addcaseService.getreclist(+id).subscribe(
+      (res: Addcases[]) => {
+        this.listreciept = res;
+      },
+      (err) => {
+        this.error = err;
+      }
+    );
+  }
+
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.id = +params['id']; // (+) converts string 'id' to a number
-
+      this.invoice.case_id=this.id.toString();
+      this.receipt.case_id=this.id.toString();
       // In a real app: dispatch action to load the details here.
    });
    this.fetchfee(this.id);
    this.getpaydetails();
    this.gettaxdetails();
+   this.gettodolist(this.id);
+   this.getrecieptdolist(this.id);
+   this.getrecinvoicedetails(this.id);
   }
 
-  onModelChange(){
-    console.log(this.invoice.total);
-  }
+
 }

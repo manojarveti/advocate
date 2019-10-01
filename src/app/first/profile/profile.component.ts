@@ -9,25 +9,25 @@ declare var $: any;
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  editprofiles:any;
-  editprofilees:any;
+  editprofiles: any;
+  editprofilees: any;
   error = '';
   success = '';
   selectedfile;
-profile={
-  id:"",
-name:"",
-img:"",
-username:"",
-email:"",
-password:"",
-confirm:""
-}
-userEmp:any={}
-uid: any;
+  profile = {
+    id: "",
+    name: "",
+    img: "",
+    username: "",
+    email: "",
+    password: "",
+    confirm: ""
+  }
+  userEmp: any = {}
+  uid: any;
 
   private sub: any;
-  constructor(private firstService: FirstService,private router: Router,private cookieService: CookieService) { }
+  constructor(private firstService: FirstService, private router: Router, private cookieService: CookieService) { }
 
   fetchtodolist(uid: string | number): void {
     this.firstService.fetchuser(+uid).subscribe(
@@ -46,31 +46,30 @@ uid: any;
     console.log(this.selectedfile);
   }
 
-  editprofile(profile){
+  editprofile(profile) {
     this.userEmp = profile;
     const fd = new FormData();
     fd.append("userEmp", JSON.stringify(profile));
-    if(this.selectedfile!=undefined){
-     fd.append('filename', this.selectedfile,this.selectedfile.name);
+    if (this.selectedfile != undefined) {
+      fd.append('filename', this.selectedfile, this.selectedfile.name);
     }
-   this.firstService.profilesave(fd)
-   .subscribe(
-     (res) => {
-       // Update the list of to do list
-       this.editprofilees = res;
-//       alert(this.editprofiles.output);
-      if(this.editprofilees.output==true)
-      {
-        $('.successmechPopup').modal('show');
-      } 
-     },
-     (err) => this.error = err
-   );
- }
-  
- redirect(){
-  this.router.navigate(["/main/dashboard"]);
- }
+    this.firstService.profilesave(fd)
+      .subscribe(
+        (res) => {
+          // Update the list of to do list
+          this.editprofilees = res;
+          //       alert(this.editprofiles.output);
+          if (this.editprofilees.output == true) {
+            $('.successmechPopup').modal('show');
+          }
+        },
+        (err) => this.error = err
+      );
+  }
+
+  redirect() {
+    this.router.navigate(["/main/dashboard"]);
+  }
 
   ngOnInit() {
     this.uid = this.cookieService.get('userId');

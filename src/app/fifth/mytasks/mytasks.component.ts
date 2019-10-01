@@ -10,23 +10,23 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class MytasksComponent implements OnInit {
 
-  addtask:Addtask[];
+  addtask: Addtask[];
   error = '';
   success = '';
-  searchText="";
-  p=1;
-user={
-  name :"",
-  priority:"",
-  due_date:"",
-  case_id:"",
-  progress:"",
-  description:"",
-  created_by:"",
-  userId:""
-}
+  searchText = "";
+  p = 1;
+  user = {
+    name: "",
+    priority: "",
+    due_date: "",
+    case_id: "",
+    progress: "",
+    description: "",
+    created_by: "",
+    userId: ""
+  }
 
-id: number;
+  id: number;
   private sub: any;
   constructor(private route: ActivatedRoute, private cookieService: CookieService, private addtaskservice: AddtasksService) { }
   fetchtodolist(id: string | number): void {
@@ -42,7 +42,7 @@ id: number;
 
   ngOnInit() {
     this.user.userId = this.cookieService.get("userId");
-   this.fetchtodolist(this.user.userId);
+    this.fetchtodolist(this.user.userId);
   }
 
 }

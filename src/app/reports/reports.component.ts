@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Reports } from './reports.service';
+import { HttpClient } from '@angular/common/http';
+import { Data } from '@angular/router';
 declare var $: any;
+
 @Component({
   selector: 'app-reports',
   templateUrl: './reports.component.html',
@@ -7,17 +11,28 @@ declare var $: any;
 })
 export class ReportsComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private reports: Reports,private http: HttpClient) { }
+  error = '';
+  success = '';
+  datapoints1:any;
+  label=[];
+  y=[];
+  data :Data[];
+  baseUrl = 'http://localhost/advocate_api/reports1';
   ngOnInit() {
-    
+    this.http.get(this.baseUrl).subscribe((res: Data[]) => {
+      res.forEach(y => {
+        console.log(res);
+        this.label.push(y.label);
+        this.y.push(y.y);
+      });
     var options = {
       animationEnabled: true,
       title:{
-        text: "Coal Reserves of Countries"   
+        text: "Revenue"   
       },
       axisY:{
-        title:"Coal (mn tonnes)"
+        title:"Amount ($)"
       },
       toolTip: {
         shared: true,
@@ -25,23 +40,27 @@ export class ReportsComponent implements OnInit {
       },
       data: [{
         type: "column",
-        name: "Anthracite and Bituminous",
+        name: "Total Case payment",
         showInLegend: "true",
-        yValueFormatString: "#,##0mn tonnes",
-        dataPoints: [
-          { y: 111338 , label: "USA" },
-          { y: 49088, label: "Russia" },
-          { y: 62200, label: "China" },
-          { y: 90085, label: "India" },
-          { y: 38600, label: "Australia" },
-          { y: 48750, label: "SA" }
-        ]
+        yValueFormatString: "#,##0 $",
+        dataPoints:[{label:this.label,y:this.y}],
       }]
     };
     
     $("#chartContainer").CanvasJSChart(options);
     
-    
+  });
   }
+
+  // getdatapoints1(): void {
+  //   this.reports.getdatapoints().subscribe(
+  //     (res: any) => {
+  //       this.datapoints1 = res;
+  //     },
+  //     (err) => {
+  //       this.error = err;
+  //     }
+  //   );
+  // }
 
 }

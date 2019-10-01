@@ -81,6 +81,60 @@ storecase(addcase: Addcases): Observable<Addcases[]> {
       catchError(this.handleError));
   }
 
+  addrec(addcase: Addcases): Observable<Addcases[]> {
+    return this.http.post(`${this.baseUrl}/cases/fees/recieptstore`, { data: addcase })
+      .pipe(map((res:any) => {
+        //this.adds.push(res['data']);
+        return res;
+      }),
+      catchError(this.handleError));
+  }
+
+  getlist(id: number): Observable<Addcases[]> {
+    const params = new HttpParams()
+    .set('id', id.toString());
+    return this.http.get(`${this.baseUrl}/cases/fees/feeslist`, { params: params }).pipe(
+      map((res) => {
+        this.addcase = res['data'];
+        return this.addcase;
+    }),
+    catchError(this.handleError));
+  }
+
+  getreclist(id: number): Observable<Addcases[]> {
+    const params = new HttpParams()
+    .set('id', id.toString());
+    return this.http.get(`${this.baseUrl}/cases/fees/recieptlist`, { params: params }).pipe(
+      map((res) => {
+        this.addcase = res['data'];
+        return this.addcase;
+    }),
+    catchError(this.handleError));
+  }
+
+  getinvoiceamt(id: number): Observable<Addcases[]> {
+    
+    const params = new HttpParams()
+    .set('id', id.toString());
+    return this.http.get(`${this.baseUrl}/cases/fees/recinvamount`, { params: params }).pipe(
+      map((res) => {
+        this.addcase = res['data'];
+        return this.addcase;
+    }),
+    catchError(this.handleError));
+  }
+
+  getallinvoice(id: number): Observable<Addcases[]>{
+    const params = new HttpParams()
+    .set('id', id.toString());
+    return this.http.get(`${this.baseUrl}/cases/fees/recinvoice`, { params: params }).pipe(
+      map((res) => {
+        this.addcase = res['data'];
+        return this.addcase;
+    }),
+    catchError(this.handleError));
+  }
+
   editAll(id:number): Observable<Addcases[]> {
     const params = new HttpParams()
       .set('id', id.toString());

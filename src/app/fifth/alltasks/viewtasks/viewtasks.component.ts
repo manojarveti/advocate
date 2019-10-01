@@ -9,19 +9,19 @@ import { AddtasksService } from '../addtasks/addtasks.service';
   styleUrls: ['./viewtasks.component.css']
 })
 export class ViewtasksComponent implements OnInit {
-  addtask:Addtask[];
+  addtask: Addtask[];
   error = '';
   success = '';
-user={
-  name :"",
-  priority:"",
-  due_date:"",
-  case_id:"",
-  progress:"",
-  description:"",
-  created_by:""
-}
-id: number;
+  user = {
+    name: "",
+    priority: "",
+    due_date: "",
+    case_id: "",
+    progress: "",
+    description: "",
+    created_by: ""
+  }
+  id: number;
   private sub: any;
   constructor(private route: ActivatedRoute, private addtaskservice: AddtasksService) { }
   fetchtodolist(id: string | number): void {
@@ -40,9 +40,9 @@ id: number;
       this.id = +params['id']; // (+) converts string 'id' to a number
 
       // In a real app: dispatch action to load the details here.
-   });
-   
-   this.fetchtodolist(this.id);
+    });
+
+    this.fetchtodolist(this.id);
   }
 
 }

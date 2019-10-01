@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import Addcase from '../addcase/addcase';
 import { AddcaseService } from '../addcase/addcase.service';
-import { ActivatedRoute,Router } from '@angular/router';
-declare var $:any;
+import { ActivatedRoute, Router } from '@angular/router';
+declare var $: any;
 @Component({
   selector: 'app-casestudyattachements',
   templateUrl: './casestudyattachements.component.html',
@@ -10,63 +10,62 @@ declare var $:any;
 })
 export class CasestudyattachementsComponent implements OnInit {
   addcasess: Addcase[];
-  addcasess1:any;
-  addcasess2:any;
-  attachdata:any;
+  addcasess1: any;
+  addcasess2: any;
+  attachdata: any;
   error = '';
   success = '';
-  p=1;
+  p = 1;
   selectedfile;
-  searchText="";
-  user={
-    title:"",
-    userid:""
+  searchText = "";
+  user = {
+    title: "",
+    userid: ""
   }
   id: number;
-private sub: any;
+  private sub: any;
   subscribedParam = "initial value";
-  constructor(private addcaseService: AddcaseService, private router: Router, private activatedRoute: ActivatedRoute) { 
+  constructor(private addcaseService: AddcaseService, private router: Router, private activatedRoute: ActivatedRoute) {
     this.activatedRoute.paramMap.subscribe(params => {
       this.subscribedParam = params.get("id");
       this.id = +params.get("id");
       // console.log(this.subscribedParam);
-      this.user.userid=params.get("id");
+      this.user.userid = params.get("id");
     });
   }
 
   getFileDetails(e) {
     // console.log(e.target.files);
-     this.selectedfile = <File>e.target.files[0];
-     console.log(this.selectedfile);
-   }
-  
-   addattachment(user: Addcase) {
-    console.log(user);
-    const fd = new FormData();
-     fd.append("userEmp", JSON.stringify(user));
-    // console.log(this.selectedfile);
-     if(this.selectedfile!=undefined){
-      fd.append('filename', this.selectedfile,this.selectedfile.name);
-     }
-      console.log(fd); 
-    this.addcaseService.storeattachment(fd)
-    .subscribe(
-      (res: Addcase[]) => {
-        // Update the list of to do list
-        this.addcasess1 = res;
-        if(this.addcasess1.output==true)
-        {
-          $('.successmechPopup').modal('show');
-         // this.router.navigate(["/main/dashboard"]);
-        }
-        // Reset the form
-        
-      },
-      (err) => this.error = err
-    );
+    this.selectedfile = <File>e.target.files[0];
+    console.log(this.selectedfile);
   }
 
-  redirect(){
+  addattachment(user: Addcase) {
+    console.log(user);
+    const fd = new FormData();
+    fd.append("userEmp", JSON.stringify(user));
+    // console.log(this.selectedfile);
+    if (this.selectedfile != undefined) {
+      fd.append('filename', this.selectedfile, this.selectedfile.name);
+    }
+    console.log(fd);
+    this.addcaseService.storeattachment(fd)
+      .subscribe(
+        (res: Addcase[]) => {
+          // Update the list of to do list
+          this.addcasess1 = res;
+          if (this.addcasess1.output == true) {
+            $('.successmechPopup').modal('show');
+            // this.router.navigate(["/main/dashboard"]);
+          }
+          // Reset the form
+
+        },
+        (err) => this.error = err
+      );
+  }
+
+  redirect() {
     this.router.navigate(["/main/casestudy"]);
   }
 
@@ -82,7 +81,7 @@ private sub: any;
   }
 
   deleteattach(data: string | number) {
-    this.attachdata=data;
+    this.attachdata = data;
     console.log(this.attachdata);
     console.log(this.id);
     $('.deleteRequest').modal('show');
@@ -96,25 +95,20 @@ private sub: any;
       .subscribe(
         (res: Addcase[]) => {
           this.addcasess2 = res;
-          if(this.addcasess2.output==true)
-        {
-          $('.successmechPopup1').modal('show');
-         // this.router.navigate(["/main/dashboard"]);
-        }
-        
+          if (this.addcasess2.output == true) {
+            $('.successmechPopup1').modal('show');
+            // this.router.navigate(["/main/dashboard"]);
+          }
+
           this.fetchtodolist(this.id);
         },
         (err) => this.error = err
       );
   }
 
-  
-
-
-  
-  private resetErrors(){
+  private resetErrors() {
     this.success = '';
-    this.error   = '';
+    this.error = '';
   }
   ngOnInit() {
     this.fetchtodolist(this.id);
