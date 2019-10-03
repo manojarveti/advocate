@@ -48,7 +48,6 @@ export class CommenttasksComponent implements OnInit {
     this.addtaskservice.fetchtaskmessage(+id).subscribe(
       (res: Addtask[]) => {
         this.addtask = res;
-
       },
       (err) => {
         this.error = err;
@@ -59,7 +58,6 @@ export class CommenttasksComponent implements OnInit {
     this.addtaskservice.fetchtaskmessage1(+id).subscribe(
       (res: Addtask[]) => {
         this.addtask1 = res;
-
       },
       (err) => {
         this.error = err;

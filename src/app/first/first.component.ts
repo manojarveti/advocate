@@ -193,7 +193,6 @@ export class FirstComponent implements OnInit {
       }
     );
   }
-
   fetchavailability(id: string | number): void {
     this.firstService.fetchava(+id).subscribe(
       (res: any) => {

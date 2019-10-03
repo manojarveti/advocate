@@ -43,7 +43,7 @@ export class ReportsComponent implements OnInit {
         name: "Total Case payment",
         showInLegend: "true",
         yValueFormatString: "#,##0 $",
-        dataPoints:[{label:this.label,y:this.y}],
+        dataPoints:[{label:this.label,y:this.y}]
       }]
     };
     
