@@ -18,7 +18,7 @@ export class ReportsComponent implements OnInit {
   label=[];
   y=[];
   data :Data[];
-  baseUrl = 'http://localhost/advocate_api/reports1';
+  baseUrl = 'http://localhost/advocate_api/reports';
   ngOnInit() {
     this.http.get(this.baseUrl).subscribe((res: Data[]) => {
       res.forEach(y => {
