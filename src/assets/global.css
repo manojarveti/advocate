@@ -60,6 +60,7 @@ table {
 }
 .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
     text-align: center;
+    text-transform: uppercase;
 }
 table.table-bordered.dataTable thead th {
     text-align: center;
@@ -80,12 +81,12 @@ table.table-bordered.dataTable thead th {
      background: transparent; 
      margin-top: 0; 
      margin-bottom: 0; 
-    font-size: 14px; 
+    font-size: 14px !important; 
     padding: 7px 5px; 
      position: absolute;
      top: 15px; 
     right: 10px; 
-     border-radius: 2px; 
+    border-radius: 2px; 
 } 
 .breadcrumb>li+li:before {
     padding: 0 5px;
@@ -105,3 +106,28 @@ table.table-bordered.dataTable[_ngcontent-c9] thead{
 /* mat-sidenav-content.mat-drawer-content.mat-sidenav-content {
     margin-left: 210px !important;
 } */
+.small-box {
+    width: 100%;
+    -moz-transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+.small-box:hover {
+    moz-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+.ngx-pagination .disabled{
+    color: #000000 !important;
+}
+div#example1_filter {
+    margin: 10px 0px;
+}
+a.btn.btn-default{
+    margin: 7px 15px;
+    background: #00639a;
+    border-radius: 20px;
+    color: #fff;
+}
