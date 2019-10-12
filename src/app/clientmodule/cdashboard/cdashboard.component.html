@@ -1,16 +1,16 @@
-<div class="container">
+<div class="container" style="margin-left: 27px;">
   <section class="content">
     <!-- Small boxes (Stat box) -->
     <div class="row">
       <div class="col-lg-3 col-sm-6 col-xs-12">
         <div class="small-box bg-aqua">
-          <div class="inner">
-            <h3>1</h3>
+          <div class="inner" *ngFor="let i = index;let item of cdashboards">
+            <h3>{{item.total_cases}}</h3>
             <p>My Cases</p>
           </div>
           <div class="icon"><i class="fa fa-list"></i></div>
           <a class="small-box-footer">
-            More Info<i class="fa fa-arrow-circle-right"></i>
+            More Info <i class="fa fa-arrow-circle-right"></i>
           </a>
         </div>
       </div>
@@ -22,7 +22,7 @@
           </div>
           <div class="icon"><i class="fa fa-bell"></i></div>
           <a href="#myModal" data-toggle="modal" class="small-box-footer">
-            Click Here To Change Setting<i class="fa fa-cog"></i>
+            Click Here To Change Setting <i class="fa fa-cog"></i>
           </a>
         </div>
       </div>
@@ -36,14 +36,14 @@
         <div class="modal-content">
           <form method="post" accept-charset="utf-8" enctype="multipart/form-data">
             <div class="modal-header">
+                <h4 class="modal-title">Case Alert Days Settings</h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">×</span></button>
-              <h4 class="modal-title">Case Alert Days Settings</h4>
             </div>
             <div class="modal-body">
               <div class="form-group">
                 <label>Case Alert Days</label>
-                <input type="number" class="form-control" name="days" value="">
+                <input type="number" class="form-control" name="days" min="1" max="7">
               </div>
             </div>
             <div class="modal-footer">

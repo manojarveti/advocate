@@ -281,6 +281,7 @@ const appRoutes: Routes = [
       { path: 'cmycases', component: CmycasesComponent},
       { path: 'cmessages', component: CmessagesComponent},
       { path: 'cmycases/cdetails', component: DetailsComponent},
+      { path: 'cmycases/cdetails/:id', component: DetailsComponent},
     ]
   }
 ];
