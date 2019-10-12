@@ -1,4 +1,4 @@
-<div class="container">
+
   <div class="content-wrapper" style="min-height: 270px;">
     <section class="content-header">
       <h1>
@@ -9,12 +9,11 @@
         <li class="active"><b>Locations</b></li>
       </ol>
     </section>
+    <div class="container">
     <section class="content">
       <div class="row" style="margin-bottom:10px;">
         <div class="col-xs-12">
-          <div class="btn-group pull-right">
-            <a class="btn btn-default" routerLink='addlocation'><i class="fa fa-plus"></i> Add New</a>
-          </div>
+          
         </div>
       </div>
       <div class="col-xs-12">
@@ -26,12 +25,15 @@
                 <div class="col-sm-12">
                   <div class="row">
                     <div class="col-sm-6">
-
+                        <div id="example1_filter" class="dataTables_filter"><label>Search:<input type="search"
+                          class="form-control input-sm" placeholder="" aria-controls="example1"
+                          [(ngModel)]="searchText"></label></div>
                     </div>
                     <div class="col-sm-6">
-                      <div id="example1_filter" class="dataTables_filter"><label>Search:<input type="search"
-                            class="form-control input-sm" placeholder="" aria-controls="example1"
-                            [(ngModel)]="searchText"></label></div>
+                      
+                            <div class="btn-group pull-right">
+                                <a class="btn btn-default" routerLink='addlocation'><i class="fa fa-plus"></i> Add New</a>
+                              </div>
                     </div>
                   </div>
                 </div>
