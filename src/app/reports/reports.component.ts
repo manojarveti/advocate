@@ -17,15 +17,18 @@ export class ReportsComponent implements OnInit {
   datapoints1:any;
   label=[];
   y=[];
+  totaldata:any;
   data :Data[];
   baseUrl = 'http://localhost/advocate_api/reports';
   ngOnInit() {
     this.http.get(this.baseUrl).subscribe((res: Data[]) => {
-      res.forEach(y => {
-        console.log(res);
-        this.label.push(y.label);
-        this.y.push(y.y);
-      });
+      // res.forEach(y => {
+        this.data=res;
+      //   this.label.push(y.label);
+      //   this.y.push(y.y);
+      // });
+      
+      console.log(this.data);
     var options = {
       animationEnabled: true,
       title:{
@@ -43,14 +46,15 @@ export class ReportsComponent implements OnInit {
         name: "Total Case payment",
         showInLegend: "true",
         yValueFormatString: "#,##0 $",
-        dataPoints:[{label:this.label,y:this.y}]
+        dataPoints:this.data
       }]
     };
     
     $("#chartContainer").CanvasJSChart(options);
     
-  });
-  }
+ 
+});
+}
 
   // getdatapoints1(): void {
   //   this.reports.getdatapoints().subscribe(
