@@ -1,4 +1,4 @@
-<div class="container">
+
   <section class="content-header">
     <h1>
       Appointments <small>List</small>
@@ -8,15 +8,11 @@
       <li class="active"><b>Appointments</b></li>
     </ol>
   </section>
-
+  <div class="container">
   <section class="content">
     <div class="row" style="margin-bottom:10px;display: contents!important;">
       <div class="col-xs-12">
-        <div class="btn-group pull-right">
-          <a [routerLink]="['/main/appointments/addappointment']" class="btn btn-default"><i class="fa fa-plus"></i> Add
-            New</a>
-
-        </div>
+        
       </div>
     </div>
 
@@ -30,14 +26,19 @@
               <div class="col-sm-12">
                 <div class="row">
                   <div class="col-sm-6">
-
-                  </div>
-                  <div class="col-sm-6">
                     <div id="example1_filter" class="dataTables_filter">
                       <label>Search:
                         <input type="search" class="form-control input-sm" placeholder="" aria-controls="example1"
                           [(ngModel)]="searchText">
                       </label>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                   
+                    <div class="btn-group pull-right">
+                      <a [routerLink]="['/main/appointments/addappointment']" class="btn btn-default"><i class="fa fa-plus"></i> Add
+                        New</a>
+            
                     </div>
                   </div>
                 </div>

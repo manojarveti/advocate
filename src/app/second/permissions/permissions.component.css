@@ -5,7 +5,7 @@
 
 .content-header {
     position: relative;
-    padding: 15px 15px 0 15px;
+    /* padding: 15px 15px 0 15px; */
 }
 .content-header > h1 {
     margin: 0;
@@ -67,10 +67,12 @@ ol, ul {
     background: #ffffff;
     border-top: 3px solid #d2d6de;
     margin-bottom: 20px;
-    width: 100%;
+    width: 95%;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }
-
+table#example>thead {
+    background: #b0dbf5 !important;
+}
 .box-header.with-border {
     border-bottom: 1px solid #f4f4f4;
 }
