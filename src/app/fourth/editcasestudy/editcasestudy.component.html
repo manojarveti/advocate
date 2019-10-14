@@ -1,4 +1,4 @@
-<div class="container">
+
     <section class="content-header">
         <h1>
             Case Study <small>Edit</small>
@@ -9,7 +9,7 @@
             <li class="active">Edit</li>
         </ol>
     </section>
-
+    <div class="container">
     <section class="content">
         <div class="row">
             <!-- left column -->
@@ -75,11 +75,12 @@
                                     </div>
                                 </div>
                             </div>
+                            <button type="submit"
+                            (click)="updateclients(title, case_category_id, notes, result,  item.id)"
+                            class="btn btn-primary">Save</button>
                         </div><!-- /.box-body -->
                         <div class="box-footer">
-                            <button type="submit"
-                                (click)="updateclients(title, case_category_id, notes, result,  item.id)"
-                                class="btn btn-primary">Save</button>
+                          
                         </div>
                     </form>
                 </div><!-- /.box -->

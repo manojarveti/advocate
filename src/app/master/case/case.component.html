@@ -1,4 +1,4 @@
-<div class="container">
+
   <div class="content-wrapper">
     <section class="content-header">
       <h1>
@@ -9,16 +9,11 @@
         <li class="active">Case Category</li>
       </ol>
     </section>
-
+    <div class="container">
     <section class="content">
       <div class="row" style="margin-bottom:10px;">
         <div class="col-xs-12">
-          <div class="btn-group pull-right">
-
-            <a class="btn btn-default" [routerLink]="['/main/master/case/addcasecategory']"><i class="fa fa-plus"></i>
-              Add New</a>
-
-          </div>
+          
         </div>
       </div>
 
@@ -32,11 +27,19 @@
                 <div class="col-sm-12">
                   <div class="row">
                     <div class="col-sm-6">
-
+                        <div id="example1_filter" class="dataTables_filter"><label>Search:<input type="search"
+                          class="form-control input-sm" placeholder="" aria-controls="example1"></label></div>
                     </div>
                     <div class="col-sm-6">
-                      <div id="example1_filter" class="dataTables_filter"><label>Search:<input type="search"
-                            class="form-control input-sm" placeholder="" aria-controls="example1"></label></div>
+                      
+                        <div class="btn-group pull-right">
+
+                            <a class="btn btn-default" [routerLink]="['/main/master/case/addcasecategory']"><i class="fa fa-plus"></i>
+                              Add New</a>
+                
+                          </div>
+
+
                     </div>
                   </div>
                 </div>

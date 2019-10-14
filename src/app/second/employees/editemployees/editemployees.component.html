@@ -1,4 +1,4 @@
-<div class="container">
+
     <section class="content-header">
         <h1>
             Staff <small>Edit</small>
@@ -9,6 +9,7 @@
             <li class="active"><b>Edit</b></li>
         </ol>
     </section>
+    <div class="container">
     <section class="content">
         <div class="row">
             <!-- left column -->
@@ -157,13 +158,14 @@
                                             value="disabled"> Disabled </div>
                                 </div>
                             </div>
-                        </div><!-- /.box-body -->
-                        <div class="col-sm-4 col-sm-offset-4">
-                            <div class="box-footer">
-                                <button type="submit" class="btn btn-primary"
+                            <button type="submit" class="btn btn-primary"
                                     (click)="updateemployees(name, gender, dob, user_role, departments, designation, doj, join_salary, email, username, password, phone, address, status, item.id)">Update</button>
+                        </div><!-- /.box-body -->
+                        <!-- <div class="col-sm-4 col-sm-offset-4">
+                            <div class="box-footer">
+                                
                             </div>
-                        </div>
+                        </div> -->
                     </form>
                 </div><!-- /.box -->
             </div>
