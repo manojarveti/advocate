@@ -7,6 +7,10 @@
     position: relative;
     /* padding: 15px 15px 0 15px; */
 }
+i.fa.fa-trash {
+    color: #ff0000;
+    font-size: 18px;
+}
 .content-header > h1 {
     margin: 0;
     font-size: 24px;

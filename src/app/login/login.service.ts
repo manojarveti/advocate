@@ -13,7 +13,7 @@ export class loginService  {
   navigate(arg0: any[]): any {
     throw new Error("Method not implemented.");
   }
-  baseUrl = 'http://localhost/advocate_api';
+  baseUrl = 'http://13.232.118.211/advocate_api';
 login: logins[];
 
 constructor(private http: HttpClient) { }
