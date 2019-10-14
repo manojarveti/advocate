@@ -18,824 +18,1256 @@
           </div><!-- /.box-header -->
 
 
-          <div class="box-body table-responsive" style="overflow-x: unset!important">
-            <div class="row">
-              <div class="col-lg-12">
-                <button type="submit" class="btn btn-primary" form="permission">Submit</button>
-              </div>
-            </div>
+          <div class="box-body table-responsive">
 
             <br>
             <div class="row">
               <div class="col-lg-12">
                 <div class="table-responsive">
 
-                  <form id="permission" method="post" action="">
+                  <form>
 
-                    <table class="table table-bordered table-hover tablesorter" id="example">
+                    <table class="table table-bordered " id="example">
                       <thead>
                         <tr>
                           <th>Actions</th>
-                          <th>Employee</th>
+                          <th *ngFor="let item of addpermission;let i = index;">{{item.user_type}}</th>
+
+
                         </tr>
                       </thead>
                       <tbody>
 
                         <tr>
                           <td><b>Authentication</b></td>
-                          <td><input type="checkbox" name="access[3][1]" checked=""></td>
+                          <td *ngFor="let Permission of addpermission">
+                            <div >
+                              <div *ngFor="let accessall of Permission.access | keyvalue:asIsOrder">
+                                {{accessall.key}} {{accessall.value}}
+                                <input type="checkbox" name="accessall.key" [(ngModel)]="accessall.value" #accessall.key="ngModel"
+                                [checked]="accessall.value">
+                              </div>
+                            </div>
+                          </td>
                         </tr>
                         <tr>
                           <td>--&gt; Login</td>
-                          <td><input type="checkbox" name="access[3][2]" checked="" disabled=""></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access1"
+                              [(ngModel)]="access[i].access2" #access2="ngModel" [ngModelOptions]="{standalone: true}">
+                          </td>
                         </tr>
+                        
                         <tr>
                           <td>--&gt; Logout</td>
-                          <td><input type="checkbox" name="access[3][3]" checked="" disabled=""></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access3"
+                              [(ngModel)]="access[i].access3" #access3="ngModel" [ngModelOptions]="{standalone: true}">
+                          </td>
                         </tr>
                         <tr>
                           <td><b>All Case</b></td>
-                          <td><input type="checkbox" name="access[3][4]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access4"
+                              [(ngModel)]="access[i].access4" #access4="ngModel" [ngModelOptions]="{standalone: true}">
+                          </td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Add</td>
-                          <td><input type="checkbox" name="access[3][5]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access5"
+                              [(ngModel)]="access[i].access5" #access5="ngModel" [ngModelOptions]="{standalone: true}">
+                          </td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Edit</td>
-                          <td><input type="checkbox" name="access[3][6]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access6"
+                              [(ngModel)]="access[i].access6" #access6="ngModel" [ngModelOptions]="{standalone: true}">
+                          </td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; View Case</td>
-                          <td><input type="checkbox" name="access[3][7]" checked=""></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access7"
+                              [(ngModel)]="access[i].access7" #access7="ngModel" [ngModelOptions]="{standalone: true}">
+                          </td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Fees</td>
-                          <td><input type="checkbox" name="access[3][8]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access8"
+                              [(ngModel)]="access[i].access8" #access8="ngModel" [ngModelOptions]="{standalone: true}">
+                          </td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Archived</td>
-                          <td><input type="checkbox" name="access[3][9]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access9"
+                              [(ngModel)]="access[i].access9" #access9="ngModel" [ngModelOptions]="{standalone: true}">
+                          </td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Starred Cases</td>
-                          <td><input type="checkbox" name="access[3][10]" checked=""></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access10"
+                              [(ngModel)]="access[i].access10" #access10="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Archived Cases</td>
-                          <td><input type="checkbox" name="access[3][11]" checked=""></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access11"
+                              [(ngModel)]="access[i].access11" #access11="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; View Archived Case</td>
-                          <td><input type="checkbox" name="access[3][12]" checked=""></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access12"
+                              [(ngModel)]="access[i].access12" #access12="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Restore</td>
-                          <td><input type="checkbox" name="access[3][13]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access13"
+                              [(ngModel)]="access[i].access13" #access13="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Message</td>
-                          <td><input type="checkbox" name="access[3][15]" checked=""></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access14"
+                              [(ngModel)]="access[i].access14" #access14="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Hearing Date</td>
-                          <td><input type="checkbox" name="access[3][84]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access15"
+                              [(ngModel)]="access[i].access15" #access15="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Case Alert</td>
-                          <td><input type="checkbox" name="access[3][105]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access16"
+                              [(ngModel)]="access[i].access16" #access16="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Notes</td>
-                          <td><input type="checkbox" name="access[3][156]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access17"
+                              [(ngModel)]="access[i].access17" #access17="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Delete Fees</td>
-                          <td><input type="checkbox" name="access[3][166]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access18"
+                              [(ngModel)]="access[i].access18" #access18="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; View Receipt</td>
-                          <td><input type="checkbox" name="access[3][167]" checked=""></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access19"
+                              [(ngModel)]="access[i].access19" #access19="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Delete Receipt</td>
-                          <td><input type="checkbox" name="access[3][169]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access20"
+                              [(ngModel)]="access[i].access20" #access20="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; View Case Extended Date Details</td>
-                          <td><input type="checkbox" name="access[3][170]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access21"
+                              [(ngModel)]="access[i].access21" #access21="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Delete Case Extended Dates</td>
-                          <td><input type="checkbox" name="access[3][171]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access22"
+                              [(ngModel)]="access[i].access22" #access22="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
                         <tr>
                           <td><b>Reports</b></td>
-                          <td><input type="checkbox" name="access[3][14]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access23"
+                              [(ngModel)]="access[i].access23" #access23="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
                         <tr>
                           <td><b>To Do List</b></td>
-                          <td><input type="checkbox" name="access[3][16]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access24"
+                              [(ngModel)]="access[i].access24" #access24="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Add</td>
-                          <td><input type="checkbox" name="access[3][17]" checked=""></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access25"
+                              [(ngModel)]="access[i].access25" #access25="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Edit</td>
-                          <td><input type="checkbox" name="access[3][18]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access26"
+                              [(ngModel)]="access[i].access26" #access26="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; View</td>
-                          <td><input type="checkbox" name="access[3][19]" checked=""></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access27"
+                              [(ngModel)]="access[i].access27" #access27="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Delete</td>
-                          <td><input type="checkbox" name="access[3][20]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access28"
+                              [(ngModel)]="access[i].access28" #access28="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; To Do Alert</td>
-                          <td><input type="checkbox" name="access[3][107]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access29"
+                              [(ngModel)]="access[i].access29" #access29="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
                         <tr>
                           <td><b>Contacts</b></td>
-                          <td><input type="checkbox" name="access[3][21]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access30"
+                              [(ngModel)]="access[i].access30" #access30="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Add</td>
-                          <td><input type="checkbox" name="access[3][22]" checked=""></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access31"
+                              [(ngModel)]="access[i].access31" #access31="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Edit</td>
-                          <td><input type="checkbox" name="access[3][23]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access32"
+                              [(ngModel)]="access[i].access32" #access32="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Delete</td>
-                          <td><input type="checkbox" name="access[3][24]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access33"
+                              [(ngModel)]="access[i].access33" #access33="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Contact</td>
-                          <td><input type="checkbox" name="access[3][155]" checked=""></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access34"
+                              [(ngModel)]="access[i].access34" #access34="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
                         <tr>
                           <td><b>Appointments</b></td>
-                          <td><input type="checkbox" name="access[3][25]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access35"
+                              [(ngModel)]="access[i].access35" #access35="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Add</td>
-                          <td><input type="checkbox" name="access[3][26]" checked=""></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access36"
+                              [(ngModel)]="access[i].access36" #access36="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Edit</td>
-                          <td><input type="checkbox" name="access[3][27]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access37"
+                              [(ngModel)]="access[i].access37" #access37="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Delete</td>
-                          <td><input type="checkbox" name="access[3][28]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access38"
+                              [(ngModel)]="access[i].access38" #access38="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; View</td>
-                          <td><input type="checkbox" name="access[3][29]" checked=""></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access39"
+                              [(ngModel)]="access[i].access39" #access39="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Appointment Alert</td>
-                          <td><input type="checkbox" name="access[3][106]" checked=""></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access40"
+                              [(ngModel)]="access[i].access40" #access40="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
                         <tr>
                           <td><b>Clients</b></td>
-                          <td><input type="checkbox" name="access[3][32]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access41"
+                              [(ngModel)]="access[i].access41" #access41="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Add</td>
-                          <td><input type="checkbox" name="access[3][33]" checked=""></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access42"
+                              [(ngModel)]="access[i].access42" #access42="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Edit</td>
-                          <td><input type="checkbox" name="access[3][34]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access43"
+                              [(ngModel)]="access[i].access43" #access43="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Delete</td>
-                          <td><input type="checkbox" name="access[3][35]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access44"
+                              [(ngModel)]="access[i].access44" #access44="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; View</td>
-                          <td><input type="checkbox" name="access[3][36]" checked=""></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access45"
+                              [(ngModel)]="access[i].access45" #access45="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
                         <tr>
                           <td><b>Employees</b></td>
-                          <td><input type="checkbox" name="access[3][37]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access46"
+                              [(ngModel)]="access[i].access46" #access46="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Add</td>
-                          <td><input type="checkbox" name="access[3][38]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access47"
+                              [(ngModel)]="access[i].access47" #access47="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Edit</td>
-                          <td><input type="checkbox" name="access[3][39]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access48"
+                              [(ngModel)]="access[i].access48" #access48="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Delete</td>
-                          <td><input type="checkbox" name="access[3][40]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access49"
+                              [(ngModel)]="access[i].access49" #access49="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; View</td>
-                          <td><input type="checkbox" name="access[3][41]" checked=""></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access50"
+                              [(ngModel)]="access[i].access50" #access50="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Bank Details</td>
-                          <td><input type="checkbox" name="access[3][123]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access51"
+                              [(ngModel)]="access[i].access51" #access51="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Add Bank Details</td>
-                          <td><input type="checkbox" name="access[3][124]" checked=""></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access52"
+                              [(ngModel)]="access[i].access52" #access52="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Delete Bank Details</td>
-                          <td><input type="checkbox" name="access[3][125]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access53"
+                              [(ngModel)]="access[i].access53" #access53="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Documents</td>
-                          <td><input type="checkbox" name="access[3][126]" checked=""></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access54"
+                              [(ngModel)]="access[i].access54" #access54="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Delete Documents</td>
-                          <td><input type="checkbox" name="access[3][127]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access55"
+                              [(ngModel)]="access[i].access55" #access55="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
                         <tr>
                           <td><b>User Role</b></td>
-                          <td><input type="checkbox" name="access[3][42]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access56"
+                              [(ngModel)]="access[i].access56" #access56="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Add</td>
-                          <td><input type="checkbox" name="access[3][43]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access57"
+                              [(ngModel)]="access[i].access57" #access57="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Edit</td>
-                          <td><input type="checkbox" name="access[3][44]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access58"
+                              [(ngModel)]="access[i].access58" #access58="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Delete</td>
-                          <td><input type="checkbox" name="access[3][45]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access59"
+                              [(ngModel)]="access[i].access59" #access59="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
                         <tr>
                           <td><b>Departments</b></td>
-                          <td><input type="checkbox" name="access[3][46]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access60"
+                              [(ngModel)]="access[i].access60" #access60="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Add</td>
-                          <td><input type="checkbox" name="access[3][47]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access61"
+                              [(ngModel)]="access[i].access61" #access61="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Edit</td>
-                          <td><input type="checkbox" name="access[3][48]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access62"
+                              [(ngModel)]="access[i].access62" #access62="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Delete</td>
-                          <td><input type="checkbox" name="access[3][49]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access63"
+                              [(ngModel)]="access[i].access63" #access63="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
                         <tr>
                           <td><b>Location</b></td>
-                          <td><input type="checkbox" name="access[3][51]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access64"
+                              [(ngModel)]="access[i].access64" #access64="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Add</td>
-                          <td><input type="checkbox" name="access[3][52]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access65"
+                              [(ngModel)]="access[i].access65" #access65="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Edit</td>
-                          <td><input type="checkbox" name="access[3][53]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access66"
+                              [(ngModel)]="access[i].access66" #access66="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Delete</td>
-                          <td><input type="checkbox" name="access[3][54]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access67"
+                              [(ngModel)]="access[i].access67" #access67="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
                         <tr>
                           <td><b>Case Category</b></td>
-                          <td><input type="checkbox" name="access[3][55]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access68"
+                              [(ngModel)]="access[i].access68" #access68="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Add</td>
-                          <td><input type="checkbox" name="access[3][56]" checked=""></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access69"
+                              [(ngModel)]="access[i].access69" #access69="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Edit</td>
-                          <td><input type="checkbox" name="access[3][57]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access70"
+                              [(ngModel)]="access[i].access70" #access70="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
                         <tr>
                           <td><b>Court Category</b></td>
-                          <td><input type="checkbox" name="access[3][59]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access71"
+                              [(ngModel)]="access[i].access71" #access71="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Add</td>
-                          <td><input type="checkbox" name="access[3][60]" checked=""></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access72"
+                              [(ngModel)]="access[i].access72" #access72="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Edit</td>
-                          <td><input type="checkbox" name="access[3][61]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access73"
+                              [(ngModel)]="access[i].access73" #access73="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Delete</td>
-                          <td><input type="checkbox" name="access[3][62]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access74"
+                              [(ngModel)]="access[i].access74" #access74="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
                         <tr>
                           <td><b>Act</b></td>
-                          <td><input type="checkbox" name="access[3][63]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access75"
+                              [(ngModel)]="access[i].access75" #access75="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Add</td>
-                          <td><input type="checkbox" name="access[3][64]" checked=""></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access76"
+                              [(ngModel)]="access[i].access76" #access76="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Edit</td>
-                          <td><input type="checkbox" name="access[3][65]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access77"
+                              [(ngModel)]="access[i].access77" #access77="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Delete</td>
-                          <td><input type="checkbox" name="access[3][66]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access78"
+                              [(ngModel)]="access[i].access78" #access78="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
                         <tr>
                           <td><b>Court</b></td>
-                          <td><input type="checkbox" name="access[3][67]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access79"
+                              [(ngModel)]="access[i].access79" #access79="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Add</td>
-                          <td><input type="checkbox" name="access[3][68]" checked=""></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access80"
+                              [(ngModel)]="access[i].access80" #access80="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Edit</td>
-                          <td><input type="checkbox" name="access[3][69]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access81"
+                              [(ngModel)]="access[i].access81" #access81="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Delete</td>
-                          <td><input type="checkbox" name="access[3][70]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access82"
+                              [(ngModel)]="access[i].access82" #access82="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
                         <tr>
                           <td><b>Case Stages</b></td>
-                          <td><input type="checkbox" name="access[3][71]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access83"
+                              [(ngModel)]="access[i].access83" #access83="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Add</td>
-                          <td><input type="checkbox" name="access[3][72]" checked=""></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access84"
+                              [(ngModel)]="access[i].access84" #access84="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Edit</td>
-                          <td><input type="checkbox" name="access[3][73]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access85"
+                              [(ngModel)]="access[i].access85" #access85="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Delte</td>
-                          <td><input type="checkbox" name="access[3][74]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access86"
+                              [(ngModel)]="access[i].access86" #access86="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
                         <tr>
                           <td><b>Payment Modes</b></td>
-                          <td><input type="checkbox" name="access[3][75]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access87"
+                              [(ngModel)]="access[i].access87" #access87="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Add</td>
-                          <td><input type="checkbox" name="access[3][76]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access88"
+                              [(ngModel)]="access[i].access88" #access88="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Edit</td>
-                          <td><input type="checkbox" name="access[3][77]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access89"
+                              [(ngModel)]="access[i].access89" #access89="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Delete</td>
-                          <td><input type="checkbox" name="access[3][78]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access90"
+                              [(ngModel)]="access[i].access90" #access90="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
                         <tr>
                           <td><b>Settings</b></td>
-                          <td><input type="checkbox" name="access[3][79]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access91"
+                              [(ngModel)]="access[i].access91" #access91="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
                         <tr>
                           <td><b>Notification</b></td>
-                          <td><input type="checkbox" name="access[3][80]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access92"
+                              [(ngModel)]="access[i].access92" #access92="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
                         <tr>
                           <td><b>Languages</b></td>
-                          <td><input type="checkbox" name="access[3][81]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access93"
+                              [(ngModel)]="access[i].access93" #access93="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Edit</td>
-                          <td><input type="checkbox" name="access[3][82]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access94"
+                              [(ngModel)]="access[i].access94" #access94="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Delete</td>
-                          <td><input type="checkbox" name="access[3][83]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access95"
+                              [(ngModel)]="access[i].access95" #access95="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
                         <tr>
                           <td><b>Invoice</b></td>
-                          <td><input type="checkbox" name="access[3][108]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access96"
+                              [(ngModel)]="access[i].access96" #access96="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Mail</td>
-                          <td><input type="checkbox" name="access[3][109]" checked=""></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access96"
+                              [(ngModel)]="access[i].access96" #access96="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Pdf</td>
-                          <td><input type="checkbox" name="access[3][110]" checked=""></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access97"
+                              [(ngModel)]="access[i].access97" #access97="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
                         <tr>
                           <td><b>Tasks</b></td>
-                          <td><input type="checkbox" name="access[3][112]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access98"
+                              [(ngModel)]="access[i].access98" #access98="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Add</td>
-                          <td><input type="checkbox" name="access[3][113]" checked=""></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox" name="access99"
+                              [(ngModel)]="access[i].access99" #access99="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Edit</td>
-                          <td><input type="checkbox" name="access[3][114]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox"
+                              name="access100" [(ngModel)]="access[i].access100" #access100="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; View</td>
-                          <td><input type="checkbox" name="access[3][115]" checked=""></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox"
+                              name="access101" [(ngModel)]="access[i].access101" #access101="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Delete</td>
-                          <td><input type="checkbox" name="access[3][116]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox"
+                              name="access102" [(ngModel)]="access[i].access102" #access102="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Comments</td>
-                          <td><input type="checkbox" name="access[3][117]" checked=""></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox"
+                              name="access103" [(ngModel)]="access[i].access103" #access103="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; My Tasks</td>
-                          <td><input type="checkbox" name="access[3][152]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox"
+                              name="access104" [(ngModel)]="access[i].access104" #access104="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
                         <tr>
                           <td><b>Documents</b></td>
-                          <td><input type="checkbox" name="access[3][118]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox"
+                              name="access105" [(ngModel)]="access[i].access105" #access105="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Add</td>
-                          <td><input type="checkbox" name="access[3][119]" checked=""></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox"
+                              name="access106" [(ngModel)]="access[i].access106" #access106="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Edit</td>
-                          <td><input type="checkbox" name="access[3][120]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox"
+                              name="access107" [(ngModel)]="access[i].access107" #access107="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Delete</td>
-                          <td><input type="checkbox" name="access[3][121]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox"
+                              name="access108" [(ngModel)]="access[i].access108" #access108="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Manage</td>
-                          <td><input type="checkbox" name="access[3][122]" checked=""></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox"
+                              name="access109" [(ngModel)]="access[i].access109" #access109="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; My Delete DOcument</td>
-                          <td><input type="checkbox" name="access[3][153]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox"
+                              name="access110" [(ngModel)]="access[i].access110" #access110="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
                         <tr>
                           <td><b>Attendance</b></td>
-                          <td><input type="checkbox" name="access[3][129]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox"
+                              name="access111" [(ngModel)]="access[i].access111" #access111="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Leave Notification</td>
-                          <td><input type="checkbox" name="access[3][130]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox"
+                              name="access112" [(ngModel)]="access[i].access112" #access112="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Pending /Approve Leave</td>
-                          <td><input type="checkbox" name="access[3][131]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox"
+                              name="access113" [(ngModel)]="access[i].access113" #access113="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Delete Leave</td>
-                          <td><input type="checkbox" name="access[3][132]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox"
+                              name="access114" [(ngModel)]="access[i].access114" #access114="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Mark In</td>
-                          <td><input type="checkbox" name="access[3][133]" checked=""></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox"
+                              name="access115" [(ngModel)]="access[i].access115" #access115="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Mark Out</td>
-                          <td><input type="checkbox" name="access[3][134]" checked=""></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox"
+                              name="access116" [(ngModel)]="access[i].access116" #access116="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; My Attendance</td>
-                          <td><input type="checkbox" name="access[3][135]" checked=""></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox"
+                              name="access117" [(ngModel)]="access[i].access117" #access117="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; My Leaves</td>
-                          <td><input type="checkbox" name="access[3][136]" checked=""></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox"
+                              name="access118" [(ngModel)]="access[i].access118" #access118="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Apply Leave</td>
-                          <td><input type="checkbox" name="access[3][137]" checked=""></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox"
+                              name="access119" [(ngModel)]="access[i].access119" #access119="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Delete My Leave</td>
-                          <td><input type="checkbox" name="access[3][138]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox"
+                              name="access120" [(ngModel)]="access[i].access120" #access120="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
                         <tr>
                           <td><b>Leave Types</b></td>
-                          <td><input type="checkbox" name="access[3][139]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox"
+                              name="access121" [(ngModel)]="access[i].access121" #access121="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Add</td>
-                          <td><input type="checkbox" name="access[3][140]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox"
+                              name="access122" [(ngModel)]="access[i].access122" #access122="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Edit</td>
-                          <td><input type="checkbox" name="access[3][141]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox"
+                              name="access123" [(ngModel)]="access[i].access123" #access123="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Delete</td>
-                          <td><input type="checkbox" name="access[3][142]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox"
+                              name="access124" [(ngModel)]="access[i].access124" #access124="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
                         <tr>
                           <td><b>Holidays</b></td>
-                          <td><input type="checkbox" name="access[3][143]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox"
+                              name="access125" [(ngModel)]="access[i].access125" #access125="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Add</td>
-                          <td><input type="checkbox" name="access[3][144]" checked=""></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox"
+                              name="access126" [(ngModel)]="access[i].access126" #access126="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Delete</td>
-                          <td><input type="checkbox" name="access[3][145]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox"
+                              name="access127" [(ngModel)]="access[i].access127" #access127="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
                         <tr>
                           <td><b>Notice</b></td>
-                          <td><input type="checkbox" name="access[3][146]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox"
+                              name="access128" [(ngModel)]="access[i].access128" #access128="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Add</td>
-                          <td><input type="checkbox" name="access[3][147]" checked=""></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox"
+                              name="access129" [(ngModel)]="access[i].access129" #access129="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Edit</td>
-                          <td><input type="checkbox" name="access[3][148]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox"
+                              name="access130" [(ngModel)]="access[i].access130" #access130="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Delete</td>
-                          <td><input type="checkbox" name="access[3][149]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox"
+                              name="access131" [(ngModel)]="access[i].access131" #access131="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; View</td>
-                          <td><input type="checkbox" name="access[3][150]" checked=""></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox"
+                              name="access132" [(ngModel)]="access[i].access132" #access132="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
                         <tr>
                           <td><b>Tax</b></td>
-                          <td><input type="checkbox" name="access[3][157]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox"
+                              name="access133" [(ngModel)]="access[i].access133" #access133="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Add</td>
-                          <td><input type="checkbox" name="access[3][158]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox"
+                              name="access134" [(ngModel)]="access[i].access134" #access134="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Edit</td>
-                          <td><input type="checkbox" name="access[3][159]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox"
+                              name="access135" [(ngModel)]="access[i].access135" #access135="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Delete</td>
-                          <td><input type="checkbox" name="access[3][160]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox"
+                              name="access136" [(ngModel)]="access[i].access136" #access136="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
                         <tr>
                           <td><b>Case Study</b></td>
-                          <td><input type="checkbox" name="access[3][161]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox"
+                              name="access137" [(ngModel)]="access[i].access137" #access137="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Add</td>
-                          <td><input type="checkbox" name="access[3][162]" checked=""></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox"
+                              name="access138" [(ngModel)]="access[i].access138" #access138="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Edit</td>
-                          <td><input type="checkbox" name="access[3][163]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox"
+                              name="access139" [(ngModel)]="access[i].access139" #access139="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Delete</td>
-                          <td><input type="checkbox" name="access[3][164]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox"
+                              name="access140" [(ngModel)]="access[i].access140" #access140="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; View</td>
-                          <td><input type="checkbox" name="access[3][165]" checked=""></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox"
+                              name="access141" [(ngModel)]="access[i].access141" #access141="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
 
                         <tr>
                           <td>--&gt; Attachments</td>
-                          <td><input type="checkbox" name="access[3][172]"></td>
+                          <td *ngFor="let item of addpermission;let i = index;"><input
+                              *ngFor="let access of addpermission.access;let i = index;" type="checkbox"
+                              name="access142" [(ngModel)]="access[i].access142" #access142="ngModel"
+                              [ngModelOptions]="{standalone: true}"></td>
                         </tr>
 
                       </tbody>
@@ -847,7 +1279,9 @@
 
             <div class="row">
               <div class="col-lg-12">
-                <button type="submit" class="btn btn-primary" form="permission">Submit</button>
+                <button type="submit"
+                  (click)="addpremission(accessall,access2,access3,access4,access5,access6,access7,access8,access9,access10,access11,access12,access13,access14,access15,access16,access17,access18,access19,access20,access21,access22,access23,access24,access25,access26,access27,access28,access29,access30,access31,access32,access33,access34,access35,access36,access37,access38,access39,access40,access41,access42,access43,access44,access45,access46,access47,access48,access49,access50,access51,access52,access53,access54,access55,access56,access57,access58,access59,access60,access61,access62,access63,access64,access65,access66,access67,access68,access69,access70,access71,access72,access73,access74,access75,access76,access77,access78,access79,access80,access81,access82,access83,access84,access85,access86,access87,access88,access89,access90,access91,access92,access93,access94,access95,access96,access97,access98,access99,access100,access101,access102,access103,access104,access105,access106,access107,access108,access109,access110,access111,access112,access113,access114,access115,access116,access117,access118,access119,access120,access121,access122,access123,access124,access125,access126,access127,access128,access129,access130,access131,access132,access133,access134,access135,access136,access137,access138,access139,access140,access141,access142)"
+                  class="btn btn-primary">Submit</button>
               </div>
             </div>
           </div>

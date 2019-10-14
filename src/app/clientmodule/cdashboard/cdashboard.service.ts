@@ -1,34 +1,31 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
-
 import { Observable, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
-
-import logins from './login';
 
 @Injectable({
   providedIn: 'root'
 })
-export class loginService  {
+export class cdashboard {
   navigate(arg0: any[]): any {
     throw new Error("Method not implemented.");
   }
   baseUrl = 'http://localhost/advocate_api';
-login: logins[];
-
+dashboards: any;
 constructor(private http: HttpClient) { }
 
-   store(users) {
-    return this.http.post(`${this.baseUrl}/userservice/login`, { data: users })
-      .pipe(map((res) => {
-        //this.adds.push(res['data']);
+getmycase(id:number) {
+    const params = new HttpParams()
+    .set('id', id.toString());
+    return this.http.get(`${this.baseUrl}/cdashboard/mycase`, { params: params }).pipe(
+      map((res) => {
+        this.dashboards = res['data'];
         // console.log(res);
-        return res;
-      }),
-      catchError(this.handleError));
+        return this.dashboards;
+    }),
+    catchError(this.handleError));
   }
-
-
+ 
   private handleError(error: HttpErrorResponse) {
     console.log(error);
 
