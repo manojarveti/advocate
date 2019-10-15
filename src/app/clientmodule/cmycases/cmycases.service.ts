@@ -11,7 +11,7 @@ import { CookieService } from 'ngx-cookie-service';
     navigate(arg0: any[]): any {
       throw new Error("Method not implemented.");
     }
-    baseUrl = 'http://localhost/advocate_api';
+    baseUrl = 'http://13.232.118.211/advocate_api';
     cmycases: any;
   
   constructor(private http: HttpClient,private cookieService: CookieService) { }

@@ -23,6 +23,13 @@
     right: 10px;
     border-radius: 2px;
 }
+.box-body.table-responsive {
+    box-shadow: none;
+}
+a.btn.btn-danger {
+    background: none;
+    border: none;
+}
 .breadcrumb {
     padding: 8px 15px;
     margin-bottom: 20px;

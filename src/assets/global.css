@@ -24,6 +24,10 @@ table.table-bordered.dataTable {
     max-width: none !important;
     margin: 20px 20px;
 }
+.nav-tabs>li.active>a{
+    background-color: #b0dbf5;
+    color:#000;
+}
 table.table-bordered.dataTable thead {
     /* color: #000 !important; */
     color: #6d6666 !important;
