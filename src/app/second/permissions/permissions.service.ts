@@ -15,6 +15,15 @@ addpermission:any;
 
 constructor(private http: HttpClient) { }
 
+store(addpermision) {
+  return this.http.post(`${this.baseUrl}/hr/permission/store`, { data: addpermision })
+    .pipe(map((res:any) => {
+      //this.adds.push(res['data']);
+      return res;
+    }),
+    catchError(this.handleError));
+}
+
   getAll() {
     return this.http.get(`${this.baseUrl}/hr/permission/allusers`).pipe(
       map((res) => {
