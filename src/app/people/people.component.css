@@ -23,6 +23,10 @@
     right: 10px;
     border-radius: 2px;
 }
+i.fa.fa-edit{
+    color:#1cc11c;
+    font-size: 16px;
+}
 .breadcrumb {
     padding: 8px 15px;
     margin-bottom: 20px;

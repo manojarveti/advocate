@@ -11,6 +11,10 @@
     margin: 0;
     font-size: 24px;
 }
+i.fa.fa-trash {
+    color: #ff0000;
+    font-size: 18px;
+}
 .content-header > .breadcrumb {
     float: right;
     background: transparent;
