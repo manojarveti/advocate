@@ -33,8 +33,8 @@
                                     </div>
                                     <div class="col-sm-6">
                                        
-                                        <div class="btn-group pull-right">
-                                            <a [routerLink]="['/main/contacts/addcontact']" class="btn btn-default" style="margin-left:10px;"><i
+                                        <div class="btn-group pull-right" *ngFor="let item2 of details;let i = index;">
+                                            <a *ngIf="item2.access.access31 == true" [routerLink]="['/main/contacts/addcontact']" class="btn btn-default" style="margin-left:10px;"><i
                                                     class="fa fa-plus"></i> Add New</a>
                                         </div>
                                     </div>
@@ -65,16 +65,16 @@
                                                 <td class="sorting_1">{{ (p - 1) * 10 + i +1 }}</td>
                                                 <td>{{item.name}}</td>
                                                 <td width="27%">
-                                                    <div>
-                                                        <a [routerLink]="['/main/contacts/viewcontact', item.id]" style="margin-left:20px;cursor: pointer;"
+                                                    <div *ngFor="let item2 of details;let i = index;">
+                                                        <a *ngIf="item2.access.access34 == true" [routerLink]="['/main/contacts/viewcontact', item.id]" style="margin-left:20px;cursor: pointer;"
                                                         data-toggle="tooltip" data-placement="bottom" title="View"><i class="fa fa-eye fa-lg"></i>
                                                         </a>
                                                         
-                                                        <a [routerLink]="['/main/contacts/editcontact', item.id]" style="margin-left:20px;cursor: pointer;"
+                                                        <a *ngIf="item2.access.access32 == true" [routerLink]="['/main/contacts/editcontact', item.id]" style="margin-left:20px;cursor: pointer;"
                                                         data-toggle="tooltip" data-placement="bottom" title="Edit"><i class="fa fa-edit fa-lg"></i>
                                                         </a>
                                                         
-                                                        <a (click)="deletecontactAdd(item.id)" style="margin-left:20px;cursor: pointer;"
+                                                        <a *ngIf="item2.access.access33 == true" (click)="deletecontactAdd(item.id)" style="margin-left:20px;cursor: pointer;"
                                                         data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fa fa-trash"></i>
                                                         </a>
                                                     </div>

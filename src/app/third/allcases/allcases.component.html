@@ -32,9 +32,9 @@
                   </div>
                   <div class="col-sm-6">
                     
-                    <div class="btn-group pull-right">
+                    <div class="btn-group pull-right" *ngFor="let item of details;let i = index;">
 
-                      <a class="btn btn-default" [routerLink]="['/main/cases/addcases']"><i class="fa fa-plus"></i> Add New</a>
+                      <a *ngIf="item.access.access5 == true" class="btn btn-default" [routerLink]="['/main/cases/addcases']"><i class="fa fa-plus"></i> Add New </a>
                     </div>
 
                   </div>
@@ -83,27 +83,27 @@
                         <td>{{item.client_name}}</td>
 
 
-                        <td>
+                        <td *ngFor="let item2 of details;let i = index;">
 
-                          <a [routerLink]="['/main/cases/viewcase',item.id]" style="margin-left:20px;"
+                          <a *ngIf="item2.access.access7 == true" [routerLink]="['/main/cases/viewcase',item.id]" style="margin-left:20px;"
                             data-toggle="tooltip" data-placement="bottom" title="View">
                             <i class="fa fa-eye fa-lg"></i>
                           </a>
 
 
-                          <a [routerLink]="['/main/cases/fees',item.id]" style="margin-left:20px;"
+                          <a *ngIf="item2.access.access8 == true" [routerLink]="['/main/cases/fees',item.id]" style="margin-left:20px;"
                           data-toggle="tooltip" data-placement="bottom" title="Fees"><i class="fa fa-inr fa-lg"></i>
                           </a>
 
-                          <a [routerLink]="['/main/cases/hearingdates',item.id]" style="margin-left:20px;"
+                          <a *ngIf="item2.access.access15 == true" [routerLink]="['/main/cases/hearingdates',item.id]" style="margin-left:20px;"
                           data-toggle="tooltip" data-placement="bottom" title="Hearing Date"><i class="fa fa-calendar fa-lg"></i> 
                           </a>
 
 
-                          <a [routerLink]="['/main/cases/editcases',item.id]" style="margin-left:20px;"
+                          <a *ngIf="item2.access.access6 == true" [routerLink]="['/main/cases/editcases',item.id]" style="margin-left:20px;"
                           data-toggle="tooltip" data-placement="bottom" title="Edit"><i class="fa fa-edit fa-lg"></i>
                           </a>
-                          <a [routerLink]="['/main/cases/archivedcases',item.id]" style="margin-left:20px;"
+                          <a *ngIf="item2.access.access9 == true" [routerLink]="['/main/cases/archivedcases',item.id]" style="margin-left:20px;"
                           data-toggle="tooltip" data-placement="bottom" title="Archived"><i class="fa fa-close fa-lg"></i>
                           </a>
                           <!-- <a class="btn bg-purple" style="margin-right: 3px;"><i class="fa fa-pencil"></i> Notes</a> -->

@@ -4,7 +4,8 @@ import { AddcaseService } from '../addcases/addcase.service';
 import Addcases from '../addcases/addcase';
 import { Router } from '@angular/router';
 declare var $:any;
-
+import { loginService } from '../../login/login.service';
+import { CookieService } from 'ngx-cookie-service';
 @Component({
   selector: 'app-fees',
   templateUrl: './fees.component.html',
@@ -48,9 +49,9 @@ export class FeesComponent implements OnInit {
   getinvam:any;
   id: number;
   private sub: any;
-  constructor(private route: ActivatedRoute,private addcaseService: AddcaseService, private router: Router, ) { 
-  
-  }
+  roleid;
+details:any;
+  constructor(private route: ActivatedRoute,private addcaseService: AddcaseService, private router: Router,private cookieService: CookieService,private loginService: loginService) { }
   fetchfee(id: string | number): void {
     this.addcaseService.fetchfees(+id).subscribe(
       (res: Addcases[]) => {
@@ -192,7 +193,21 @@ this.invoice.inv_no =  this.addcases[0].inv_no;
    this.gettodolist(this.id);
    this.getrecieptdolist(this.id);
    this.getrecinvoicedetails(this.id);
-  }
+   this.roleid  = this.cookieService.get('roleId');
+   this.getdetails(this.roleid);
+ }
+
+ getdetails(roleid){
+   this.loginService.fetchAll(+roleid).subscribe(
+     (res) => {
+       this.details = res;
+       // console.log(res.access);
+     },
+     (err) => {
+       this.error = err;
+     }
+   ); 
+ }
 
 
 }

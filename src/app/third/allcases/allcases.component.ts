@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AddcaseService } from '../addcases/addcase.service';
 import Addcases from '../addcases/addcase';
 import { Router } from '@angular/router';
+import { loginService } from '../../login/login.service';
+import { CookieService } from 'ngx-cookie-service';
 @Component({
   selector: 'app-allcases',
   templateUrl: './allcases.component.html',
@@ -20,10 +22,14 @@ export class AllcasesComponent implements OnInit {
     client_id: "",
     starred_cases:""
   }
-  constructor(private addcaseService: AddcaseService,private router: Router, ) { }
+  roleid;
+  details:any;
+  constructor(private cookieService: CookieService,private addcaseService: AddcaseService,private router: Router,private loginService: loginService ) { }
 
   ngOnInit() {
+    this.roleid  = this.cookieService.get('roleId');
     this.gettodolist();
+    this.getdetails(this.roleid);
   }
 
   gettodolist(): void {
@@ -37,6 +43,18 @@ export class AllcasesComponent implements OnInit {
     );
   }
   
+  getdetails(roleid){
+    this.loginService.fetchAll(+roleid).subscribe(
+      (res) => {
+        this.details = res;
+        // console.log(res.access);
+      },
+      (err) => {
+        this.error = err;
+      }
+    ); 
+  }
+
   starupdate(id: string | number) {
     this.resetErrors();
 

@@ -36,8 +36,8 @@
                     </div>
                     <div class="col-sm-6">
                      
-                            <div class="btn-group pull-right">
-                                <a class="btn btn-default" [routerLink]="['/main/master/court-category/addcourtcategory']"><i
+                            <div class="btn-group pull-right" *ngFor="let item2 of details;let i = index;">
+                                <a *ngIf="item2.access.access72 == true" class="btn btn-default" [routerLink]="['/main/master/court-category/addcourtcategory']"><i
                                     class="fa fa-plus"></i> Add New</a>
                               </div>
 
@@ -66,13 +66,13 @@
                           <td class="sorting_1">{{ (p - 1) * 10 + i +1 }}</td>
                           <td (click)="sort('name')">{{item.name}}</td>
                           <td width="27%">
-                            <div >
-                              <a [routerLink]="['/main/master/court-category/editcourtcategory/',item.id]"
+                            <div *ngFor="let item2 of details;let i = index;">
+                              <a *ngIf="item2.access.access73 == true" [routerLink]="['/main/master/court-category/editcourtcategory/',item.id]"
                               style="margin-left:20px;cursor: pointer;"
                               data-toggle="tooltip" data-placement="bottom" title="Edit"><i class="fa fa-edit fa-lg"></i>
                               </a>
                               
-                              <a (click)="deletecourtcategory(item.id)" style="margin-left:20px;cursor: pointer;"
+                              <a *ngIf="item2.access.access74 == true" (click)="deletecourtcategory(item.id)" style="margin-left:20px;cursor: pointer;"
                               data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fa fa-trash fa-lg"></i>
                               </a>
                             </div>

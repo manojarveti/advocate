@@ -3,6 +3,8 @@ import { AddcaseService } from '../addcases/addcase.service';
 import Addcases from '../addcases/addcase';
 import { Router } from '@angular/router';
 declare var $:any;
+import { loginService } from '../../login/login.service';
+import { CookieService } from 'ngx-cookie-service';
 @Component({
   selector: 'app-carchivedcases',
   templateUrl: './carchivedcases.component.html',
@@ -22,11 +24,28 @@ export class CarchivedcasesComponent implements OnInit {
     client_id: "",
     starred_cases:""
   }
-  constructor(private addcaseService: AddcaseService,private router: Router,) { }
+  roleid;
+details:any;
+  constructor(private addcaseService: AddcaseService,private router: Router,private cookieService: CookieService,private loginService: loginService) { }
 
   ngOnInit() {
     this.gettodolist();
+    this.roleid  = this.cookieService.get('roleId');
+    this.getdetails(this.roleid);
   }
+
+  getdetails(roleid){
+    this.loginService.fetchAll(+roleid).subscribe(
+      (res) => {
+        this.details = res;
+        // console.log(res.access);
+      },
+      (err) => {
+        this.error = err;
+      }
+    ); 
+  }
+
   gettodolist(): void {
     this.addcaseService.getarchived().subscribe(
       (res: Addcases[]) => {

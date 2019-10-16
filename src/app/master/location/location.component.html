@@ -31,8 +31,8 @@
                     </div>
                     <div class="col-sm-6">
                       
-                            <div class="btn-group pull-right">
-                                <a class="btn btn-default" routerLink='addlocation'><i class="fa fa-plus"></i> Add New</a>
+                            <div class="btn-group pull-right" *ngFor="let item2 of details;let i = index;">
+                                <a *ngIf="item2.access.access65 == true" class="btn btn-default" routerLink='addlocation'><i class="fa fa-plus"></i> Add New</a>
                               </div>
                     </div>
                   </div>
@@ -58,13 +58,13 @@
                           <td class="sorting_1">{{ (p - 1) * 10 + i +1 }}</td>
                           <td>{{item.location}}</td>
                           <td width="27%">
-                            <div>
-                              <a [routerLink]="['/main/master/location/editlocation/',item.id]"
+                            <div *ngFor="let item2 of details;let i = index;">
+                              <a *ngIf="item2.access.access66 == true" [routerLink]="['/main/master/location/editlocation/',item.id]"
                                 style="margin-left:20px;cursor: pointer;" data-toggle="tooltip" data-placement="bottom"
                                 title="Edit"><i class="fa fa-edit fa-lg"></i>
                               </a>
 
-                              <a (click)="deletelocation(item.id)" style="margin-left:20px;cursor: pointer;"
+                              <a *ngIf="item2.access.access67 == true" (click)="deletelocation(item.id)" style="margin-left:20px;cursor: pointer;"
                                 data-toggle="tooltip" data-placement="bottom" title="Delete"><i
                                   class="fa fa-trash fa-lg"></i>
                               </a>

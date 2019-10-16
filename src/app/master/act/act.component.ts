@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import Addact from './addact/addact';
 import { AddactService } from './addact/addact.service';
 declare var $:any;
+import { loginService } from '../../login/login.service';
+import { CookieService } from 'ngx-cookie-service';
 @Component({
   selector: 'app-act',
   templateUrl: './act.component.html',
@@ -19,10 +21,26 @@ user={
   name :"",
   description:""
 }
-  constructor(private addactService: AddactService) { }
+roleid;
+details:any;
+  constructor(private addactService: AddactService,private cookieService: CookieService,private loginService: loginService) { }
 
   ngOnInit() {
     this.gettodolist();
+    this.roleid  = this.cookieService.get('roleId');
+    this.getdetails(this.roleid);
+  }
+
+  getdetails(roleid){
+    this.loginService.fetchAll(+roleid).subscribe(
+      (res) => {
+        this.details = res;
+        // console.log(res.access);
+      },
+      (err) => {
+        this.error = err;
+      }
+    ); 
   }
 
   gettodolist(): void {

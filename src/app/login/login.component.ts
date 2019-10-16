@@ -71,12 +71,12 @@ export class LoginComponent  implements OnInit {
               this.cookieService.set('userId', res['data'][0]['id']);
               this.cookieService.set('email', res['data'][0]['email']);
               this.cookieService.set( 'name', res['data'][0]['username']);
-              if(res['data'][0]['user_role']<3){
-              this.router.navigate(['main/dashboard']);
+              if(res['data'][0]['user_role']==2){
+              this.router.navigate(['main/cdashboard']);
             }
             else {
               console.log(res['data'][0]['user_role']);
-              this.router.navigate(['main/cdashboard']);
+              this.router.navigate(['main/dashboard']);
             }
             }
         

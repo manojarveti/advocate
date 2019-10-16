@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import Addcases from '../addcases/addcase';
 import { AddcaseService } from '../addcases/addcase.service';
 import { ActivatedRoute, Router } from "@angular/router";
-
+import { loginService } from '../../login/login.service';
+import { CookieService } from 'ngx-cookie-service';
 @Component({
   selector: 'app-hearingdates',
   templateUrl: './hearingdates.component.html',
@@ -21,10 +22,12 @@ user={
   notes:"",
   case_id:""
 }
+roleid;
+details:any;
 subscribedParam = "initial value";
 id: number;
 private sub: any;
-  constructor( private router: Router, private activatedRoute: ActivatedRoute,private addcaseService: AddcaseService) {
+  constructor( private router: Router, private activatedRoute: ActivatedRoute,private addcaseService: AddcaseService,private cookieService: CookieService,private loginService: loginService) {
     this.activatedRoute.paramMap.subscribe(params => {
       this.subscribedParam = params.get("id");
       this.id = +params.get("id");
@@ -84,6 +87,20 @@ private sub: any;
   }
   ngOnInit() {
    this.fetchtodolist(this.id);
-  }
+   this.roleid  = this.cookieService.get('roleId');
+   this.getdetails(this.roleid);
+ }
+
+ getdetails(roleid){
+   this.loginService.fetchAll(+roleid).subscribe(
+     (res) => {
+       this.details = res;
+       // console.log(res.access);
+     },
+     (err) => {
+       this.error = err;
+     }
+   ); 
+ }
 
 }

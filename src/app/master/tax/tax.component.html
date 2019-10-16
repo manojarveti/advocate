@@ -38,8 +38,8 @@
                     <div class="col-sm-6 ">
                       
 
-                            <div class="btn-group pull-right">
-                                <a class="btn btn-default" [routerLink]="['/main/master/tax/addtax']"><i class="fa fa-plus"></i> Add New</a>
+                            <div class="btn-group pull-right" *ngFor="let item2 of details;let i = index;">
+                                <a *ngIf="item2.access.access135 == true" class="btn btn-default" [routerLink]="['/main/master/tax/addtax']"><i class="fa fa-plus"></i> Add New</a>
                               </div>        
                     </div>
                   </div>
@@ -63,13 +63,13 @@
                           <td>{{item.name}}</td>
                           <td>{{item.tax_percent}}</td>
                           <td width="27%">
-                            <div class="btn-group">
-                              <a [routerLink]="['/main/master/tax/edittax/',item.id]"
+                            <div class="btn-group" *ngFor="let item2 of details;let i = index;">
+                              <a *ngIf="item2.access.access136 == true" [routerLink]="['/main/master/tax/edittax/',item.id]"
                                 style="margin-left:20px;cursor: pointer;" data-toggle="tooltip" data-placement="bottom"
                                 title="Edit"><i class="fa fa-edit fa-lg"></i>
                               </a>
 
-                              <a (click)="deletetax(item.id)" style="margin-left:20px;cursor: pointer;"
+                              <a *ngIf="item2.access.access137 == true" (click)="deletetax(item.id)" style="margin-left:20px;cursor: pointer;"
                                 data-toggle="tooltip" data-placement="bottom" title="Delete"><i
                                   class="fa fa-trash fa-lg"></i>
                               </a>

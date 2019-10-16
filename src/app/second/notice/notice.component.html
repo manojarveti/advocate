@@ -32,8 +32,8 @@
                   </div>
                   <div class="col-sm-6">
                    
-                    <div class="btn-group pull-right">
-                      <a [routerLink]="['/main/hrmange/notice/addnotice']" class="btn btn-default"><i class="fa fa-plus"></i> Add
+                    <div class="btn-group pull-right" *ngFor="let item2 of details;let i = index;">
+                      <a *ngIf="item2.access.access130 == true" [routerLink]="['/main/hrmange/notice/addnotice']" class="btn btn-default"><i class="fa fa-plus"></i> Add
                         New</a>
                     </div>
 
@@ -65,21 +65,21 @@
                         <td>{{item.date_time }}</td>
 
                         <td width="50%">
-                          <div class="btn-group">
+                          <div class="btn-group" *ngFor="let item2 of details;let i = index;">
 
-                            <a [routerLink]="['/main/hrmange/notice/viewnotice',item.id]" style="margin-left:20px;"
+                            <a *ngIf="item2.access.access133 == true" [routerLink]="['/main/hrmange/notice/viewnotice',item.id]" style="margin-left:20px;"
                               data-toggle="tooltip" data-placement="bottom" title="View">
                               <i class="fa fa-eye fa-lg"></i>
                             </a>
 
 
-                            <a [routerLink]="['/main/hrmange/notice/editnotice',item.id]" style="margin-left:20px;"
+                            <a *ngIf="item2.access.access131 == true" [routerLink]="['/main/hrmange/notice/editnotice',item.id]" style="margin-left:20px;"
                               data-toggle="tooltip" data-placement="bottom" title="Edit">
                               <i class="fa fa-edit fa-lg"></i>
                             </a>
 
 
-                            <a (click)="deletenotice(item.id)" style="margin-left:20px;cursor: pointer;"
+                            <a *ngIf="item2.access.access132 == true" (click)="deletenotice(item.id)" style="margin-left:20px;cursor: pointer;"
                               data-toggle="tooltip" data-placement="bottom" title="Delete"><i
                                 class="fa fa-trash fa-lg"></i>
                             </a>

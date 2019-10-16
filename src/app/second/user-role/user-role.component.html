@@ -27,8 +27,8 @@
                                     </div>
                                     <div class="col-sm-6">
                                        
-                                        <div class="btn-group pull-right">
-                                            <a class="btn btn-default" [routerLink]="['/main/hrmange/user-role/adduserrole']"><i
+                                        <div class="btn-group pull-right" *ngFor="let item2 of details;let i = index;">
+                                            <a *ngIf="item2.access.access57 == true" class="btn btn-default" [routerLink]="['/main/hrmange/user-role/adduserrole']"><i
                                                     class="fa fa-plus"></i> Add New</a>
                                         </div>
                                     </div>
@@ -59,14 +59,14 @@
                                                 <td class="sorting_1">{{ (p - 1) * 10 + i +1 }}</td>
                                                 <td>{{item.user_type}}</td>
                                                 <td>
-                                                    <div>
+                                                    <div *ngFor="let item2 of details;let j = index;">
                                                         <p>
-                                                            <a [routerLink]="['/main/hrmange/user-role/edituserrole',item.id]"
+                                                            <a *ngIf="item2.access.access58 == true" [routerLink]="['/main/hrmange/user-role/edituserrole',item.id]"
                                                                 style="margin-left:20px;" data-toggle="tooltip"
                                                                 data-placement="bottom" title="Edit"><i
                                                                     class="fa fa-edit fa-lg"></i>
                                                             </a>
-                                                            <a *ngIf="i >= '2'" (click)="deleteuserrole(item.id)"
+                                                            <a *ngIf="i >= '2' && item2.access.access59 == true" (click)="deleteuserrole(item.id)"
                                                                 style="margin-left:20px;cursor: pointer;"
                                                                 data-toggle="tooltip" data-placement="bottom"
                                                                 title="Delete"><i class="fa fa-trash fa-lg"></i></a></p>

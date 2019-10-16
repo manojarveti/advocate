@@ -33,8 +33,8 @@
                     </div>
                     <div class="col-sm-6">
                       
-                            <div class="btn-group pull-right">
-                                <a class="btn btn-default" [routerLink]="['/main/master/payment-mode/addpaymentmode']"><i
+                            <div class="btn-group pull-right" *ngFor="let item2 of details;let i = index;">
+                                <a *ngIf="item2.access.access88 == true" class="btn btn-default" [routerLink]="['/main/master/payment-mode/addpaymentmode']"><i
                                     class="fa fa-plus"></i> Add New</a>
                     
                               </div>
@@ -69,13 +69,13 @@
                           <td class="sorting_1">{{ (p - 1) * 10 + i +1 }}</td>
                           <td>{{item.name}}</td>
                           <td width="27%">
-                            <div>
-                              <a [routerLink]="['/main/master/payment-mode/editpaymentmode/',item.id]"
+                            <div *ngFor="let item2 of details;let i = index;">
+                              <a *ngIf="item2.access.access89 == true" [routerLink]="['/main/master/payment-mode/editpaymentmode/',item.id]"
                               style="margin-left:20px;cursor: pointer;"
                               data-toggle="tooltip" data-placement="bottom" title="Edit"><i class="fa fa-edit fa-lg"></i>
                               </a>
                               
-                              <a (click)="deletepaymentmode(item.id)"
+                              <a *ngIf="item2.access.access90 == true" (click)="deletepaymentmode(item.id)"
                               style="margin-left:20px;cursor: pointer;"
                               data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fa fa-trash fa-lg"></i>
                               </a>

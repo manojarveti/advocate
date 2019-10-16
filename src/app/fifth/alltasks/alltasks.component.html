@@ -35,9 +35,9 @@
                   <div class="col-sm-6">
                    
 
-                    <div class="btn-group pull-right">
+                    <div class="btn-group pull-right" *ngFor="let item2 of details;let i = index;">
 
-                      <a [routerLink]="['/main/tasks/addtasks']" class="btn btn-default"><i class="fa fa-plus"></i> Add New</a>
+                      <a *ngIf="item2.access.access100 == true" [routerLink]="['/main/tasks/addtasks']" class="btn btn-default"><i class="fa fa-plus"></i> Add New</a>
             
             
                     </div>
@@ -82,23 +82,23 @@
                         <!-- <small class="label pull-right bg-red">Over Due</small> -->
                         <td>{{item.created_by}} <small class="label pull-right bg-blue">Admin</small></td>
                         <td width="50%">
-                          <div class="btn-group">
-                            <a [routerLink]="['/main/tasks/viewtasks', item.id]"
+                          <div class="btn-group" *ngFor="let item2 of details;let i = index;">
+                            <a *ngIf="item2.access.access102 == true" [routerLink]="['/main/tasks/viewtasks', item.id]"
                               style="margin-left:20px;cursor: pointer;" data-toggle="tooltip" data-placement="bottom"
                               title="View"><i class="fa fa-eye fa-lg"></i>
                             </a>
 
-                            <a [routerLink]="['/main/tasks/edittasks', item.id]"
+                            <a *ngIf="item2.access.access101 == true" [routerLink]="['/main/tasks/edittasks', item.id]"
                               style="margin-left:20px;cursor: pointer;" data-toggle="tooltip" data-placement="bottom"
                               title="Edit"><i class="fa fa-edit fa-lg"></i>
                             </a>
 
-                            <a (click)="deletetask(item.id)" style="margin-left:20px;cursor: pointer;"
+                            <a *ngIf="item2.access.access103 == true" (click)="deletetask(item.id)" style="margin-left:20px;cursor: pointer;"
                               data-toggle="tooltip" data-placement="bottom" title="Delete"><i
                                 class="fa fa-trash fa-lg"></i>
                             </a>
 
-                            <a [routerLink]="['/main/tasks/commenttasks', item.id]"
+                            <a *ngIf="item2.access.access104 == true" [routerLink]="['/main/tasks/commenttasks', item.id]"
                               style="margin-left:20px;cursor: pointer;" data-toggle="tooltip" data-placement="bottom"
                               title="Comments"><i class="fa fa-comments fa-lg"></i>
                             </a>

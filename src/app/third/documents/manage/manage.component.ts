@@ -3,7 +3,8 @@ import Adddocuments from '../adddocuments/adddocuments';
 import { AdddocumentService } from '../adddocuments/adddocuments.service';
 import { ActivatedRoute,Router } from '@angular/router';
 declare var $:any;
-
+import { loginService } from '../../../login/login.service';
+import { CookieService } from 'ngx-cookie-service';
 @Component({
   selector: 'app-manage',
   templateUrl: './manage.component.html',
@@ -23,10 +24,12 @@ adddocuments2:any;
     title:"",
     userid:""
   }
+  roleid;
+  details:any;
   id: number;
 private sub: any;
   subscribedParam = "initial value";
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, private adddocumentservice: AdddocumentService) {
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private adddocumentservice: AdddocumentService,private cookieService: CookieService,private loginService: loginService) { 
     this.activatedRoute.paramMap.subscribe(params => {
       this.subscribedParam = params.get("id");
       this.id = +params.get("id");
@@ -117,6 +120,20 @@ getFileDetails(e) {
   }
   ngOnInit() {
     this.fetchtodolist(this.id);
+    this.roleid  = this.cookieService.get('roleId');
+    this.getdetails(this.roleid);
+  }
+
+  getdetails(roleid){
+    this.loginService.fetchAll(+roleid).subscribe(
+      (res) => {
+        this.details = res;
+        // console.log(res.access);
+      },
+      (err) => {
+        this.error = err;
+      }
+    ); 
   }
 
 

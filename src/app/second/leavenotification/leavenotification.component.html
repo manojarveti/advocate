@@ -60,19 +60,19 @@
                             <div *ngIf="item.status == 'accept'">Accepted</div>
                                                 </td>
                                                 <td class="col-md-3">
-                                                    <div class="btn-group">
+                                                    <div class="btn-group" *ngFor="let item2 of details;let i = index;">
 
-                                                        <a (click)="statusupdate(item.id)" *ngIf="item.status== null" style="margin-left:20px;cursor: pointer;"
+                                                        <a  (click)="statusupdate(item.id)" *ngIf="item.status== null && item2.access.access114 == true" style="margin-left:20px;cursor: pointer;"
                                                             data-toggle="tooltip" data-placement="bottom"
                                                             title="Approve"><i class="fa fa-check fa-lg"></i>
                                                         </a>
 
-                                                        <a (click)="statusupdate(item.id)" *ngIf="item.status== 'accept'" style="margin-left:20px;cursor: pointer;"
+                                                        <a  (click)="statusupdate(item.id)" *ngIf="item.status== 'accept' && item2.access.access114 == true" style="margin-left:20px;cursor: pointer;"
                                                             data-toggle="tooltip" data-placement="bottom"
                                                             title="Pending"><i class="fa fa-clock-o fa-lg"></i>
                                                         </a>
 
-                                                        <a style="margin-left:20px;cursor: pointer;"
+                                                        <a *ngIf="item2.access.access115 == true" style="margin-left:20px;cursor: pointer;"
                                                             data-toggle="tooltip" data-placement="bottom"
                                                             title="Delete"><i class="fa fa-trash fa-lg"></i>
                                                         </a>

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import Addleaves from './Addleaves/addleaves';
 import { AddleavesService } from './addleaves/addleaves.service';
 declare var $:any;
+import { loginService } from '../../login/login.service';
+import { CookieService } from 'ngx-cookie-service';
 @Component({
   selector: 'app-leavetype',
   templateUrl: './leavetype.component.html',
@@ -20,10 +22,26 @@ user={
   leaves:""
 }
 searchText;
-  constructor(private addleavesService: AddleavesService) { }
+roleid;
+details:any;
+  constructor(private addleavesService: AddleavesService,private cookieService: CookieService,private loginService: loginService) { }
 
   ngOnInit() {
     this.gettodolist();
+    this.roleid  = this.cookieService.get('roleId');
+    this.getdetails(this.roleid);
+  }
+
+  getdetails(roleid){
+    this.loginService.fetchAll(+roleid).subscribe(
+      (res) => {
+        this.details = res;
+        // console.log(res.access);
+      },
+      (err) => {
+        this.error = err;
+      }
+    ); 
   }
   
   gettodolist(): void {

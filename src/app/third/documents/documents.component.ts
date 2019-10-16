@@ -3,6 +3,8 @@ import { AdddocumentService } from './adddocuments/adddocuments.service';
 import Addddocuments from './adddocuments/adddocuments';
 import { Router } from '@angular/router';
 declare var $:any;
+import { loginService } from '../../login/login.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-documents',
@@ -21,14 +23,30 @@ export class DocumentsComponent implements OnInit {
     type: "",
     case: ""
   }
+  roleid;
+details:any;
   attachdata:any;
   id: number;
   adddocuments2:any;
   private sub: any;
-  constructor(private adddocumentservice: AdddocumentService,private router: Router, ) { }
+  constructor(private adddocumentservice: AdddocumentService,private router: Router,private cookieService: CookieService,private loginService: loginService) { }
 
   ngOnInit() {
     this.gettodolist();
+    this.roleid  = this.cookieService.get('roleId');
+    this.getdetails(this.roleid);
+  }
+
+  getdetails(roleid){
+    this.loginService.fetchAll(+roleid).subscribe(
+      (res) => {
+        this.details = res;
+        // console.log(res.access);
+      },
+      (err) => {
+        this.error = err;
+      }
+    ); 
   }
 
   deletedocuments(data: string | number) {

@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FirstService } from './first.service';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
-
+import { loginService } from '../login/login.service';
 declare var $: any;
 
 @Component({
@@ -51,7 +51,9 @@ export class FirstComponent implements OnInit {
   }
   leavelist: any;
   addapplyleave: any;
-  constructor(private firstService: FirstService, private cookieService: CookieService, private router: Router, ) {
+  roleid;
+details:any;
+  constructor(private firstService: FirstService, private cookieService: CookieService, private router: Router,private loginService: loginService) {
     this.gettodaylistall();
     this.gettodaycasesall();
     this.getnotices();
@@ -147,6 +149,20 @@ export class FirstComponent implements OnInit {
       }
     });
     this.getleavelist();
+    this.roleid  = this.cookieService.get('roleId');
+    this.getdetails(this.roleid);
+  }
+
+  getdetails(roleid){
+    this.loginService.fetchAll(+roleid).subscribe(
+      (res) => {
+        this.details = res;
+        // console.log(res.access);
+      },
+      (err) => {
+        this.error = err;
+      }
+    ); 
   }
 
   gettodolist(id: string | number): void {

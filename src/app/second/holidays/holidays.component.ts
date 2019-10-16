@@ -1,14 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { Addholidayservice } from './addholidays/addholidays.service';
 declare var $:any;
+import { loginService } from '../../login/login.service';
+import { CookieService } from 'ngx-cookie-service';
 @Component({
   selector: 'app-holidays',
   templateUrl: './holidays.component.html',
   styleUrls: ['./holidays.component.css']
 })
 export class HolidaysComponent implements OnInit {
-
-  constructor(private addholidayservice :Addholidayservice) { }
+  roleid;
+  details:any;
+  constructor(private addholidayservice :Addholidayservice,private cookieService: CookieService,private loginService: loginService) { }
 addholidaysjan :any;
 addholidaysfeb :any;
 addholidaysmar :any;
@@ -38,7 +41,22 @@ holidaydata:any;
     this.gettodolistoct();
     this.gettodolistnov();
     this.gettodolistdec();
+    this.roleid  = this.cookieService.get('roleId');
+    this.getdetails(this.roleid);
   }
+
+  getdetails(roleid){
+    this.loginService.fetchAll(+roleid).subscribe(
+      (res) => {
+        this.details = res;
+        // console.log(res.access);
+      },
+      (err) => {
+        this.error = err;
+      }
+    ); 
+  }
+  
   gettodolistjan(): void {
     this.addholidayservice.getholidaysjan().subscribe(
       (res:any) => {

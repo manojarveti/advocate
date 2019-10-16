@@ -34,8 +34,8 @@
                   </div>
                   <div class="col-sm-6">
                    
-                    <div class="btn-group pull-right">
-                      <a [routerLink]="['/main/appointments/addappointment']" class="btn btn-default"><i class="fa fa-plus"></i> Add
+                    <div class="btn-group pull-right" *ngFor="let item2 of details;let i = index;">
+                      <a *ngIf="item2.access.access36 == true" [routerLink]="['/main/appointments/addappointment']" class="btn btn-default"><i class="fa fa-plus"></i> Add
                         New</a>
             
                     </div>
@@ -77,20 +77,20 @@
                         <td width="auto">{{item.date_time}}</td>
                         <td width="auto">{{item.notes}}</td>
                         <td width="30%">
-                          <div class="btn-group">
+                          <div class="btn-group" *ngFor="let item2 of details;let i = index;">
 
-                            <a [routerLink]="['/main/appointments/viewappointment',item.id]"
+                            <a *ngIf="item2.access.access39 == true" [routerLink]="['/main/appointments/viewappointment',item.id]"
                               style="margin-left:20px;cursor: pointer;" data-toggle="tooltip" data-placement="bottom"
                               title="View"><i class="fa fa-eye fa-lg"></i>
                             </a>
 
-                            <a [routerLink]="['/main/appointments/editappointment',item.id]"
+                            <a *ngIf="item2.access.access37 == true" [routerLink]="['/main/appointments/editappointment',item.id]"
                               style="margin-left:20px;cursor: pointer;" data-toggle="tooltip" data-placement="bottom"
                               title="Edit"><i class="fa fa-edit fa-lg"></i>
                             </a>
 
 
-                            <a (click)="deleteappointmentadd(item.id)" style="margin-left:20px;cursor: pointer;"
+                            <a *ngIf="item2.access.access38 == true" (click)="deleteappointmentadd(item.id)" style="margin-left:20px;cursor: pointer;"
                               data-toggle="tooltip" data-placement="bottom" title="Delete"><i
                                 class="fa fa-trash fa-lg"></i>
                             </a>

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import Adduserrole from './Adduserrole/adduserrole';
 import { AdduserroleService } from './adduserrole/adduserrole.service';
 declare var $:any;
+import { loginService } from '../../login/login.service';
+import { CookieService } from 'ngx-cookie-service';
 @Component({
   selector: 'app-user-role',
   templateUrl: './user-role.component.html',
@@ -18,10 +20,26 @@ export class UserRoleComponent implements OnInit {
 user={
   user_type :"",
 }
-  constructor(private adduserroleService: AdduserroleService) { }
+roleid;
+details:any;
+  constructor(private adduserroleService: AdduserroleService,private cookieService: CookieService,private loginService: loginService) { }
 
   ngOnInit() {
     this.gettodolist();
+    this.roleid  = this.cookieService.get('roleId');
+    this.getdetails(this.roleid);
+  }
+
+  getdetails(roleid){
+    this.loginService.fetchAll(+roleid).subscribe(
+      (res) => {
+        this.details = res;
+        // console.log(res.access);
+      },
+      (err) => {
+        this.error = err;
+      }
+    ); 
   }
   
   gettodolist(): void {

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import Addcasestages from './addcasestages/addcasestages';
 import { AddcasestagesService } from './addcasestages/addcasestages.service';
 declare var $:any;
+import { loginService } from '../../login/login.service';
+import { CookieService } from 'ngx-cookie-service';
 @Component({
   selector: 'app-case-stages',
   templateUrl: './case-stages.component.html',
@@ -19,11 +21,27 @@ export class CaseStagesComponent implements OnInit {
 user={
   name :""
 }
+roleid;
+details:any;
 
-  constructor(private addcasestagesService: AddcasestagesService) { }
+  constructor(private addcasestagesService: AddcasestagesService,private cookieService: CookieService,private loginService: loginService) { }
 
   ngOnInit() {
     this.gettodolist();
+    this.roleid  = this.cookieService.get('roleId');
+    this.getdetails(this.roleid);
+  }
+
+  getdetails(roleid){
+    this.loginService.fetchAll(+roleid).subscribe(
+      (res) => {
+        this.details = res;
+        // console.log(res.access);
+      },
+      (err) => {
+        this.error = err;
+      }
+    ); 
   }
   
   gettodolist(): void {

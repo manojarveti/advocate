@@ -202,26 +202,26 @@
 				</div>
 			</section>
 			<section class="col-lg-6 col-sm-12 col-xs-12">
-				<div class="box box-solid">
+				<div class="box box-solid" *ngFor="let item2 of details;let i = index;">
 					<div class="box-header with-border">
 						<i class="fa fa-user"></i>
 						<h3 class="box-title">Attendance</h3>
 					</div>
 					<div class="box-body">
-						<a href="#mark_in" *ngIf="edited" class="btn bg-olive btn-flat margin markin"
+						<a  href="#mark_in" *ngIf="edited && item2.access.access116 == true" class="btn bg-olive btn-flat margin markin"
 							data-toggle="modal"> <i class="fa fa-sign-in"></i> Mark In</a>
 
-						<a href="#mark_out" *ngIf="edited1" class="btn bg-orange btn-flat margin markout"
+						<a  href="#mark_out" *ngIf="edited1 && item2.access.access117 == true" class="btn bg-orange btn-flat margin markout"
 							data-toggle="modal"> <i class="fa fa-sign-out"></i> Mark Out</a>
 
-						<a href="#apply_leave" class="btn bg-purple btn-flat margin" data-toggle="modal"> <i
+						<a *ngIf="item2.access.access120 == true" href="#apply_leave" class="btn bg-purple btn-flat margin" data-toggle="modal"> <i
 								class="fa fa-arrow-circle-up"></i> Apply Leave</a>
 					</div>
 					<div class="box-footer clearfix no-border">
-						<a [routerLink]="['/main/hrmange/attendance']" style="padding-right:7px"
+						<a *ngIf="item2.access.access118 == true" [routerLink]="['/main/hrmange/attendance']" style="padding-right:7px"
 							class="btn btn-default"><i class="fa fa-user"></i> My
 							Attendance</a>
-						<a class="btn btn-default pull-right"><i class="fa fa-plus"></i> My Leaves</a>
+						<a *ngIf="item2.access.access119 == true" class="btn btn-default pull-right"><i class="fa fa-plus"></i> My Leaves</a>
 					</div>
 				</div>
 			</section>

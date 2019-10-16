@@ -3,6 +3,8 @@ import Addbank from './addbank/addbank';
 import { AddbankService } from './addbank/addbank.service';
 import { ActivatedRoute, Router } from "@angular/router";
 declare var $:any;
+import { loginService } from '../../../login/login.service';
+import { CookieService } from 'ngx-cookie-service';
 @Component({
   selector: 'app-bankdetails',
   templateUrl: './bankdetails.component.html',
@@ -23,11 +25,12 @@ user={
   pan_number:"",
   branch:""
 }
-
+roleid;
+details:any;
 subscribedParam = "initial value";
 id: number;
 private sub: any;
-constructor(private route: ActivatedRoute,private addbankService: AddbankService, private router: Router, private activatedRoute: ActivatedRoute) {
+constructor(private route: ActivatedRoute,private addbankService: AddbankService, private router: Router, private activatedRoute: ActivatedRoute,private cookieService: CookieService,private loginService: loginService) {
   this.activatedRoute.paramMap.subscribe(params => {
     this.subscribedParam = params.get("id");
     // console.log(this.subscribedParam);
@@ -52,7 +55,21 @@ ngOnInit() {
     // In a real app: dispatch action to load the details here.
  });
  this.gettodolist(this.id);
-}
+ this.roleid  = this.cookieService.get('roleId');
+    this.getdetails(this.roleid);
+  }
+
+  getdetails(roleid){
+    this.loginService.fetchAll(+roleid).subscribe(
+      (res) => {
+        this.details = res;
+        // console.log(res.access);
+      },
+      (err) => {
+        this.error = err;
+      }
+    ); 
+  }
 
 
 deletebank(data: string | number) {

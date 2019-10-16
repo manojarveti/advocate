@@ -10,8 +10,8 @@
 <section class="content">
   <div class="row" style="margin-bottom:10px;">
     <div class="col-xs-12">
-      <div class="btn-group pull-right">
-        <a [routerLink]="['/main/hrmange/holidays/addholidays']" class="btn btn-default"><i class="fa fa-plus"></i> Add New</a>
+      <div class="btn-group pull-right" *ngFor="let item2 of details;let i = index;">
+        <a *ngIf="item2.access.access127 == true" [routerLink]="['/main/hrmange/holidays/addholidays']" class="btn btn-default"><i class="fa fa-plus"></i> Add New</a>
 
       </div>
     </div>
@@ -120,8 +120,8 @@
                               <td> {{item.dates}}</td>
                               <td> {{item.name}} </td>
                               <td> {{item.dayname}}</td>
-                              <td>
-                                <a class="btn btn-danger" style="margin-left:20px;" (click)="deleteholiday(item.id)">
+                              <td *ngFor="let item2 of details;let i = index;">
+                                <a *ngIf="item2.access.access128 == true" class="btn btn-danger" style="margin-left:20px;" (click)="deleteholiday(item.id)">
                                   <i class="fa fa-trash"></i> </a>
                               </td>
                             </tr>
@@ -159,8 +159,8 @@
                                   <td> {{item.dates}}</td>
                                   <td> {{item.name}} </td>
                                   <td> {{item.dayname}}</td>
-                                  <td>
-                                    <a class="btn btn-danger" style="margin-left:20px;" (click)="deleteholiday(item.id)">
+                                  <td *ngFor="let item2 of details;let i = index;">
+                                    <a *ngIf="item2.access.access128 == true" class="btn btn-danger" style="margin-left:20px;" (click)="deleteholiday(item.id)">
                                       <i class="fa fa-trash"></i> </a>
                                   </td>
                                 </tr>
@@ -196,8 +196,8 @@
                                   <td> {{item.dates}}</td>
                                   <td> {{item.name}} </td>
                                   <td> {{item.dayname}}</td>
-                                  <td>
-                                    <a class="btn btn-danger" style="margin-left:20px;" (click)="deleteholiday(item.id)">
+                                  <td *ngFor="let item2 of details;let i = index;">
+                                    <a *ngIf="item2.access.access128 == true" class="btn btn-danger" style="margin-left:20px;" (click)="deleteholiday(item.id)">
                                       <i class="fa fa-trash"></i> </a>
                                   </td>
                                 </tr>
@@ -233,8 +233,8 @@
                                   <td> {{item.dates}}</td>
                                   <td> {{item.name}} </td>
                                   <td> {{item.dayname}}</td>
-                                  <td>
-                                    <a class="btn btn-danger" style="margin-left:20px;" (click)="deleteholiday(item.id)">
+                                  <td *ngFor="let item2 of details;let i = index;">
+                                    <a *ngIf="item2.access.access128 == true" class="btn btn-danger" style="margin-left:20px;" (click)="deleteholiday(item.id)">
                                       <i class="fa fa-trash"></i> </a>
                                   </td>
                                 </tr>
@@ -270,8 +270,8 @@
                                   <td> {{item.dates}}</td>
                                   <td> {{item.name}} </td>
                                   <td> {{item.dayname}}</td>
-                                  <td>
-                                    <a class="btn btn-danger" style="margin-left:20px;" (click)="deleteholiday(item.id)">
+                                  <td *ngFor="let item2 of details;let i = index;">
+                                    <a *ngIf="item2.access.access128 == true" class="btn btn-danger" style="margin-left:20px;" (click)="deleteholiday(item.id)">
                                       <i class="fa fa-trash"></i> </a>
                                   </td>
                                 </tr>
@@ -307,8 +307,8 @@
                                   <td> {{item.dates}}</td>
                                   <td> {{item.name}} </td>
                                   <td> {{item.dayname}}</td>
-                                  <td>
-                                    <a class="btn btn-danger" style="margin-left:20px;" (click)="deleteholiday(item.id)">
+                                  <td *ngFor="let item2 of details;let i = index;">
+                                    <a *ngIf="item2.access.access128 == true" class="btn btn-danger" style="margin-left:20px;" (click)="deleteholiday(item.id)">
                                       <i class="fa fa-trash"></i> </a>
                                   </td>
                                 </tr>
@@ -344,8 +344,8 @@
                                   <td> {{item.dates}}</td>
                                   <td> {{item.name}} </td>
                                   <td> {{item.dayname}}</td>
-                                  <td>
-                                    <a class="btn btn-danger" style="margin-left:20px;" (click)="deleteholiday(item.id)">
+                                  <td *ngFor="let item2 of details;let i = index;">
+                                    <a *ngIf="item2.access.access128 == true" class="btn btn-danger" style="margin-left:20px;" (click)="deleteholiday(item.id)">
                                       <i class="fa fa-trash"></i> </a>
                                   </td>
                                 </tr>
@@ -381,8 +381,8 @@
                                   <td> {{item.dates}}</td>
                                   <td> {{item.name}} </td>
                                   <td> {{item.dayname}}</td>
-                                  <td>
-                                    <a class="btn btn-danger" style="margin-left:20px;" (click)="deleteholiday(item.id)">
+                                  <td *ngFor="let item2 of details;let i = index;">
+                                    <a *ngIf="item2.access.access128 == true" class="btn btn-danger" style="margin-left:20px;" (click)="deleteholiday(item.id)">
                                       <i class="fa fa-trash"></i> </a>
                                   </td>
                                 </tr>
@@ -418,8 +418,8 @@
                                   <td> {{item.dates}}</td>
                                   <td> {{item.name}} </td>
                                   <td> {{item.dayname}}</td>
-                                  <td>
-                                    <a class="btn btn-danger" style="margin-left:20px;" (click)="deleteholiday(item.id)">
+                                  <td *ngFor="let item2 of details;let i = index;">
+                                    <a *ngIf="item2.access.access128 == true" class="btn btn-danger" style="margin-left:20px;" (click)="deleteholiday(item.id)">
                                       <i class="fa fa-trash"></i> </a>
                                   </td>
                                 </tr>
@@ -455,8 +455,8 @@
                                   <td> {{item.dates}}</td>
                                   <td> {{item.name}} </td>
                                   <td> {{item.dayname}}</td>
-                                  <td>
-                                    <a class="btn btn-danger" style="margin-left:20px;" (click)="deleteholiday(item.id)">
+                                  <td *ngFor="let item2 of details;let i = index;">
+                                    <a *ngIf="item2.access.access128 == true" class="btn btn-danger" style="margin-left:20px;" (click)="deleteholiday(item.id)">
                                       <i class="fa fa-trash"></i> </a>
                                   </td>
                                 </tr>
@@ -492,8 +492,8 @@
                                   <td> {{item.dates}}</td>
                                   <td> {{item.name}} </td>
                                   <td> {{item.dayname}}</td>
-                                  <td>
-                                    <a class="btn btn-danger" style="margin-left:20px;" (click)="deleteholiday(item.id)">
+                                  <td *ngFor="let item2 of details;let i = index;">
+                                    <a *ngIf="item2.access.access128 == true" class="btn btn-danger" style="margin-left:20px;" (click)="deleteholiday(item.id)">
                                       <i class="fa fa-trash"></i> </a>
                                   </td>
                                 </tr>
@@ -529,8 +529,8 @@
                                   <td> {{item.dates}}</td>
                                   <td> {{item.name}} </td>
                                   <td> {{item.dayname}}</td>
-                                  <td>
-                                    <a class="btn btn-danger" style="margin-left:20px;" (click)="deleteholiday(item.id)">
+                                  <td *ngFor="let item2 of details;let i = index;">
+                                    <a *ngIf="item2.access.access128 == true" class="btn btn-danger" style="margin-left:20px;" (click)="deleteholiday(item.id)">
                                       <i class="fa fa-trash"></i> </a>
                                   </td>
                                 </tr>

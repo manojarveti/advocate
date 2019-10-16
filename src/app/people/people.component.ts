@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import Add from './add/add';
 import { AddService } from './add/add.service';
 declare var $:any;
+import { loginService } from '../login/login.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-people',
@@ -22,11 +24,27 @@ user={
   description:"",
   date_time :""
 }
-  constructor(private addService: AddService) {
+roleid;
+details:any;
+  constructor(private addService: AddService,private cookieService: CookieService,private loginService: loginService) {
   }
 
   ngOnInit() {
     this.gettodolist();
+    this.roleid  = this.cookieService.get('roleId');
+    this.getdetails(this.roleid);
+  }
+
+  getdetails(roleid){
+    this.loginService.fetchAll(+roleid).subscribe(
+      (res) => {
+        this.details = res;
+        // console.log(res.access);
+      },
+      (err) => {
+        this.error = err;
+      }
+    ); 
   }
 
   gettodolist(): void {

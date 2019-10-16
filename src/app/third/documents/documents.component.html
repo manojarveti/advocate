@@ -37,9 +37,9 @@
                   </div>
                   <div class="col-sm-6">
                     
-                    <div class="btn-group pull-right">
+                    <div class="btn-group pull-right" *ngFor="let item2 of details;let i = index;">
 
-                      <a class="btn btn-default" [routerLink]="['/main/cases/documents/adddocuments']"><i class="fa fa-plus"></i>
+                      <a *ngIf="item2.access.access107 == true" class="btn btn-default" [routerLink]="['/main/cases/documents/adddocuments']"><i class="fa fa-plus"></i>
                         Add New</a>
             
                     </div>
@@ -68,17 +68,17 @@
                         <td>{{item.type}}</td>
                         <td><a>{{item.case_name}}</a></td>
                         <td class="col-md-3">
-                          <div>
+                          <div *ngFor="let item2 of details;let i = index;">
 
-                            <a [routerLink]="['/main/cases/documents/manage',item.id]" style="margin-left:20px;cursor: pointer;"
+                            <a *ngIf="item2.access.access110 == true" [routerLink]="['/main/cases/documents/manage',item.id]" style="margin-left:20px;cursor: pointer;"
                             data-toggle="tooltip" data-placement="bottom" title="Manage"><i class="fa fa-chain fa-lg"></i>
                               </a>
 
-                            <a [routerLink]="['/main/cases/documents/editdocuments',item.id]" style="margin-left:20px;cursor: pointer;"
+                            <a *ngIf="item2.access.access108 == true" [routerLink]="['/main/cases/documents/editdocuments',item.id]" style="margin-left:20px;cursor: pointer;"
                             data-toggle="tooltip" data-placement="bottom" title="Edit"><i class="fa fa-edit fa-lg"></i>
                               </a>
 
-                            <a (click)="deletedocuments(item.id)" style="margin-left:20px;cursor: pointer;"
+                            <a *ngIf="item2.access.access109 == true" (click)="deletedocuments(item.id)" style="margin-left:20px;cursor: pointer;"
                             data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fa fa-trash fa-lg"></i> </a>
 
                           </div>

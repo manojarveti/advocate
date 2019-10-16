@@ -108,13 +108,13 @@
                         <td class="sorting_1">{{ (p - 1) * 10 + i +1 }}</td>
                         <td>{{item.document_name}}</td>
                         <td class="col-md-3">
-                          <div class="btn-group">
+                          <div class="btn-group" *ngFor="let item2 of details;let i = index;">
                             <a download href="C:/xampp/htdocs/advocate_api/cases/documents/uploads/{{item.document_file}}"
                               target="_blank" style="margin-left:20px;cursor: pointer;"
                               data-toggle="tooltip" data-placement="bottom" title="Download"><i class="fa fa-download fa-lg"></i>
                             </a>
 
-                            <a (click)="deletedocument(item.id)" style="margin-left:20px;cursor: pointer;"
+                            <a *ngIf="item2.access.access111 == true" (click)="deletedocument(item.id)" style="margin-left:20px;cursor: pointer;"
                             data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fa fa-trash fa-lg"></i>
                             </a>
                           </div>

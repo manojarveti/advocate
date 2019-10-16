@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import Addnotice from './addnotice/addnotice';
 import { AddnoticeService } from './addnotice/addnotice.service';
 declare var $:any;
+import { loginService } from '../../login/login.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-notice',
@@ -21,10 +23,26 @@ user={
   description:"",
   date_time:"",
 }
-  constructor(private addnoticeService: AddnoticeService) { }
+roleid;
+details:any;
+  constructor(private addnoticeService: AddnoticeService,private cookieService: CookieService,private loginService: loginService) { }
 
   ngOnInit() {
     this.gettodolist();
+    this.roleid  = this.cookieService.get('roleId');
+    this.getdetails(this.roleid);
+  }
+
+  getdetails(roleid){
+    this.loginService.fetchAll(+roleid).subscribe(
+      (res) => {
+        this.details = res;
+        // console.log(res.access);
+      },
+      (err) => {
+        this.error = err;
+      }
+    ); 
   }
 
   gettodolist(): void {

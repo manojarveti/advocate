@@ -151,15 +151,15 @@
 
                                                     </td>
 
-                                                    <td width="30%">
+                                                    <td width="30%" *ngFor="let item2 of details;let i = index;">
 
-                                                        <a [routerLink]="['/main/cases/hearingdetails', item.id]"
+                                                        <a *ngIf="item2.access.access21 == true" [routerLink]="['/main/cases/hearingdetails', item.id]"
                                                             style="margin-left:20px;" data-toggle="tooltip"
                                                             data-placement="bottom" title="View"><i
                                                                 class="fa fa-eye fa-lg"></i>
                                                         </a>
 
-                                                        <a (click)="deletehearing(item.id)"
+                                                        <a *ngIf="item2.access.access22 == true" (click)="deletehearing(item.id)"
                                                             style="margin-left:20px;cursor: pointer;"
                                                             data-toggle="tooltip" data-placement="bottom"
                                                             title="Delete"><i class="fa fa-trash fa-lg"></i>

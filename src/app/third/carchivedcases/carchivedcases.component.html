@@ -74,18 +74,18 @@
                         <td>{{item.client_name}}</td>
 
 
-                        <td>
+                        <td *ngFor="let item2 of details;let i = index;">
 
-                          <a [routerLink]="['/main/cases/viewcase',item.id]" style="margin-left:20px;"
+                          <a *ngIf="item2.access.access12 == true" [routerLink]="['/main/cases/viewcase',item.id]" style="margin-left:20px;"
                             data-toggle="tooltip" data-placement="bottom" title="View"><i class="fa fa-eye fa-lg"></i>
                           </a>
 
-                          <a (click)="restoreacase(item.id)" style="margin-left:20px;cursor: pointer;"
+                          <a *ngIf="item2.access.access13 == true" (click)="restoreacase(item.id)" style="margin-left:20px;cursor: pointer;"
                             data-toggle="tooltip" data-placement="bottom" title="Restore"><i
                               class="fa fa-check fa-lg"></i>
                           </a>
 
-                          <a (click)="deleteacase(item.id)" style="margin-left:20px;cursor: pointer;"
+                          <a *ngIf="item2.access.access14 == true" (click)="deleteacase(item.id)" style="margin-left:20px;cursor: pointer;"
                             data-toggle="tooltip" data-placement="bottom" title="Delete"><i
                               class="fa fa-trash fa-lg"></i>
                           </a>

@@ -174,12 +174,12 @@
                               <td>{{item.date}}</td>
                               <td>{{item.amount}}</td>
                               <td>{{item.pay_mode}}</td>
-                              <td>
+                              <td *ngFor="let item2 of details;let i = index;">
                                 <a style="margin-left:20px;cursor: pointer;"
                                 data-toggle="tooltip" data-placement="bottom" title="Invoice">
                                   <i class="fa fa-list fa-lg"></i>
                                 </a>
-                                <a style="margin-left:20px;cursor: pointer;"
+                                <a *ngIf="item2.access.access18 == true" style="margin-left:20px;cursor: pointer;"
                                 data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fa fa-trash fa-lg"></i>
                                 </a>
                               </td>
@@ -283,11 +283,11 @@
                               <td class="sorting_1">{{ (p - 1) * 10 + i +1 }}</td>
                               <td>{{itemrec.date}}</td>
                               <td>{{itemrec.amount}}</td>
-                              <td>
-                                <a style="margin-left:20px;cursor: pointer;"
+                              <td *ngFor="let item2 of details;let i = index;">
+                                <a *ngIf="item2.access.access19 == true" style="margin-left:20px;cursor: pointer;"
                                 data-toggle="tooltip" data-placement="bottom" title="Receipt"><i class="fa fa-list fa-lg"></i>
                                   </a>
-                                <a style="margin-left:20px;cursor: pointer;"
+                                <a *ngIf="item2.access.access20 == true" style="margin-left:20px;cursor: pointer;"
                                 data-toggle="tooltip" data-placement="bottom" title="Delete"><i
                                     class="fa fa-trash fa-lg"></i> </a>
                               </td>

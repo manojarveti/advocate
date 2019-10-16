@@ -33,9 +33,9 @@
                   <div class="col-sm-6">
                     
 
-                          <div class="btn-group pull-right">
+                          <div class="btn-group pull-right" *ngFor="let item2 of details;let i = index;">
 
-                            <a [routerLink]="['/main/casestudy/addcase']" class="btn btn-default"><i class="fa fa-plus"></i> Add New</a>
+                            <a *ngIf="item2.access.access139 == true" [routerLink]="['/main/casestudy/addcase']" class="btn btn-default"><i class="fa fa-plus"></i> Add New</a>
                   
                           </div> 
                   </div>
@@ -62,21 +62,21 @@
                         <td class="sorting_1">{{ (p - 1) * 10 + i +1 }}</td>
                         <td>{{item.title |titlecase}}</td>
                         <td>
-                          <div>
+                          <div *ngFor="let item2 of details;let i = index;">
 
-                            <a [routerLink]="['/main/casestudy/casestudyattachements',item.id]" style="margin-left:20px;cursor: pointer;"
+                            <a *ngIf="item2.access.access143 == true" [routerLink]="['/main/casestudy/casestudyattachements',item.id]" style="margin-left:20px;cursor: pointer;"
                             data-toggle="tooltip" data-placement="bottom" title="Attachments"><i class="fa fa-tags fa-lg"></i>
                             </a>
 
-                            <a [routerLink]="['/main/casestudy/viewcasestudy',item.id]" style="margin-left:20px;cursor: pointer;"
+                            <a *ngIf="item2.access.access142 == true" [routerLink]="['/main/casestudy/viewcasestudy',item.id]" style="margin-left:20px;cursor: pointer;"
                             data-toggle="tooltip" data-placement="bottom" title="View"><i class="fa fa-eye fa-lg"></i>
                             </a>
 
-                            <a [routerLink]="['/main/casestudy/editcasestudy',item.id]" style="margin-left:20px;cursor: pointer;"
+                            <a *ngIf="item2.access.access140 == true" [routerLink]="['/main/casestudy/editcasestudy',item.id]" style="margin-left:20px;cursor: pointer;"
                             data-toggle="tooltip" data-placement="bottom" title="Edit"><i class="fa fa-edit fa-lg"></i>
                             </a>
 
-                            <a (click)="deletecase(item.id)" style="margin-left:20px;cursor: pointer;"
+                            <a *ngIf="item2.access.access141 == true" (click)="deletecase(item.id)" style="margin-left:20px;cursor: pointer;"
                             data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fa fa-trash fa-lg"></i>
                             </a>
                           </div>

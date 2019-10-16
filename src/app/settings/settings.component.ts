@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import Addappointment from './addappointment/addappointment';
 import { AddappointmentService } from './addappointment/addappointment.service';
+import { loginService } from '../login/login.service';
+import { CookieService } from 'ngx-cookie-service';
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.component.html',
@@ -19,10 +21,26 @@ appointment={
   notes:""
 }
 searchText;
-  constructor(private addappointmentService: AddappointmentService) { }
+roleid;
+details:any;
+  constructor(private addappointmentService: AddappointmentService,private cookieService: CookieService,private loginService: loginService) { }
 
   ngOnInit() {
     this.getappointment();
+    this.roleid  = this.cookieService.get('roleId');
+    this.getdetails(this.roleid);
+  }
+
+  getdetails(roleid){
+    this.loginService.fetchAll(+roleid).subscribe(
+      (res) => {
+        this.details = res;
+        // console.log(res.access);
+      },
+      (err) => {
+        this.error = err;
+      }
+    ); 
   }
   getappointment(): void {
     this.addappointmentService.getappointmentall().subscribe(

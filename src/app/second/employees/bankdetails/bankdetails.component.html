@@ -16,8 +16,8 @@
       <div class="col-md-12">
         <div class="row" style="margin-bottom:10px;">
           <div class="col-xs-12">
-            <div class="btn-group pull-right">
-              <a class="btn btn-default"
+            <div class="btn-group pull-right" *ngFor="let item2 of details;let i = index;">
+              <a  *ngIf="item2.access.access52 == true" class="btn btn-default"
                 [routerLink]="['/main/hrmange/employees/bankdetails/addbank', subscribedParam]"><i
                   class="fa fa-plus"></i> Add New</a>
             </div>
@@ -51,8 +51,8 @@
                   <td>{{item.pan_number}}</td>
                   <td>{{item.branch}}</td>
                   <td class="col-md-1">
-                    <div>
-                      <a (click)="deletebank(item.id)" style="margin-left:20px;cursor: pointer;" data-toggle="tooltip"
+                    <div *ngFor="let item2 of details;let i = index;">
+                      <a  *ngIf="item2.access.access53 == true" (click)="deletebank(item.id)" style="margin-left:20px;cursor: pointer;" data-toggle="tooltip"
                         data-placement="bottom" title="Delete"><i class="fa fa-trash fa-lg"></i></a>
                     </div>
                   </td>

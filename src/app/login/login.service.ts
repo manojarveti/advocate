@@ -13,9 +13,9 @@ export class loginService  {
   navigate(arg0: any[]): any {
     throw new Error("Method not implemented.");
   }
-  baseUrl = 'http://13.232.118.211/advocate_api';
+  baseUrl = 'http://localhost/advocate_api';
 login: logins[];
-
+detdetails:any;
 constructor(private http: HttpClient) { }
 
    store(users) {
@@ -28,6 +28,16 @@ constructor(private http: HttpClient) { }
       catchError(this.handleError));
   }
 
+  fetchAll(roleid) {
+    const params = new HttpParams()
+      .set('roleid', roleid.toString());
+    return this.http.get(`${this.baseUrl}/userservice/getall`, { params: params }).pipe(
+      map((res) => {
+        this.detdetails = res['data'];
+        return this.detdetails;
+      }),
+      catchError(this.handleError));
+  }
 
   private handleError(error: HttpErrorResponse) {
     console.log(error);

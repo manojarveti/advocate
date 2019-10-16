@@ -34,9 +34,9 @@
                                     <div class="col-sm-6">
                                         
 
-                                        <div class="btn-group pull-right">
+                                        <div class="btn-group pull-right" *ngFor="let item2 of details;let i = index;">
 
-                                            <a class="btn btn-default" [routerLink]="['/main/hrmange/employees/addemployees']"><i
+                                            <a *ngIf="item2.access.access47 == true" class="btn btn-default" [routerLink]="['/main/hrmange/employees/addemployees']"><i
                                                     class="fa fa-plus"></i> Add New</a>
                         
                         
@@ -84,27 +84,27 @@
                                                 <td>{{item.status |titlecase}}</td>
 
                                                 <td width="50%">
-                                                    <div>
+                                                    <div *ngFor="let item2 of details;let i = index;">
 
-                                                        <a [routerLink]="['/main/hrmange/employees/viewemployees',item.id]"
+                                                        <a *ngIf="item2.access.access50 == true" [routerLink]="['/main/hrmange/employees/viewemployees',item.id]"
                                                             style="margin-left:20px;" data-toggle="tooltip"
                                                             data-placement="bottom" title="View"><i
                                                                 class="fa fa-eye fa-lg"></i>
                                                         </a>
 
 
-                                                        <a [routerLink]="['/main/hrmange/employees/editemployees',item.id]"
+                                                        <a *ngIf="item2.access.access48 == true" [routerLink]="['/main/hrmange/employees/editemployees',item.id]"
                                                             style="margin-left:20px;" data-toggle="tooltip"
                                                             data-placement="bottom" title="Edit"><i
                                                                 class="fa fa-edit fa-lg"></i>
                                                         </a>
 
-                                                        <a (click)="deleteemployees(item.id)"
+                                                        <a *ngIf="item2.access.access49 == true" (click)="deleteemployees(item.id)"
                                                             style="margin-left:20px;cursor: pointer;"
                                                             data-toggle="tooltip" data-placement="bottom"
                                                             title="Delete"><i class="fa fa-trash fa-lg"></i></a>
 
-                                                        <a style="margin-left:20px;"
+                                                        <a *ngIf="item2.access.access51 == true" style="margin-left:20px;"
                                                             [routerLink]="['/main/hrmange/employees/bankdetails',item.id]" data-toggle="tooltip" data-placement="bottom"
                                                             title="Bank Details"><i
                                                                 class="fa fa-bank"></i> </a>

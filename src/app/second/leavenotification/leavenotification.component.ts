@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Addleaveservice } from './leavenotification.service';
 import { Router } from '@angular/router';
 import leavenotification from './leavenotification';
+import { loginService } from '../../login/login.service';
+import { CookieService } from 'ngx-cookie-service';
 
 
 @Component({
@@ -23,10 +25,26 @@ leave={
   status:""
 }
 searchText;
-  constructor(private addleaveservice :Addleaveservice) { }
+roleid;
+details:any;
+  constructor(private addleaveservice :Addleaveservice,private cookieService: CookieService,private loginService: loginService) { }
 
   ngOnInit() {
     this.getleavenotify();
+    this.roleid  = this.cookieService.get('roleId');
+    this.getdetails(this.roleid);
+  }
+
+  getdetails(roleid){
+    this.loginService.fetchAll(+roleid).subscribe(
+      (res) => {
+        this.details = res;
+        // console.log(res.access);
+      },
+      (err) => {
+        this.error = err;
+      }
+    ); 
   }
 
 

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import Addlocation from './addlocation/addlocation';
 import { AddlocationService } from './addlocation/addlocation.service';
 declare var $:any;
+import { loginService } from '../../login/login.service';
+import { CookieService } from 'ngx-cookie-service';
 @Component({
   selector: 'app-location',
   templateUrl: './location.component.html',
@@ -19,11 +21,26 @@ export class LocationComponent implements OnInit {
 user={
   location :""
 }
-
-  constructor(private addlocationService: AddlocationService) { }
+roleid;
+details:any;
+  constructor(private addlocationService: AddlocationService,private cookieService: CookieService,private loginService: loginService) { }
 
   ngOnInit() {
     this.gettodolist();
+    this.roleid  = this.cookieService.get('roleId');
+    this.getdetails(this.roleid);
+  }
+
+  getdetails(roleid){
+    this.loginService.fetchAll(+roleid).subscribe(
+      (res) => {
+        this.details = res;
+        // console.log(res.access);
+      },
+      (err) => {
+        this.error = err;
+      }
+    ); 
   }
   
   gettodolist(): void {

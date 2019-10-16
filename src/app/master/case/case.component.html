@@ -32,9 +32,9 @@
                     </div>
                     <div class="col-sm-6">
                       
-                        <div class="btn-group pull-right">
+                        <div class="btn-group pull-right" *ngFor="let item2 of details;let i = index;">
 
-                            <a class="btn btn-default" [routerLink]="['/main/master/case/addcasecategory']"><i class="fa fa-plus"></i>
+                            <a *ngIf="item2.access.access69 == true" class="btn btn-default" [routerLink]="['/main/master/case/addcasecategory']"><i class="fa fa-plus"></i>
                               Add New</a>
                 
                           </div>
@@ -68,13 +68,13 @@
                           <td>{{item.category_name}}</td>
                           <td>{{item.parent_category}}</td>
                           <td width="27%">
-                            <div>
+                            <div *ngFor="let item2 of details;let i = index;">
                               <a [routerLink]="['/main/master/case/editcasecategory/',item.id]"
                                 style="margin-left:20px;cursor: pointer;" data-toggle="tooltip" data-placement="bottom"
                                 title="Edit"><i class="fa fa-edit fa-lg"></i>
                               </a>
 
-                              <a (click)="deletecasecat(item.id)" style="margin-left:20px;cursor: pointer;"
+                              <a *ngIf="item2.access.access70 == true" (click)="deletecasecat(item.id)" style="margin-left:20px;cursor: pointer;"
                                 data-toggle="tooltip" data-placement="bottom" title="Delete"><i
                                   class="fa fa-trash fa-lg"></i>
                               </a>

@@ -32,8 +32,8 @@
 
                                     </div>
                                     <div class="col-sm-6">
-                                                    <div class="btn-group pull-right">
-                                                        <a class="btn btn-default" [routerLink]="['/main/todolist/add']"><i class="fa fa-plus"></i> Add
+                                                    <div class="btn-group pull-right" *ngFor="let item2 of details;let i = index;">
+                                                        <a *ngIf="item2.access.access25 == true" class="btn btn-default" [routerLink]="['/main/todolist/add']"><i class="fa fa-plus"></i> Add
                                                             New</a>
                                                     </div>               
                                     </div>
@@ -73,17 +73,17 @@
                                                 <td>{{item.name}}</td>
                                                 <td>{{item.description}}</td>
                                                 <td width="31%">
-                                                    <div >
-                                                        <a [routerLink]="['/main/todolist/view', item.id]" style="margin-left:20px;cursor: pointer;"
+                                                    <div *ngFor="let item2 of details;let i = index;">
+                                                        <a *ngIf="item2.access.access27 == true" [routerLink]="['/main/todolist/view', item.id]" style="margin-left:20px;cursor: pointer;"
                                                             data-toggle="tooltip" data-placement="bottom" title="View"><i
                                                                 class="fa fa-eye fa-lg"></i>
                                                         </a>
                                                         
-                                                        <a [routerLink]="['/main/todolist/edit', item.id]" style="margin-left:20px;cursor: pointer;"
+                                                        <a *ngIf="item2.access.access26 == true" [routerLink]="['/main/todolist/edit', item.id]" style="margin-left:20px;cursor: pointer;"
                                                         data-toggle="tooltip" data-placement="bottom" title="Edit"><i class="fa fa-edit "></i>
                                                         </a>
                                                         
-                                                        <a (click)="deleteAdd(item.id)" style="margin-left:20px;cursor: pointer;"
+                                                        <a *ngIf="item2.access.access28 == true" (click)="deleteAdd(item.id)" style="margin-left:20px;cursor: pointer;"
                                                         data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fa fa-trash fa-lg"></i>
                                                         </a>
                                                     </div>
