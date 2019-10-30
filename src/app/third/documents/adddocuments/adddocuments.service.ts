@@ -13,7 +13,7 @@ export class AdddocumentService {
   navigate(arg0: any[]): any {
     throw new Error("Method not implemented.");
   }
-  baseUrl = 'http://13.232.118.211/advocate_api';
+  baseUrl = 'http://localhost/advocate_api';
 adddocuments: Adddocuments[];
 
 constructor(private http: HttpClient) { }

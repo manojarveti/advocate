@@ -12,7 +12,7 @@ export class AddcaseService {
   navigate(arg0: any[]): any {
     throw new Error("Method not implemented.");
   }
-  baseUrl = 'http://13.232.118.211/advocate_api';
+  baseUrl = 'http://localhost/advocate_api';
   addcases: Addcase[];
   constructor(private http: HttpClient) { }
 

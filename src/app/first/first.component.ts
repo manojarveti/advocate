@@ -142,7 +142,7 @@ details:any;
         center: 'title',
         right: 'month,agendaWeek,agendaDay'
       },
-      events: 'http://13.232.118.211/advocate_api/appointment/allappointments',
+      events: 'http://localhost/advocate_api/appointment/allappointments',
       eventClick: function (event) {
         alert(event.color);
         this.router.navigate(['/main/hrmange/clients']);

@@ -5,7 +5,7 @@
       <small>List</small>
     </h1>
     <ol class="breadcrumb">
-      <li><a [routerLink]="['/main/dashboard']"><i class="fa fa-dashboard"></i> Dasbhoard</a></li>
+      <li><a [routerLink]="['/main/dashboard']"><i class="fa fa-dashboard"></i> Dashboard</a></li>
       <li class="active">Permissions</li>
     </ol>
   </section>
@@ -42,7 +42,7 @@
                           <td><b>Authentication</b></td>
                           <td *ngFor="let item of addpermission;let i = index;">
                              
-                              <label for="{{item.access.access1}}">{{item.access.access1}} </label>
+                              <label for="{{item.access.access1}}"> </label>
                                 <input type="checkbox" name="{{item.access.access1}}" id="{{item.access.access1}}" [(ngModel)]="item.access.access1" #item.access.access1="ngModel"
                                 [checked]="item.access.access1">
                            
@@ -51,7 +51,7 @@
                         <tr>
                           <td>--&gt; Login</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                            <label for="item.access.access2">{{item.access.access2}} </label>
+                            <label for="item.access.access2"> </label>
                                 <input type="checkbox" name="{{item.access.access2}}" id="{{item.access.access2}}" [(ngModel)]="item.access.access2" #item.access.access2="ngModel"
                                 [checked]="item.access.access2">
                           </td>
@@ -60,7 +60,7 @@
                         <tr>
                           <td>--&gt; Logout</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                            <label for="item.access.access3">{{item.access.access3}} </label>
+                            <label for="item.access.access3"> </label>
                                 <input type="checkbox" name="{{item.access.access3}}" id="{{item.access.access3}}" [(ngModel)]="item.access.access3" #item.access.access3="ngModel"
                                 [checked]="item.access.access3">
                           </td>
@@ -68,7 +68,7 @@
                         <tr>
                           <td><b>All Case</b></td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access4">{{item.access.access4}} </label>
+                              <label for="item.access.access4"> </label>
                                 <input type="checkbox" name="{{item.access.access4}}" id="{{item.access.access4}}" [(ngModel)]="item.access.access4" #item.access.access4="ngModel"
                                 [checked]="item.access.access4">
                           </td>
@@ -78,7 +78,7 @@
                         <tr>
                           <td>--&gt; Add</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access5">{{item.access.access5}} </label>
+                              <label for="item.access.access5">  </label>
                                 <input type="checkbox" name="{{item.access.access5}}" id="{{item.access.access5}}" [(ngModel)]="item.access.access5" #item.access.access5="ngModel"
                                 [checked]="item.access.access5">
                           </td>
@@ -88,7 +88,7 @@
                         <tr>
                           <td>--&gt; Edit</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access6">{{item.access.access6}} </label>
+                              <label for="item.access.access6">  </label>
                                 <input type="checkbox" name="{{item.access.access6}}" id="{{item.access.access6}}" [(ngModel)]="item.access.access6" #item.access.access6="ngModel"
                                 [checked]="item.access.access6">
                           </td>
@@ -98,7 +98,7 @@
                         <tr>
                           <td>--&gt; View Case</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access7">{{item.access.access7}} </label>
+                              <label for="item.access.access7">  </label>
                                 <input type="checkbox" name="{{item.access.access7}}" id="{{item.access.access7}}" [(ngModel)]="item.access.access7" #item.access.access7="ngModel"
                                 [checked]="item.access.access7">
                           </td>
@@ -108,7 +108,7 @@
                         <tr>
                           <td>--&gt; Fees</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access8">{{item.access.access8}} </label>
+                              <label for="item.access.access8">  </label>
                                 <input type="checkbox" name="{{item.access.access8}}" id="{{item.access.access8}}" [(ngModel)]="item.access.access8" #item.access.access8="ngModel"
                                 [checked]="item.access.access8">
                           </td>
@@ -118,7 +118,7 @@
                         <tr>
                           <td>--&gt; Archived</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access9">{{item.access.access9}} </label>
+                              <label for="item.access.access9">  </label>
                                 <input type="checkbox" name="{{item.access.access9}}" id="{{item.access.access9}}" [(ngModel)]="item.access.access9" #item.access.access9="ngModel"
                                 [checked]="item.access.access9">
                           </td>
@@ -128,7 +128,7 @@
                         <tr>
                           <td>--&gt; Starred Cases</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access10">{{item.access.access10}} </label>
+                              <label for="item.access.access10">  </label>
                                 <input type="checkbox" name="{{item.access.access10}}" id="{{item.access.access10}}" [(ngModel)]="item.access.access10" #item.access.access10="ngModel"
                                 [checked]="item.access.access10">
                         </td>
@@ -138,7 +138,7 @@
                         <tr>
                           <td>--&gt; Archived Cases</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access11">{{item.access.access11}} </label>
+                              <label for="item.access.access11">  </label>
                                 <input type="checkbox" name="{{item.access.access11}}" id="{{item.access.access11}}" [(ngModel)]="item.access.access11" #item.access.access11="ngModel"
                                 [checked]="item.access.access11">
                             </td>
@@ -148,7 +148,7 @@
                         <tr>
                           <td>--&gt; View Archived Case</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access12">{{item.access.access12}} </label>
+                              <label for="item.access.access12">  </label>
                                 <input type="checkbox" name="{{item.access.access12}}" id="{{item.access.access12}}" [(ngModel)]="item.access.access12" #item.access.access12="ngModel"
                                 [checked]="item.access.access12">
                           </td>
@@ -158,7 +158,7 @@
                         <tr>
                           <td>--&gt; Restore</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access13">{{item.access.access13}} </label>
+                              <label for="item.access.access13">  </label>
                                 <input type="checkbox" name="{{item.access.access13}}" id="{{item.access.access13}}" [(ngModel)]="item.access.access13" #item.access.access13="ngModel"
                                 [checked]="item.access.access13">
                         </td>
@@ -166,9 +166,9 @@
 
 
                         <tr>
-                          <td>--&gt; Message</td>
+                          <td>--&gt; Delete</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access14">{{item.access.access14}} </label>
+                              <label for="item.access.access14">  </label>
                                 <input type="checkbox" name="{{item.access.access14}}" id="{{item.access.access14}}" [(ngModel)]="item.access.access14" #item.access.access14="ngModel"
                                 [checked]="item.access.access14">
                         </td>
@@ -178,27 +178,27 @@
                         <tr>
                           <td>--&gt; Hearing Date</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access15">{{item.access.access15}} </label>
+                              <label for="item.access.access15">  </label>
                                 <input type="checkbox" name="{{item.access.access15}}" id="{{item.access.access15}}" [(ngModel)]="item.access.access15" #item.access.access15="ngModel"
                                 [checked]="item.access.access15">
                           </td>
                         </tr>
 
 
-                        <tr>
+                        <tr style="display: none;">
                           <td>--&gt; Case Alert</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access16">{{item.access.access16}} </label>
+                              <label for="item.access.access16">  </label>
                                 <input type="checkbox" name="{{item.access.access16}}" id="{{item.access.access16}}" [(ngModel)]="item.access.access16" #item.access.access16="ngModel"
                                 [checked]="item.access.access16">
                           </td>
                         </tr>
 
 
-                        <tr>
+                        <tr style="display: none;">
                           <td>--&gt; Notes</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access17">{{item.access.access17}} </label>
+                              <label for="item.access.access17">  </label>
                                 <input type="checkbox" name="{{item.access.access17}}" id="{{item.access.access17}}" [(ngModel)]="item.access.access17" #item.access.access17="ngModel"
                                 [checked]="item.access.access17">
                           </td>
@@ -208,7 +208,7 @@
                         <tr>
                           <td>--&gt; Delete Fees</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access18">{{item.access.access18}} </label>
+                              <label for="item.access.access18">  </label>
                                 <input type="checkbox" name="{{item.access.access18}}" id="{{item.access.access18}}" [(ngModel)]="item.access.access18" #item.access.access18="ngModel"
                                 [checked]="item.access.access18">
                           </td>
@@ -218,7 +218,7 @@
                         <tr>
                           <td>--&gt; View Receipt</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access19">{{item.access.access19}} </label>
+                              <label for="item.access.access19">  </label>
                                 <input type="checkbox" name="{{item.access.access19}}" id="{{item.access.access19}}" [(ngModel)]="item.access.access19" #item.access.access19="ngModel"
                                 [checked]="item.access.access19">
                           </td>
@@ -228,7 +228,7 @@
                         <tr>
                           <td>--&gt; Delete Receipt</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access20">{{item.access.access20}} </label>
+                              <label for="item.access.access20">  </label>
                                 <input type="checkbox" name="{{item.access.access20}}" id="{{item.access.access20}}" [(ngModel)]="item.access.access20" #item.access.access20="ngModel"
                                 [checked]="item.access.access20">
                           </td>
@@ -238,7 +238,7 @@
                         <tr>
                           <td>--&gt; View Case Extended Date Details</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.acces21">{{item.access.access21}} </label>
+                              <label for="item.access.acces21">  </label>
                                 <input type="checkbox" name="{{item.access.access21}}" id="{{item.access.access21}}" [(ngModel)]="item.access.access21" #item.access.access21="ngModel"
                                 [checked]="item.access.access21">
                           </td>
@@ -248,7 +248,7 @@
                         <tr>
                           <td>--&gt; Delete Case Extended Dates</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access22">{{item.access.access22}} </label>
+                              <label for="item.access.access22">  </label>
                                 <input type="checkbox" name="{{item.access.access22}}" id="{{item.access.access22}}" [(ngModel)]="item.access.access22" #item.access.access22="ngModel"
                                 [checked]="item.access.access22">
                           </td>
@@ -256,7 +256,7 @@
                         <tr>
                           <td><b>Reports</b></td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access23">{{item.access.access23}} </label>
+                              <label for="item.access.access23">  </label>
                                 <input type="checkbox" name="{{item.access.access23}}" id="{{item.access.access23}}" [(ngModel)]="item.access.access23" #item.access.access23="ngModel"
                                 [checked]="item.access.access23">
                           </td>
@@ -264,7 +264,7 @@
                         <tr>
                           <td><b>To Do List</b></td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access24">{{item.access.access24}} </label>
+                              <label for="item.access.access24">  </label>
                                 <input type="checkbox" name="{{item.access.access24}}" id="{{item.access.access24}}" [(ngModel)]="item.access.access24" #item.access.access24="ngModel"
                                 [checked]="item.access.access24">
                           </td>
@@ -274,7 +274,7 @@
                         <tr>
                           <td>--&gt; Add</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access25">{{item.access.access25}} </label>
+                              <label for="item.access.access25">  </label>
                                 <input type="checkbox" name="{{item.access.access25}}" id="{{item.access.access25}}" [(ngModel)]="item.access.access25" #item.access.access4="ngModel"
                                 [checked]="item.access.access25">
                               </td>
@@ -284,7 +284,7 @@
                         <tr>
                           <td>--&gt; Edit</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access26">{{item.access.access26}} </label>
+                              <label for="item.access.access26">  </label>
                                 <input type="checkbox" name="{{item.access.access26}}" id="{{item.access.access26}}" [(ngModel)]="item.access.access26" #item.access.access26="ngModel"
                                 [checked]="item.access.access26">
                           </td>
@@ -294,7 +294,7 @@
                         <tr>
                           <td>--&gt; View</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access27">{{item.access.access27}} </label>
+                              <label for="item.access.access27"> </label>
                                 <input type="checkbox" name="{{item.access.access27}}" id="{{item.access.access27}}" [(ngModel)]="item.access.access27" #item.access.access27="ngModel"
                                 [checked]="item.access.access27">
                           </td>
@@ -304,17 +304,17 @@
                         <tr>
                           <td>--&gt; Delete</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access28">{{item.access.access28}} </label>
+                              <label for="item.access.access28">  </label>
                                 <input type="checkbox" name="{{item.access.access28}}" id="{{item.access.access28}}" [(ngModel)]="item.access.access28" #item.access.access28="ngModel"
                                 [checked]="item.access.access28">
                           </td>
                         </tr>
 
 
-                        <tr>
+                        <tr style="display: none;">
                           <td>--&gt; To Do Alert</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access29">{{item.access.access29}} </label>
+                              <label for="item.access.access29">  </label>
                                 <input type="checkbox" name="{{item.access.access29}}" id="{{item.access.access29}}" [(ngModel)]="item.access.access29" #item.access.access29="ngModel"
                                 [checked]="item.access.access29">
                           </td>
@@ -322,7 +322,7 @@
                         <tr>
                           <td><b>Contacts</b></td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access30">{{item.access.access30}} </label>
+                              <label for="item.access.access30">  </label>
                                 <input type="checkbox" name="{{item.access.access30}}" id="{{item.access.access30}}" [(ngModel)]="item.access.access30" #item.access.access30="ngModel"
                                 [checked]="item.access.access30">
                           </td>
@@ -332,7 +332,7 @@
                         <tr>
                           <td>--&gt; Add</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access31">{{item.access.access31}} </label>
+                              <label for="item.access.access31">  </label>
                                 <input type="checkbox" name="{{item.access.access31}}" id="{{item.access.access31}}" [(ngModel)]="item.access.access31" #item.access.access31="ngModel"
                                 [checked]="item.access.access31">
                           </td>
@@ -342,7 +342,7 @@
                         <tr>
                           <td>--&gt; Edit</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access32">{{item.access.access4}} </label>
+                              <label for="item.access.access32">  </label>
                                 <input type="checkbox" name="{{item.access.access32}}" id="{{item.access.access32}}" [(ngModel)]="item.access.access32" #item.access.access32="ngModel"
                                 [checked]="item.access.access32">
                               </td>
@@ -352,7 +352,7 @@
                         <tr>
                           <td>--&gt; Delete</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access33">{{item.access.access33}} </label>
+                              <label for="item.access.access33">  </label>
                                 <input type="checkbox" name="{{item.access.access33}}" id="{{item.access.access33}}" [(ngModel)]="item.access.access33" #item.access.access33="ngModel"
                                 [checked]="item.access.access33">
                           </td>
@@ -362,7 +362,7 @@
                         <tr>
                           <td>--&gt; Contact</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access34">{{item.access.access34}} </label>
+                              <label for="item.access.access34">  </label>
                                 <input type="checkbox" name="{{item.access.access34}}" id="{{item.access.access34}}" [(ngModel)]="item.access.access34" #item.access.access34="ngModel"
                                 [checked]="item.access.access34">
                           </td>
@@ -370,7 +370,7 @@
                         <tr>
                           <td><b>Appointments</b></td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access35">{{item.access.access35}} </label>
+                              <label for="item.access.access35">  </label>
                                 <input type="checkbox" name="{{item.access.access35}}" id="{{item.access.access35}}" [(ngModel)]="item.access.access35" #item.access.access35="ngModel"
                                 [checked]="item.access.access35">
                           </td>
@@ -380,7 +380,7 @@
                         <tr>
                           <td>--&gt; Add</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access36">{{item.access.access36}} </label>
+                              <label for="item.access.access36">  </label>
                                 <input type="checkbox" name="{{item.access.access36}}" id="{{item.access.access36}}" [(ngModel)]="item.access.access36" #item.access.access36="ngModel"
                                 [checked]="item.access.access36">
                           </td>
@@ -390,7 +390,7 @@
                         <tr>
                           <td>--&gt; Edit</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access37">{{item.access.access37}} </label>
+                              <label for="item.access.access37">  </label>
                                 <input type="checkbox" name="{{item.access.access37}}" id="{{item.access.access37}}" [(ngModel)]="item.access.access37" #item.access.access37="ngModel"
                                 [checked]="item.access.access37">
                           </td>
@@ -400,7 +400,7 @@
                         <tr>
                           <td>--&gt; Delete</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access38">{{item.access.access38}} </label>
+                              <label for="item.access.access38">  </label>
                                 <input type="checkbox" name="{{item.access.access38}}" id="{{item.access.access38}}" [(ngModel)]="item.access.access38" #item.access.access38="ngModel"
                                 [checked]="item.access.access38">
                           </td>
@@ -410,17 +410,17 @@
                         <tr>
                           <td>--&gt; View</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access39">{{item.access.access39}} </label>
+                              <label for="item.access.access39">  </label>
                                 <input type="checkbox" name="{{item.access.access39}}" id="{{item.access.access39}}" [(ngModel)]="item.access.access39" #item.access.access39="ngModel"
                                 [checked]="item.access.access39">
                           </td>
                         </tr>
 
 
-                        <tr>
+                        <tr style="display: none;">
                           <td>--&gt; Appointment Alert</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access40">{{item.access.access40}} </label>
+                              <label for="item.access.access40">  </label>
                                 <input type="checkbox" name="{{item.access.access40}}" id="{{item.access.access40}}" [(ngModel)]="item.access.access40" #item.access.access40="ngModel"
                                 [checked]="item.access.access40">
                           </td>
@@ -428,7 +428,7 @@
                         <tr>
                           <td><b>Clients</b></td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access41">{{item.access.access41}} </label>
+                              <label for="item.access.access41">  </label>
                                 <input type="checkbox" name="{{item.access.access41}}" id="{{item.access.access41}}" [(ngModel)]="item.access.access41" #item.access.access41="ngModel"
                                 [checked]="item.access.access41">
                           </td>
@@ -438,7 +438,7 @@
                         <tr>
                           <td>--&gt; Add</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access42">{{item.access.access42}} </label>
+                              <label for="item.access.access42">  </label>
                                 <input type="checkbox" name="{{item.access.access42}}" id="{{item.access.access42}}" [(ngModel)]="item.access.access42" #item.access.access42="ngModel"
                                 [checked]="item.access.access42">
                           </td>
@@ -448,7 +448,7 @@
                         <tr>
                           <td>--&gt; Edit</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access43">{{item.access.access43}} </label>
+                              <label for="item.access.access43">  </label>
                                 <input type="checkbox" name="{{item.access.access43}}" id="{{item.access.access43}}" [(ngModel)]="item.access.access43" #item.access.access43="ngModel"
                                 [checked]="item.access.access43">
                           </td>
@@ -458,7 +458,7 @@
                         <tr>
                           <td>--&gt; Delete</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access44">{{item.access.access44}} </label>
+                              <label for="item.access.access44">  </label>
                                 <input type="checkbox" name="{{item.access.access44}}" id="{{item.access.access44}}" [(ngModel)]="item.access.access44" #item.access.access44="ngModel"
                                 [checked]="item.access.access44">
                           </td>
@@ -468,7 +468,7 @@
                         <tr>
                           <td>--&gt; View</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access45">{{item.access.access45}} </label>
+                              <label for="item.access.access45">  </label>
                                 <input type="checkbox" name="{{item.access.access45}}" id="{{item.access.access45}}" [(ngModel)]="item.access.access45" #item.access.access45="ngModel"
                                 [checked]="item.access.access45">
                           </td>
@@ -476,7 +476,7 @@
                         <tr>
                           <td><b>Employees</b></td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access46">{{item.access.access46}} </label>
+                              <label for="item.access.access46">  </label>
                                 <input type="checkbox" name="{{item.access.access46}}" id="{{item.access.access46}}" [(ngModel)]="item.access.access46" #item.access.access46="ngModel"
                                 [checked]="item.access.access46">
                           </td>
@@ -486,7 +486,7 @@
                         <tr>
                           <td>--&gt; Add</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access47">{{item.access.access47}} </label>
+                              <label for="item.access.access47">  </label>
                                 <input type="checkbox" name="{{item.access.access47}}" id="{{item.access.access47}}" [(ngModel)]="item.access.access47" #item.access.access47="ngModel"
                                 [checked]="item.access.access47">
                           </td>
@@ -496,7 +496,7 @@
                         <tr>
                           <td>--&gt; Edit</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access48">{{item.access.access48}} </label>
+                              <label for="item.access.access48">  </label>
                                 <input type="checkbox" name="{{item.access.access48}}" id="{{item.access.access48}}" [(ngModel)]="item.access.access48" #item.access.access48="ngModel"
                                 [checked]="item.access.access48">
                           </td>
@@ -506,7 +506,7 @@
                         <tr>
                           <td>--&gt; Delete</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access49">{{item.access.access49}} </label>
+                              <label for="item.access.access49">  </label>
                                 <input type="checkbox" name="{{item.access.access49}}" id="{{item.access.access49}}" [(ngModel)]="item.access.access49" #item.access.access49="ngModel"
                                 [checked]="item.access.access49">
                           </td>
@@ -516,7 +516,7 @@
                         <tr>
                           <td>--&gt; View</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access50">{{item.access.access50}} </label>
+                              <label for="item.access.access50">  </label>
                                 <input type="checkbox" name="{{item.access.access50}}" id="{{item.access.access50}}" [(ngModel)]="item.access.access50" #item.access.access50="ngModel"
                                 [checked]="item.access.access50">
                           </td>
@@ -526,7 +526,7 @@
                         <tr>
                           <td>--&gt; Bank Details</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access51">{{item.access.access51}} </label>
+                              <label for="item.access.access51">  </label>
                                 <input type="checkbox" name="{{item.access.access51}}" id="{{item.access.access51}}" [(ngModel)]="item.access.access51" #item.access.access51="ngModel"
                                 [checked]="item.access.access51">
                           </td>
@@ -536,7 +536,7 @@
                         <tr>
                           <td>--&gt; Add Bank Details</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access52">{{item.access.access52}} </label>
+                              <label for="item.access.access52">  </label>
                                 <input type="checkbox" name="{{item.access.access52}}" id="{{item.access.access52}}" [(ngModel)]="item.access.access52" #item.access.access52="ngModel"
                                 [checked]="item.access.access52">
                           </td>
@@ -546,27 +546,27 @@
                         <tr>
                           <td>--&gt; Delete Bank Details</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access53">{{item.access.access53}} </label>
+                              <label for="item.access.access53">  </label>
                                 <input type="checkbox" name="{{item.access.access53}}" id="{{item.access.access53}}" [(ngModel)]="item.access.access53" #item.access.access53="ngModel"
                                 [checked]="item.access.access53">
                           </td>
                         </tr>
 
 
-                        <tr>
+                        <tr style="display: none;">
                           <td>--&gt; Documents</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access54">{{item.access.access54}} </label>
+                              <label for="item.access.access54"> </label>
                                 <input type="checkbox" name="{{item.access.access54}}" id="{{item.access.access54}}" [(ngModel)]="item.access.access54" #item.access.access54="ngModel"
                                 [checked]="item.access.access54">
                           </td>
                         </tr>
 
 
-                        <tr>
+                        <tr style="display: none;">
                           <td>--&gt; Delete Documents</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access55">{{item.access.access55}} </label>
+                              <label for="item.access.access55">  </label>
                                 <input type="checkbox" name="{{item.access.access55}}" id="{{item.access.access55}}" [(ngModel)]="item.access.access55" #item.access.access55="ngModel"
                                 [checked]="item.access.access55">
                           </td>
@@ -574,7 +574,7 @@
                         <tr>
                           <td><b>User Role</b></td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access56">{{item.access.access56}} </label>
+                              <label for="item.access.access56">  </label>
                                 <input type="checkbox" name="{{item.access.access56}}" id="{{item.access.access56}}" [(ngModel)]="item.access.access56" #item.access.access56="ngModel"
                                 [checked]="item.access.access56">
                           </td>
@@ -584,7 +584,7 @@
                         <tr>
                           <td>--&gt; Add</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access57">{{item.access.access57}} </label>
+                              <label for="item.access.access57">  </label>
                                 <input type="checkbox" name="{{item.access.access57}}" id="{{item.access.access57}}" [(ngModel)]="item.access.access57" #item.access.access57="ngModel"
                                 [checked]="item.access.access57">
                           </td>
@@ -594,7 +594,7 @@
                         <tr>
                           <td>--&gt; Edit</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access58">{{item.access.access58}} </label>
+                              <label for="item.access.access58">  </label>
                                 <input type="checkbox" name="{{item.access.access58}}" id="{{item.access.access58}}" [(ngModel)]="item.access.access58" #item.access.access58="ngModel"
                                 [checked]="item.access.access58">
                           </td>
@@ -604,7 +604,7 @@
                         <tr>
                           <td>--&gt; Delete</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access59">{{item.access.access59}} </label>
+                              <label for="item.access.access59">  </label>
                                 <input type="checkbox" name="{{item.access.access59}}" id="{{item.access.access59}}" [(ngModel)]="item.access.access59" #item.access.access59="ngModel"
                                 [checked]="item.access.access59">
                           </td>
@@ -612,7 +612,7 @@
                         <tr>
                           <td><b>Departments</b></td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access60">{{item.access.access60}} </label>
+                              <label for="item.access.access60">  </label>
                                 <input type="checkbox" name="{{item.access.access60}}" id="{{item.access.access60}}" [(ngModel)]="item.access.access60" #item.access.access60="ngModel"
                                 [checked]="item.access.access60">
                           </td>
@@ -622,7 +622,7 @@
                         <tr>
                           <td>--&gt; Add</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access61">{{item.access.access61}} </label>
+                              <label for="item.access.access61">  </label>
                                 <input type="checkbox" name="{{item.access.access61}}" id="{{item.access.access61}}" [(ngModel)]="item.access.access61" #item.access.access61="ngModel"
                                 [checked]="item.access.access61">
                           </td>
@@ -632,7 +632,7 @@
                         <tr>
                           <td>--&gt; Edit</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access62">{{item.access.access62}} </label>
+                              <label for="item.access.access62">  </label>
                                 <input type="checkbox" name="{{item.access.access62}}" id="{{item.access.access62}}" [(ngModel)]="item.access.access62" #item.access.access62="ngModel"
                                 [checked]="item.access.access62">
                           </td>
@@ -642,7 +642,7 @@
                         <tr>
                           <td>--&gt; Delete</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access63">{{item.access.access63}} </label>
+                              <label for="item.access.access63">  </label>
                                 <input type="checkbox" name="{{item.access.access63}}" id="{{item.access.access63}}" [(ngModel)]="item.access.access63" #item.access.access63="ngModel"
                                 [checked]="item.access.access63">
                           </td>
@@ -650,7 +650,7 @@
                         <tr>
                           <td><b>Location</b></td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access64">{{item.access.access64}} </label>
+                              <label for="item.access.access64">  </label>
                                 <input type="checkbox" name="{{item.access.access64}}" id="{{item.access.access64}}" [(ngModel)]="item.access.access64" #item.access.access64="ngModel"
                                 [checked]="item.access.access64">
                           </td>
@@ -660,7 +660,7 @@
                         <tr>
                           <td>--&gt; Add</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access65">{{item.access.access65}} </label>
+                              <label for="item.access.access65">  </label>
                                 <input type="checkbox" name="{{item.access.access65}}" id="{{item.access.access65}}" [(ngModel)]="item.access.access65" #item.access.access65="ngModel"
                                 [checked]="item.access.access65">
                           </td>
@@ -670,7 +670,7 @@
                         <tr>
                           <td>--&gt; Edit</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access66">{{item.access.access66}} </label>
+                              <label for="item.access.access66">  </label>
                                 <input type="checkbox" name="{{item.access.access66}}" id="{{item.access.access66}}" [(ngModel)]="item.access.access66" #item.access.access66="ngModel"
                                 [checked]="item.access.access66">
                           </td>
@@ -680,7 +680,7 @@
                         <tr>
                           <td>--&gt; Delete</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access67">{{item.access.access67}} </label>
+                              <label for="item.access.access67">  </label>
                                 <input type="checkbox" name="{{item.access.access67}}" id="{{item.access.access67}}" [(ngModel)]="item.access.access67" #item.access.access67="ngModel"
                                 [checked]="item.access.access67">
                           </td>
@@ -688,7 +688,7 @@
                         <tr>
                           <td><b>Case Category</b></td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access68">{{item.access.access68}} </label>
+                              <label for="item.access.access68">  </label>
                                 <input type="checkbox" name="{{item.access.access68}}" id="{{item.access.access68}}" [(ngModel)]="item.access.access68" #item.access.access68="ngModel"
                                 [checked]="item.access.access68">
                           </td>
@@ -698,7 +698,7 @@
                         <tr>
                           <td>--&gt; Add</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access69">{{item.access.access69}} </label>
+                              <label for="item.access.access69">  </label>
                                 <input type="checkbox" name="{{item.access.access69}}" id="{{item.access.access69}}" [(ngModel)]="item.access.access69" #item.access.access69="ngModel"
                                 [checked]="item.access.access69">
                           </td>
@@ -708,7 +708,7 @@
                         <tr>
                           <td>--&gt; Edit</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access70">{{item.access.access70}} </label>
+                              <label for="item.access.access70">  </label>
                                 <input type="checkbox" name="{{item.access.access70}}" id="{{item.access.access70}}" [(ngModel)]="item.access.access70" #item.access.access70="ngModel"
                                 [checked]="item.access.access70">
                           </td>
@@ -716,7 +716,7 @@
                         <tr>
                           <td><b>Court Category</b></td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access71">{{item.access.access71}} </label>
+                              <label for="item.access.access71">  </label>
                                 <input type="checkbox" name="{{item.access.access71}}" id="{{item.access.access71}}" [(ngModel)]="item.access.access71" #item.access.access71="ngModel"
                                 [checked]="item.access.access71">
                           </td>
@@ -726,7 +726,7 @@
                         <tr>
                           <td>--&gt; Add</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access72">{{item.access.access72}} </label>
+                              <label for="item.access.access72">  </label>
                                 <input type="checkbox" name="{{item.access.access72}}" id="{{item.access.access72}}" [(ngModel)]="item.access.access72" #item.access.access72="ngModel"
                                 [checked]="item.access.access72">
                           </td>
@@ -736,7 +736,7 @@
                         <tr>
                           <td>--&gt; Edit</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access73">{{item.access.access73}} </label>
+                              <label for="item.access.access73">  </label>
                                 <input type="checkbox" name="{{item.access.access73}}" id="{{item.access.access73}}" [(ngModel)]="item.access.access73" #item.access.access73="ngModel"
                                 [checked]="item.access.access73">
                           </td>
@@ -746,7 +746,7 @@
                         <tr>
                           <td>--&gt; Delete</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access74">{{item.access.access74}} </label>
+                              <label for="item.access.access74">  </label>
                                 <input type="checkbox" name="{{item.access.access74}}" id="{{item.access.access74}}" [(ngModel)]="item.access.access74" #item.access.access74="ngModel"
                                 [checked]="item.access.access74">
                           </td>
@@ -754,7 +754,7 @@
                         <tr>
                           <td><b>Act</b></td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access75">{{item.access.access75}} </label>
+                              <label for="item.access.access75">  </label>
                                 <input type="checkbox" name="{{item.access.access75}}" id="{{item.access.access75}}" [(ngModel)]="item.access.access75" #item.access.access75="ngModel"
                                 [checked]="item.access.access75">
                           </td>
@@ -764,7 +764,7 @@
                         <tr>
                           <td>--&gt; Add</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access76">{{item.access.access76}} </label>
+                              <label for="item.access.access76">  </label>
                                 <input type="checkbox" name="{{item.access.access76}}" id="{{item.access.access76}}" [(ngModel)]="item.access.access76" #item.access.access76="ngModel"
                                 [checked]="item.access.access76">
                           </td>
@@ -774,7 +774,7 @@
                         <tr>
                           <td>--&gt; Edit</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access77">{{item.access.access77}} </label>
+                              <label for="item.access.access77">  </label>
                                 <input type="checkbox" name="{{item.access.access77}}" id="{{item.access.access77}}" [(ngModel)]="item.access.access77" #item.access.access77="ngModel"
                                 [checked]="item.access.access77">
                           </td>
@@ -784,7 +784,7 @@
                         <tr>
                           <td>--&gt; Delete</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access78">{{item.access.access78}} </label>
+                              <label for="item.access.access78">  </label>
                                 <input type="checkbox" name="{{item.access.access78}}" id="{{item.access.access78}}" [(ngModel)]="item.access.access78" #item.access.access78="ngModel"
                                 [checked]="item.access.access78">
                           </td>
@@ -792,7 +792,7 @@
                         <tr>
                           <td><b>Court</b></td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access79">{{item.access.access79}} </label>
+                              <label for="item.access.access79">  </label>
                                 <input type="checkbox" name="{{item.access.access79}}" id="{{item.access.access79}}" [(ngModel)]="item.access.access79" #item.access.access79="ngModel"
                                 [checked]="item.access.access79">
                           </td>
@@ -802,7 +802,7 @@
                         <tr>
                           <td>--&gt; Add</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access80">{{item.access.access80}} </label>
+                              <label for="item.access.access80">  </label>
                                 <input type="checkbox" name="{{item.access.access80}}" id="{{item.access.access80}}" [(ngModel)]="item.access.access80" #item.access.access80="ngModel"
                                 [checked]="item.access.access80">
                           </td>
@@ -812,7 +812,7 @@
                         <tr>
                           <td>--&gt; Edit</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access81">{{item.access.access81}} </label>
+                              <label for="item.access.access81">  </label>
                                 <input type="checkbox" name="{{item.access.access81}}" id="{{item.access.access81}}" [(ngModel)]="item.access.access81" #item.access.access81="ngModel"
                                 [checked]="item.access.access81">
                           </td>
@@ -822,7 +822,7 @@
                         <tr>
                           <td>--&gt; Delete</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access82">{{item.access.access82}} </label>
+                              <label for="item.access.access82">  </label>
                                 <input type="checkbox" name="{{item.access.access82}}" id="{{item.access.access82}}" [(ngModel)]="item.access.access82" #item.access.access82="ngModel"
                                 [checked]="item.access.access82">
                           </td>
@@ -830,7 +830,7 @@
                         <tr>
                           <td><b>Case Stages</b></td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access83">{{item.access.access83}} </label>
+                              <label for="item.access.access83">  </label>
                                 <input type="checkbox" name="{{item.access.access83}}" id="{{item.access.access83}}" [(ngModel)]="item.access.access83" #item.access.access83="ngModel"
                                 [checked]="item.access.access83">
                           </td>
@@ -840,7 +840,7 @@
                         <tr>
                           <td>--&gt; Add</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access84">{{item.access.access84}} </label>
+                              <label for="item.access.access84">  </label>
                                 <input type="checkbox" name="{{item.access.access84}}" id="{{item.access.access84}}" [(ngModel)]="item.access.access84" #item.access.access84="ngModel"
                                 [checked]="item.access.access84">
                           </td>
@@ -850,7 +850,7 @@
                         <tr>
                           <td>--&gt; Edit</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access85">{{item.access.access85}} </label>
+                              <label for="item.access.access85">  </label>
                                 <input type="checkbox" name="{{item.access.access85}}" id="{{item.access.access85}}" [(ngModel)]="item.access.access85" #item.access.access85="ngModel"
                                 [checked]="item.access.access85">
                           </td>
@@ -860,7 +860,7 @@
                         <tr>
                           <td>--&gt; Delte</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access86">{{item.access.access86}} </label>
+                              <label for="item.access.access86">  </label>
                                 <input type="checkbox" name="{{item.access.access86}}" id="{{item.access.access86}}" [(ngModel)]="item.access.access86" #item.access.access86="ngModel"
                                 [checked]="item.access.access86">
                           </td>
@@ -868,7 +868,7 @@
                         <tr>
                           <td><b>Payment Modes</b></td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access87">{{item.access.access87}} </label>
+                              <label for="item.access.access87">  </label>
                                 <input type="checkbox" name="{{item.access.access87}}" id="{{item.access.access87}}" [(ngModel)]="item.access.access87" #item.access.access87="ngModel"
                                 [checked]="item.access.access87">
                           </td>
@@ -878,7 +878,7 @@
                         <tr>
                           <td>--&gt; Add</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access88">{{item.access.access88}} </label>
+                              <label for="item.access.access88">  </label>
                                 <input type="checkbox" name="{{item.access.access88}}" id="{{item.access.access88}}" [(ngModel)]="item.access.access88" #item.access.access88="ngModel"
                                 [checked]="item.access.access88">
                           </td>
@@ -888,7 +888,7 @@
                         <tr>
                           <td>--&gt; Edit</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access89">{{item.access.access89}} </label>
+                              <label for="item.access.access89">  </label>
                                 <input type="checkbox" name="{{item.access.access89}}" id="{{item.access.access89}}" [(ngModel)]="item.access.access89" #item.access.access89="ngModel"
                                 [checked]="item.access.access89">
                           </td>
@@ -898,78 +898,78 @@
                         <tr>
                           <td>--&gt; Delete</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access90">{{item.access.access90}} </label>
+                              <label for="item.access.access90">  </label>
                                 <input type="checkbox" name="{{item.access.access90}}" id="{{item.access.access90}}" [(ngModel)]="item.access.access90" #item.access.access90="ngModel"
                                 [checked]="item.access.access90">
                           </td>                        </tr>
                         <tr>
-                          <td><b>Settings</b></td>
+                          <td><b>Permissions</b></td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access91">{{item.access.access91}} </label>
+                              <label for="item.access.access91">  </label>
                                 <input type="checkbox" name="{{item.access.access91}}" id="{{item.access.access91}}" [(ngModel)]="item.access.access91" #item.access.access91="ngModel"
                                 [checked]="item.access.access91">
                           </td>
                         </tr>
-                        <tr>
+                        <tr style="display: none;">
                           <td><b>Notification</b></td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access92">{{item.access.access92}} </label>
+                              <label for="item.access.access92">  </label>
                                 <input type="checkbox" name="{{item.access.access92}}" id="{{item.access.access92}}" [(ngModel)]="item.access.access92" #item.access.access92="ngModel"
                                 [checked]="item.access.access92">
                           </td>
                         </tr>
-                        <tr>
+                        <tr style="display: none;">
                           <td><b>Languages</b></td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access93">{{item.access.access93}} </label>
+                              <label for="item.access.access93">  </label>
                                 <input type="checkbox" name="{{item.access.access93}}" id="{{item.access.access93}}" [(ngModel)]="item.access.access93" #item.access.access93="ngModel"
                                 [checked]="item.access.access93">
                           </td>
                         </tr>
 
 
-                        <tr>
+                        <tr style="display: none;">
                           <td>--&gt; Edit</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access94">{{item.access.access94}} </label>
+                              <label for="item.access.access94">  </label>
                                 <input type="checkbox" name="{{item.access.access94}}" id="{{item.access.access94}}" [(ngModel)]="item.access.access94" #item.access.access94="ngModel"
                                 [checked]="item.access.access94">
                           </td>
                         </tr>
 
 
-                        <tr>
+                        <tr style="display: none;">
                           <td>--&gt; Delete</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access95">{{item.access.access95}} </label>
+                              <label for="item.access.access95">  </label>
                                 <input type="checkbox" name="{{item.access.access95}}" id="{{item.access.access95}}" [(ngModel)]="item.access.access95" #item.access.access95="ngModel"
                                 [checked]="item.access.access95">
                           </td>
                         </tr>
-                        <tr>
+                        <tr style="display: none;">
                           <td><b>Invoice</b></td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access96">{{item.access.access96}} </label>
+                              <label for="item.access.access96">  </label>
                                 <input type="checkbox" name="{{item.access.access96}}" id="{{item.access.access96}}" [(ngModel)]="item.access.access96" #item.access.access96="ngModel"
                                 [checked]="item.access.access96">
                           </td>
                         </tr>
 
 
-                        <tr>
+                        <tr style="display: none;">
                           <td>--&gt; Mail</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access97">{{item.access.access97}} </label>
+                              <label for="item.access.access97">  </label>
                                 <input type="checkbox" name="{{item.access.access97}}" id="{{item.access.access97}}" [(ngModel)]="item.access.access97" #item.access.access97="ngModel"
                                 [checked]="item.access.access97">
                           </td>
                         </tr>
 
 
-                        <tr>
+                        <tr style="display: none;">
                           <td>--&gt; Pdf</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access98">{{item.access.access98}} </label>
+                              <label for="item.access.access98">  </label>
                                 <input type="checkbox" name="{{item.access.access98}}" id="{{item.access.access98}}" [(ngModel)]="item.access.access98" #item.access.access98="ngModel"
                                 [checked]="item.access.access98">
                           </td>
@@ -977,7 +977,7 @@
                         <tr>
                           <td><b>Tasks</b></td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access99">{{item.access.access99}} </label>
+                              <label for="item.access.access99">  </label>
                                 <input type="checkbox" name="{{item.access.access99}}" id="{{item.access.access99}}" [(ngModel)]="item.access.access99" #item.access.access99="ngModel"
                                 [checked]="item.access.access99">
                           </td>
@@ -987,7 +987,7 @@
                         <tr>
                           <td>--&gt; Add</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access100">{{item.access.access100}} </label>
+                              <label for="item.access.access100">  </label>
                                 <input type="checkbox" name="{{item.access.access100}}" id="{{item.access.access100}}" [(ngModel)]="item.access.access100" #item.access.access100="ngModel"
                                 [checked]="item.access.access100">
                           </td>
@@ -997,7 +997,7 @@
                         <tr>
                           <td>--&gt; Edit</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access101">{{item.access.access101}} </label>
+                              <label for="item.access.access101">  </label>
                                 <input type="checkbox" name="{{item.access.access101}}" id="{{item.access.access101}}" [(ngModel)]="item.access.access101" #item.access.access101="ngModel"
                                 [checked]="item.access.access101">
                           </td>
@@ -1007,7 +1007,7 @@
                         <tr>
                           <td>--&gt; View</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access102">{{item.access.access102}} </label>
+                              <label for="item.access.access102">  </label>
                                 <input type="checkbox" name="{{item.access.access102}}" id="{{item.access.access102}}" [(ngModel)]="item.access.access102" #item.access.access102="ngModel"
                                 [checked]="item.access.access102">
                           </td>
@@ -1017,7 +1017,7 @@
                         <tr>
                           <td>--&gt; Delete</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access103">{{item.access.access103}} </label>
+                              <label for="item.access.access103">  </label>
                                 <input type="checkbox" name="{{item.access.access103}}" id="{{item.access.access103}}" [(ngModel)]="item.access.access103" #item.access.access103="ngModel"
                                 [checked]="item.access.access103">
                           </td>
@@ -1027,7 +1027,7 @@
                         <tr>
                           <td>--&gt; Comments</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access104">{{item.access.access104}} </label>
+                              <label for="item.access.access104">  </label>
                                 <input type="checkbox" name="{{item.access.access104}}" id="{{item.access.access104}}" [(ngModel)]="item.access.access104" #item.access.access104="ngModel"
                                 [checked]="item.access.access104">
                           </td>
@@ -1037,7 +1037,7 @@
                         <tr>
                           <td>--&gt; My Tasks</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access105">{{item.access.access105}} </label>
+                              <label for="item.access.access105">  </label>
                                 <input type="checkbox" name="{{item.access.access105}}" id="{{item.access.access105}}" [(ngModel)]="item.access.access105" #item.access.access105="ngModel"
                                 [checked]="item.access.access105">
                           </td>
@@ -1045,7 +1045,7 @@
                         <tr>
                           <td><b>Documents</b></td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access106">{{item.access.access106}} </label>
+                              <label for="item.access.access106">  </label>
                                 <input type="checkbox" name="{{item.access.access106}}" id="{{item.access.access106}}" [(ngModel)]="item.access.access106" #item.access.access106="ngModel"
                                 [checked]="item.access.access106">
                           </td>
@@ -1055,7 +1055,7 @@
                         <tr>
                           <td>--&gt; Add</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access107">{{item.access.access107}} </label>
+                              <label for="item.access.access107">  </label>
                                 <input type="checkbox" name="{{item.access.access107}}" id="{{item.access.access107}}" [(ngModel)]="item.access.access107" #item.access.access107="ngModel"
                                 [checked]="item.access.access107">
                           </td>
@@ -1065,7 +1065,7 @@
                         <tr>
                           <td>--&gt; Edit</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access108">{{item.access.access108}} </label>
+                              <label for="item.access.access108">  </label>
                                 <input type="checkbox" name="{{item.access.access108}}" id="{{item.access.access108}}" [(ngModel)]="item.access.access108" #item.access.access108="ngModel"
                                 [checked]="item.access.access108">
                           </td>
@@ -1075,7 +1075,7 @@
                         <tr>
                           <td>--&gt; Delete</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access109">{{item.access.access109}} </label>
+                              <label for="item.access.access109">  </label>
                                 <input type="checkbox" name="{{item.access.access109}}" id="{{item.access.access109}}" [(ngModel)]="item.access.access109" #item.access.access109="ngModel"
                                 [checked]="item.access.access109">
                           </td>
@@ -1085,7 +1085,7 @@
                         <tr>
                           <td>--&gt; Manage</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access110">{{item.access.access110}} </label>
+                              <label for="item.access.access110">  </label>
                                 <input type="checkbox" name="{{item.access.access110}}" id="{{item.access.access110}}" [(ngModel)]="item.access.access110" #item.access.access110="ngModel"
                                 [checked]="item.access.access110">
                           </td>
@@ -1095,7 +1095,7 @@
                         <tr>
                           <td>--&gt; My Delete DOcument</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access111">{{item.access.access111}} </label>
+                              <label for="item.access.access111">  </label>
                                 <input type="checkbox" name="{{item.access.access111}}" id="{{item.access.access111}}" [(ngModel)]="item.access.access111" #item.access.access111="ngModel"
                                 [checked]="item.access.access111">
                           </td>
@@ -1103,7 +1103,7 @@
                         <tr>
                           <td><b>Attendance</b></td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access112">{{item.access.access112}} </label>
+                              <label for="item.access.access112">  </label>
                                 <input type="checkbox" name="{{item.access.access112}}" id="{{item.access.access112}}" [(ngModel)]="item.access.access112" #item.access.access112="ngModel"
                                 [checked]="item.access.access112">
                           </td>
@@ -1113,7 +1113,7 @@
                         <tr>
                           <td>--&gt; Leave Notification</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access113">{{item.access.access113}} </label>
+                              <label for="item.access.access113">  </label>
                                 <input type="checkbox" name="{{item.access.access113}}" id="{{item.access.access113}}" [(ngModel)]="item.access.access113" #item.access.access113="ngModel"
                                 [checked]="item.access.access113">
                           </td>
@@ -1123,7 +1123,7 @@
                         <tr>
                           <td>--&gt; Pending /Approve Leave</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access114">{{item.access.access114}} </label>
+                              <label for="item.access.access114">  </label>
                                 <input type="checkbox" name="{{item.access.access114}}" id="{{item.access.access114}}" [(ngModel)]="item.access.access114" #item.access.access114="ngModel"
                                 [checked]="item.access.access114">
                           </td>
@@ -1133,7 +1133,7 @@
                         <tr>
                           <td>--&gt; Delete Leave</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access115">{{item.access.access115}} </label>
+                              <label for="item.access.access115">  </label>
                                 <input type="checkbox" name="{{item.access.access115}}" id="{{item.access.access115}}" [(ngModel)]="item.access.access115" #item.access.access115="ngModel"
                                 [checked]="item.access.access115">
                           </td>
@@ -1143,7 +1143,7 @@
                         <tr>
                           <td>--&gt; Mark In</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access116">{{item.access.access116}} </label>
+                              <label for="item.access.access116">  </label>
                                 <input type="checkbox" name="{{item.access.access116}}" id="{{item.access.access116}}" [(ngModel)]="item.access.access116" #item.access.access116="ngModel"
                                 [checked]="item.access.access116">
                           </td>
@@ -1153,7 +1153,7 @@
                         <tr>
                           <td>--&gt; Mark Out</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access117">{{item.access.access117}} </label>
+                              <label for="item.access.access117">  </label>
                                 <input type="checkbox" name="{{item.access.access117}}" id="{{item.access.access117}}" [(ngModel)]="item.access.access117" #item.access.access117="ngModel"
                                 [checked]="item.access.access117">
                           </td>
@@ -1163,7 +1163,7 @@
                         <tr>
                           <td>--&gt; My Attendance</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access118">{{item.access.access118}} </label>
+                              <label for="item.access.access118">  </label>
                                 <input type="checkbox" name="{{item.access.access118}}" id="{{item.access.access118}}" [(ngModel)]="item.access.access118" #item.access.access118="ngModel"
                                 [checked]="item.access.access118">
                           </td>
@@ -1173,7 +1173,7 @@
                         <tr>
                           <td>--&gt; My Leaves</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access119">{{item.access.access119}} </label>
+                              <label for="item.access.access119">  </label>
                                 <input type="checkbox" name="{{item.access.access119}}" id="{{item.access.access119}}" [(ngModel)]="item.access.access119" #item.access.access119="ngModel"
                                 [checked]="item.access.access119">
                           </td>
@@ -1183,17 +1183,17 @@
                         <tr>
                           <td>--&gt; Apply Leave</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access120">{{item.access.access120}} </label>
+                              <label for="item.access.access120">  </label>
                                 <input type="checkbox" name="{{item.access.access120}}" id="{{item.access.access120}}" [(ngModel)]="item.access.access120" #item.access.access120="ngModel"
                                 [checked]="item.access.access120">
                           </td>
                         </tr>
 
 
-                        <tr>
+                        <tr style="display: none;">
                           <td>--&gt; Delete My Leave</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access121">{{item.access.access121}} </label>
+                              <label for="item.access.access121">  </label>
                                 <input type="checkbox" name="{{item.access.access121}}" id="{{item.access.access121}}" [(ngModel)]="item.access.access121" #item.access.access121="ngModel"
                                 [checked]="item.access.access121">
                           </td>
@@ -1201,7 +1201,7 @@
                         <tr>
                           <td><b>Leave Types</b></td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access122">{{item.access.access122}} </label>
+                              <label for="item.access.access122">  </label>
                                 <input type="checkbox" name="{{item.access.access122}}" id="{{item.access.access122}}" [(ngModel)]="item.access.access122" #item.access.access122="ngModel"
                                 [checked]="item.access.access122">
                           </td>
@@ -1211,7 +1211,7 @@
                         <tr>
                           <td>--&gt; Add</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access123">{{item.access.access123}} </label>
+                              <label for="item.access.access123">  </label>
                                 <input type="checkbox" name="{{item.access.access123}}" id="{{item.access.access123}}" [(ngModel)]="item.access.access123" #item.access.access123="ngModel"
                                 [checked]="item.access.access123">
                           </td>
@@ -1221,7 +1221,7 @@
                         <tr>
                           <td>--&gt; Edit</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access124">{{item.access.access124}} </label>
+                              <label for="item.access.access124">  </label>
                                 <input type="checkbox" name="{{item.access.access124}}" id="{{item.access.access124}}" [(ngModel)]="item.access.access124" #item.access.access124="ngModel"
                                 [checked]="item.access.access124">
                           </td>
@@ -1231,7 +1231,7 @@
                         <tr>
                           <td>--&gt; Delete</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access125">{{item.access.access125}} </label>
+                              <label for="item.access.access125">  </label>
                                 <input type="checkbox" name="{{item.access.access125}}" id="{{item.access.access125}}" [(ngModel)]="item.access.access125" #item.access.access125="ngModel"
                                 [checked]="item.access.access125">
                           </td>
@@ -1239,7 +1239,7 @@
                         <tr>
                           <td><b>Holidays</b></td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access126">{{item.access.access126}} </label>
+                              <label for="item.access.access126">  </label>
                                 <input type="checkbox" name="{{item.access.access126}}" id="{{item.access.access126}}" [(ngModel)]="item.access.access126" #item.access.access126="ngModel"
                                 [checked]="item.access.access126">
                           </td>
@@ -1249,7 +1249,7 @@
                         <tr>
                           <td>--&gt; Add</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access127">{{item.access.access127}} </label>
+                              <label for="item.access.access127">  </label>
                                 <input type="checkbox" name="{{item.access.access127}}" id="{{item.access.access127}}" [(ngModel)]="item.access.access127" #item.access.access127="ngModel"
                                 [checked]="item.access.access127">
                           </td>
@@ -1259,7 +1259,7 @@
                         <tr>
                           <td>--&gt; Delete</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access128">{{item.access.access128}} </label>
+                              <label for="item.access.access128">  </label>
                                 <input type="checkbox" name="{{item.access.access128}}" id="{{item.access.access128}}" [(ngModel)]="item.access.access128" #item.access.access128="ngModel"
                                 [checked]="item.access.access128">
                           </td>
@@ -1267,7 +1267,7 @@
                         <tr>
                           <td><b>Notice</b></td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access129">{{item.access.access129}} </label>
+                              <label for="item.access.access129">  </label>
                                 <input type="checkbox" name="{{item.access.access129}}" id="{{item.access.access129}}" [(ngModel)]="item.access.access129" #item.access.access129="ngModel"
                                 [checked]="item.access.access129">
                           </td>
@@ -1277,7 +1277,7 @@
                         <tr>
                           <td>--&gt; Add</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access130">{{item.access.access130}} </label>
+                              <label for="item.access.access130">  </label>
                                 <input type="checkbox" name="{{item.access.access130}}" id="{{item.access.access130}}" [(ngModel)]="item.access.access130" #item.access.access130="ngModel"
                                 [checked]="item.access.access130">
                           </td>
@@ -1287,7 +1287,7 @@
                         <tr>
                           <td>--&gt; Edit</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access131">{{item.access.access131}} </label>
+                              <label for="item.access.access131">  </label>
                                 <input type="checkbox" name="{{item.access.access131}}" id="{{item.access.access131}}" [(ngModel)]="item.access.access131" #item.access.access131="ngModel"
                                 [checked]="item.access.access131">
                           </td>
@@ -1297,7 +1297,7 @@
                         <tr>
                           <td>--&gt; Delete</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access132">{{item.access.access132}} </label>
+                              <label for="item.access.access132">  </label>
                                 <input type="checkbox" name="{{item.access.access132}}" id="{{item.access.access132}}" [(ngModel)]="item.access.access132" #item.access.access132="ngModel"
                                 [checked]="item.access.access132">
                           </td>
@@ -1307,7 +1307,7 @@
                         <tr>
                           <td>--&gt; View</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access133">{{item.access.access133}} </label>
+                              <label for="item.access.access133">  </label>
                                 <input type="checkbox" name="{{item.access.access133}}" id="{{item.access.access133}}" [(ngModel)]="item.access.access133" #item.access.access133="ngModel"
                                 [checked]="item.access.access133">
                           </td>
@@ -1315,7 +1315,7 @@
                         <tr>
                           <td><b>Tax</b></td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access134">{{item.access.access134}} </label>
+                              <label for="item.access.access134">  </label>
                                 <input type="checkbox" name="{{item.access.access134}}" id="{{item.access.access134}}" [(ngModel)]="item.access.access134" #item.access.access134="ngModel"
                                 [checked]="item.access.access134">
                           </td>
@@ -1325,7 +1325,7 @@
                         <tr>
                           <td>--&gt; Add</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access135">{{item.access.access135}} </label>
+                              <label for="item.access.access135">  </label>
                                 <input type="checkbox" name="{{item.access.access135}}" id="{{item.access.access135}}" [(ngModel)]="item.access.access135" #item.access.access135="ngModel"
                                 [checked]="item.access.access135">
                           </td>
@@ -1335,7 +1335,7 @@
                         <tr>
                           <td>--&gt; Edit</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access136">{{item.access.access136}} </label>
+                              <label for="item.access.access136">  </label>
                                 <input type="checkbox" name="{{item.access.access136}}" id="{{item.access.access136}}" [(ngModel)]="item.access.access136" #item.access.access136="ngModel"
                                 [checked]="item.access.access136">
                           </td>
@@ -1345,7 +1345,7 @@
                         <tr>
                           <td>--&gt; Delete</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access137">{{item.access.access137}} </label>
+                              <label for="item.access.access137">  </label>
                                 <input type="checkbox" name="{{item.access.access137}}" id="{{item.access.access137}}" [(ngModel)]="item.access.access137" #item.access.access137="ngModel"
                                 [checked]="item.access.access137">
                           </td>
@@ -1353,7 +1353,7 @@
                         <tr>
                           <td><b>Case Study</b></td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access138">{{item.access.access138}} </label>
+                              <label for="item.access.access138">  </label>
                                 <input type="checkbox" name="{{item.access.access138}}" id="{{item.access.access138}}" [(ngModel)]="item.access.access138" #item.access.access138="ngModel"
                                 [checked]="item.access.access138">
                           </td>
@@ -1363,7 +1363,7 @@
                         <tr>
                           <td>--&gt; Add</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access139">{{item.access.access139}} </label>
+                              <label for="item.access.access139">  </label>
                                 <input type="checkbox" name="{{item.access.access139}}" id="{{item.access.access139}}" [(ngModel)]="item.access.access139" #item.access.access139="ngModel"
                                 [checked]="item.access.access139">
                           </td>
@@ -1373,7 +1373,7 @@
                         <tr>
                           <td>--&gt; Edit</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access140">{{item.access.access140}} </label>
+                              <label for="item.access.access140">  </label>
                                 <input type="checkbox" name="{{item.access.access140}}" id="{{item.access.access140}}" [(ngModel)]="item.access.access140" #item.access.access140="ngModel"
                                 [checked]="item.access.access140">
                           </td>
@@ -1383,7 +1383,7 @@
                         <tr>
                           <td>--&gt; Delete</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access141">{{item.access.access141}} </label>
+                              <label for="item.access.access141">  </label>
                                 <input type="checkbox" name="{{item.access.access141}}" id="{{item.access.access141}}" [(ngModel)]="item.access.access141" #item.access.access141="ngModel"
                                 [checked]="item.access.access141">
                           </td>
@@ -1393,7 +1393,7 @@
                         <tr>
                           <td>--&gt; View</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access142">{{item.access.access142}} </label>
+                              <label for="item.access.access142">  </label>
                                 <input type="checkbox" name="{{item.access.access142}}" id="{{item.access.access142}}" [(ngModel)]="item.access.access142" #item.access.access142="ngModel"
                                 [checked]="item.access.access142">
                           </td>
@@ -1403,7 +1403,7 @@
                         <tr>
                           <td>--&gt; Attachments</td>
                           <td *ngFor="let item of addpermission;let i = index;">
-                              <label for="item.access.access143">{{item.access.access143}} </label>
+                              <label for="item.access.access143">  </label>
                                 <input type="checkbox" name="{{item.access.access143}}" id="{{item.access.access143}}" [(ngModel)]="item.access.access143" #item.access.access143="ngModel"
                                 [checked]="item.access.access143">
                           </td>

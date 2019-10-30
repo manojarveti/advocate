@@ -52,7 +52,7 @@
         <a *ngIf="item.access.access60==true" mat-list-item routerLink='hrmange/departments' (click)="showSubmenu = !showSubmenu"><i class="fa fa-arrow-right"></i>
           <mat-list-item>Departments</mat-list-item>
         </a>
-        <a mat-list-item routerLink='hrmange/permissions' (click)="showSubmenu = !showSubmenu"><i class="fa fa-arrow-right"></i>
+        <a *ngIf="item.access.access91==true" mat-list-item routerLink='hrmange/permissions' (click)="showSubmenu = !showSubmenu"><i class="fa fa-arrow-right"></i>
           <mat-list-item>Permissions</mat-list-item>
         </a>
         <a *ngIf="item.access.access126==true" mat-list-item routerLink='hrmange/holidays' (click)="showSubmenu = !showSubmenu"><i class="fa fa-arrow-right"></i>
@@ -77,6 +77,7 @@
           <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubmenucases}">expand_more</mat-icon>
         </button>
       </mat-list-item>
+      
       <div class="submenu" [ngClass]="{'expanded' : showSubmenucases}">
         <a *ngIf="item.access.access4==true" mat-list-item routerLink='cases/allcases' (click)="showSubmenucases = !showSubmenucases"><i class="fa fa-arrow-right"></i>
           <mat-list-item>All cases</mat-list-item>

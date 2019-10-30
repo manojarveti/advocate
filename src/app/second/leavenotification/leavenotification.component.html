@@ -4,7 +4,7 @@
             Leave Notification <small>List</small>
         </h1>
         <ol class="breadcrumb">
-            <li><a [routerLink]="['/main/dashboard']"><i class="fa fa-dashboard"></i> Dasbhoard</a></li>
+            <li><a [routerLink]="['/main/dashboard']"><i class="fa fa-dashboard"></i> Dashboard</a></li>
             <li class="active">Leave Notification</li>
         </ol>
     </section>
@@ -57,7 +57,7 @@
                                                 <td>{{item.reason}}</td>
                                                 <td >
                                                     <div *ngIf="item.status== null">Pending</div>
-                            <div *ngIf="item.status == 'accept'">Accepted</div>
+                            <div *ngIf="item.status == 'accept'">Approved</div>
                                                 </td>
                                                 <td class="col-md-3">
                                                     <div class="btn-group" *ngFor="let item2 of details;let i = index;">
