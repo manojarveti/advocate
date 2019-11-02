@@ -18,14 +18,29 @@
         <div class="box box-primary">
           <!-- /.box-header -->
           <!-- form start -->
-          <form *ngFor="let item of addacts;let i = index;">
+          <form *ngFor="let item of addacts;let i = index;" #f="ngForm">
             <div class="box-body">
               <div class="form-group">
                 <div class="row">
                   <div class="col-md-4">
                     <label for="name" style="clear:both;"> Name</label>
                     <input type="text" name="name" [(ngModel)]="addacts[i].name" class="form-control" #name="ngModel"
-                      [ngModelOptions]="{standalone: true}">
+                      [ngModelOptions]="{standalone: true}" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode > 31 && event.charCode < 33)"
+                      required pattern="[a-zA-Z ]*">
+                    <span class="err-msg">
+                      <div *ngIf="name.touched">
+                        <div *ngIf="name.errors && name.errors.required">
+                          Name is required
+                        </div>
+                      </div>
+                    </span>
+                    <span class="err-msg">
+                      <div *ngIf="name.touched">
+                          <div *ngIf="name.errors && name.errors.pattern">
+                              Please enter olny Alphabits
+                          </div>
+                      </div>
+                  </span>
                   </div>
                   <div class="col-md-4">
                     <label for="name" style="clear:both;">Description</label>
@@ -36,7 +51,7 @@
               </div>
             </div><!-- /.box-body -->
             <div class="box-footer">
-              <button type="submit" (click)="updateact(name,description,item.id)" class="btn btn-primary">Save</button>
+              <button type="submit" (click)="updateact(name,description,item.id)" [disabled]="!f.valid" class="btn btn-primary">Update</button>
             </div>
           </form>
         </div><!-- /.box -->

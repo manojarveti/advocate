@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import  Addappointment  from '../addappointment/addappointment';
 import { AddappointmentService } from '../addappointment/addappointment.service';
-
+declare var $:any;
 @Component({
   selector: 'app-editappointment',
   templateUrl: './editappointment.component.html',
@@ -10,7 +10,8 @@ import { AddappointmentService } from '../addappointment/addappointment.service'
 })
 export class EditappointmentComponent implements OnInit {
 
-  addapointments:Addappointment[];
+  addapointments:any;
+  addapointments1:any;
   error = '';
   success = '';
   appointment={
@@ -41,9 +42,11 @@ export class EditappointmentComponent implements OnInit {
       this.addappointmentService.update({ title: title.value,name:name.value, motive:motive.value, date_time: date_time.value, notes:notes.value, id: +id })
         .subscribe(
           (res) => {
-            this.addapointments    = res;
-            this.success = 'Updated successfully';
-            this.router.navigate(["/main/appointments"]);
+            this.addapointments1    = res;
+          if(this.addapointments1.output==true)
+          {
+            $('.successmechPopup').modal('show');
+          }
           },
           (err) => this.error = err
         );
@@ -60,6 +63,10 @@ export class EditappointmentComponent implements OnInit {
   private resetErrors(){
     this.success = '';
     this.error   = '';
+  }
+
+  redirect(){
+    this.router.navigate(["/main/appointments"]);
   }
 
 }

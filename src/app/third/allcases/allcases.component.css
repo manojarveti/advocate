@@ -315,3 +315,6 @@ table {
 .bg-purple {
     background-color: #605ca8 !important;
 }
+input.form-control.input-sm {
+    margin-left: 10px;
+}

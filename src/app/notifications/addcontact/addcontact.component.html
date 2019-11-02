@@ -46,11 +46,18 @@
                                     <div class="col-md-4">
                                         <label for="name" style="clear:both;">Phone <span>*</span></label>
                                         <input type="text" name="phone" [(ngModel)]="contact.phone" #phone="ngModel"
-                                            class="form-control" required>
+                                            class="form-control" required pattern="[0-9]{10}">
                                             <span class="err-msg">
                                                 <div *ngIf="phone.touched">
                                                     <div *ngIf="phone.errors && phone.errors.required">
                                                         Mobile no is required
+                                                    </div>
+                                                </div>
+                                            </span>
+                                            <span class="err-msg">
+                                                <div *ngIf="phone.touched">
+                                                    <div *ngIf="phone.errors && phone.errors.pattern">
+                                                        Please enter olny 10 digit Numbers
                                                     </div>
                                                 </div>
                                             </span>

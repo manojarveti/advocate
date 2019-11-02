@@ -59,7 +59,7 @@
                 </div>
               </div><!-- /.box-body -->
               <div class="box-footer">
-                <button type="submit" (click)="addcasecategory(user)" class="btn btn-primary">Save</button>
+                <button type="submit" (click)="addcasecategory(user)" [disabled]="!f.valid" class="btn btn-primary">Save</button>
               </div>
             </form>
           </div><!-- /.box -->

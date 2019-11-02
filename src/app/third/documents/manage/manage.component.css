@@ -77,3 +77,6 @@ input.btn.btn-primary {
     margin: 0 auto;
     display: block;
 }
+input.form-control.input-sm {
+    margin-left: 10px;
+}

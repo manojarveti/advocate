@@ -31,7 +31,15 @@
                       <div class="col-md-4">
                         <label for="name" style="clear:both;"> Name</label>
                         <input type="text" name="name"  [(ngModel)]="addcourts[i].name"
-                         #name="ngModel" [ngModelOptions]="{standalone: true}" class="form-control">
+                         #name="ngModel" [ngModelOptions]="{standalone: true}" class="form-control" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode > 31 && event.charCode < 33) || (event.charCode > 48 && event.charCode < 57)"
+                         required>
+                       <span class="err-msg">
+                         <div *ngIf="name.touched">
+                           <div *ngIf="name.errors && name.errors.required">
+                             Name is required
+                           </div>
+                         </div>
+                       </span>
                       </div>{{addcourts[i].court_category_id}}
                       <div class="col-md-4">
                           <label for="location_id" style="clear:both;">Location </label>
@@ -70,7 +78,7 @@
                 </div><!-- /.box-body -->
 
                 <div class="box-footer">
-                  <button type="submit" (click)="updatecourt(name, location, court_category, description, id)" class="btn btn-primary">Save</button>
+                  <button type="submit" (click)="updatecourt(name, location, court_category, description, id)" class="btn btn-primary">Update</button>
                 </div>
               </div><!-- /.box -->
             </form>

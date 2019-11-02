@@ -3,6 +3,7 @@ import Addappointment from './addappointment/addappointment';
 import { AddappointmentService } from './addappointment/addappointment.service';
 import { loginService } from '../login/login.service';
 import { CookieService } from 'ngx-cookie-service';
+declare var $:any;
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.component.html',
@@ -10,6 +11,7 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class SettingsComponent implements OnInit {
   addappointments: Addappointment[];
+  addappointments1:any;
   error = '';
   success = '';
   p=1;
@@ -20,6 +22,7 @@ appointment={
   date:"",
   notes:""
 }
+actdata:any;
 searchText;
 roleid;
 details:any;
@@ -53,17 +56,31 @@ details:any;
     );
   }
 
-  deleteappointmentadd(id: string | number) {
+
+  deleteact(data: string | number) {
+    this.actdata=data;
+    $('.deleteRequest').modal('show');
+  }
+
+
+
+  deleteactdata(){
+     $('.deleteRequest').modal('hide');
     this.resetErrors();
 
-    this.addappointmentService.deleteappointment(+id)
+    this.addappointmentService.deleteappointment(this.actdata)
       .subscribe(
         (res: Addappointment[]) => {
-          this.addappointments = res;
-          this.success = 'Deleted successfully';
-        },
-        (err) => this.error = err
-      );
+          this.addappointments1 = res;
+          if(this.addappointments1.output==true)
+          {
+            $('.successmechPopup').modal('show');
+           // this.router.navigate(["/main/dashboard"]);
+          }
+          this.getappointment();
+          },
+          (err) => this.error = err
+        );
   }
 
   private resetErrors(){

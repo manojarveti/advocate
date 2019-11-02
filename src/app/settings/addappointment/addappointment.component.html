@@ -26,7 +26,7 @@
                                         <label for="name" style="clear:both;"> Title</label>
                                         <input type="text" name="title" [(ngModel)]="appointment.title" #title="ngModel"
                                             class="form-control"
-                                            onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode > 31 && event.charCode < 33) || (event.charCode > 47 && event.charCode < 58)"
+                                            onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode > 31 && event.charCode < 33)"
                                             required pattern="[a-zA-Z ]*">
                                         <span class="err-msg">
                                             <div *ngIf="title.touched">

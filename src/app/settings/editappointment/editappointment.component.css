@@ -52,7 +52,6 @@ ol, ul {
     padding-left: 15px;
     padding-right: 15px;
 }
-
 .box.box-primary {
     border-top-color: #000000;
     box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
@@ -273,4 +272,47 @@ button, input, optgroup, select, textarea {
     margin: 0;
     font: inherit;
     color: inherit;
+}
+
+.col-xs-12 {
+    width: 100%;
+}
+
+.pull-right {
+    float: right!important;
+}
+
+table.table-bordered.dataTable {
+    border-collapse: separate !important;
+}
+table.dataTable {
+    clear: both;
+    margin-top: 6px !important;
+    margin-bottom: 6px !important;
+    max-width: none !important;
+}
+.table-bordered {
+    border: 1px solid #f4f4f4;
+}
+.table-bordered {
+    border: 1px solid #ddd;
+}
+.table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+table {
+    background-color: transparent;
+}
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+.table-striped>tbody>tr:nth-of-type(odd) {
+    background-color: #f9f9f9;
+}
+span{
+    color: red;
 }

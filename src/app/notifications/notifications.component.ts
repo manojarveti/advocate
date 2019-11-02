@@ -59,7 +59,6 @@ details:any;
 
   deletecontactAdd(data: string | number) {
     this.contactdata=data;
-    console.log(this.contactdata);
     $('.deleteRequest').modal('show');
   }
 

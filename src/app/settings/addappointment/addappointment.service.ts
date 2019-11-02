@@ -48,7 +48,7 @@ import Addappointment from './addappointment';
 
   update(addappointment: Addappointment): Observable<Addappointment[]> {
     return this.http.put(`${this.baseUrl}/appointment/update`, { data: addappointment })
-      .pipe(map((res) => {
+      .pipe(map((res:any) => {
         const theAdd = this.addappointments.find((item) => {
           return +item['id'] === +addappointment['id'];
         });
@@ -59,7 +59,7 @@ import Addappointment from './addappointment';
           theAdd['date_time']=addappointment['date_time'];
           theAdd['notes']=addappointment['notes'];
         }
-        return this.addappointments;
+        return res;
       }),
       catchError(this.handleError));
   }
@@ -69,11 +69,11 @@ import Addappointment from './addappointment';
       .set('id', id.toString());
 
     return this.http.delete(`${this.baseUrl}/appointment/delete`, { params: params })
-      .pipe(map(res => {
+      .pipe(map((res:any) => {
         const filteredAdds = this.addappointments.filter((car) => {
           return +car['id'] !== +id;
         });
-        return this.addappointments = filteredAdds;
+        return res;
       }),
       catchError(this.handleError));
   }

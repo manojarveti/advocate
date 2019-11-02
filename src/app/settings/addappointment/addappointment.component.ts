@@ -15,6 +15,7 @@ export class AddappointmentComponent implements OnInit {
   error = '';
   success = '';
 addapointments:Addappointment[];
+addapointments1:any;
   appointment={
     title:"",
     motive:"",
@@ -32,8 +33,8 @@ addapointments:Addappointment[];
   .subscribe(
     (res: Addappointment[]) => {
       // Update the list of to do list
-      this.addcontacts = res;
-      if(this.addcontacts.output==true)
+      this.addapointments1 = res;
+      if(this.addapointments1.output==true)
       {
         $('.successmechPopup').modal('show');
        // this.router.navigate(["/main/dashboard"]);

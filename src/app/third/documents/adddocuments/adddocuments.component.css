@@ -316,3 +316,6 @@ table {
 .bg-purple {
     background-color: #605ca8 !important;
 }
+span{
+    color:red;
+}

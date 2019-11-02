@@ -1,7 +1,7 @@
 
   <section class="content-header">
-    <h1>
-      ddf <small>Manage</small>
+    <h1  *ngFor="let i = index;let item of adddocuments">
+      {{item.title}} <small>Manage</small>
     </h1>
     <ol class="breadcrumb">
       <li><a [routerLink]="['/main/dashboard']"><i class="fa fa-dashboard"></i> Dashboard</a></li>

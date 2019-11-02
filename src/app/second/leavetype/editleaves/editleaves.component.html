@@ -1,15 +1,14 @@
-
-    <section class="content-header">
-        <h1>
-            Leave Policy <small>Edit</small>
-        </h1>
-        <ol class="breadcrumb">
-            <li><a [routerLink]="['/main/dashboard']"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-            <li><a [routerLink]="['/main/hrmange/leavetype']">Leave Policy</a></li>
-            <li class="active"><b>Edit</b></li>
-        </ol>
-    </section>
-    <div class="container">
+<section class="content-header">
+    <h1>
+        Leave Policy <small>Edit</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a [routerLink]="['/main/dashboard']"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+        <li><a [routerLink]="['/main/hrmange/leavetype']">Leave Policy</a></li>
+        <li class="active"><b>Edit</b></li>
+    </ol>
+</section>
+<div class="container">
     <section class="content">
         <div class="row">
             <!-- left column -->
@@ -27,7 +26,21 @@
                                             <label for="name" style="clear:both;"> Leave Types</label>
                                             <input type="text" name="leavetype" [(ngModel)]="addleaves[i].leavetype"
                                                 #leavetype="ngModel" [ngModelOptions]="{standalone: true}"
-                                                class="form-control">
+                                                class="form-control" required pattern="[a-zA-Z ]*">
+                                            <span class="err-msg">
+                                                <div *ngIf="leavetype.touched">
+                                                    <div *ngIf="leavetype.errors && leavetype.errors.required">
+                                                        Leave Type is required
+                                                    </div>
+                                                </div>
+                                            </span>
+                                            <span class="err-msg">
+                                                <div *ngIf="leavetype.touched">
+                                                    <div *ngIf="leavetype.errors && leavetype.errors.pattern">
+                                                        Please enter olny Alphabits
+                                                    </div>
+                                                </div>
+                                            </span>
                                         </div>
                                         <div class="col-md-4">
                                             <label for="name" style="clear:both;"> Leaves</label>
@@ -77,4 +90,4 @@
             </div>
         </div>
     </div>
-  </div>
+</div>

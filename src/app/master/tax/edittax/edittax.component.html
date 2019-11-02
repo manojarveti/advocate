@@ -19,7 +19,7 @@
                     <div class="box box-primary">
                        <!-- /.box-header -->
                         <!-- form start -->
-                        <form *ngFor="let item of addtaxs;let i = index;">
+                        <form *ngFor="let item of addtaxs;let i = index;" #f="ngForm">
                             <div class="box-body">
                                 <div class="box-body">
                                     <div class="form-group">
@@ -28,20 +28,42 @@
                                                 <label for="name" style="clear:both;"> Name</label>
                                                 <input type="text" name="name" [(ngModel)]="addtaxs[i].name"
                                                     class="form-control" #name="ngModel"
-                                                    [ngModelOptions]="{standalone: true}">
+                                                    [ngModelOptions]="{standalone: true}" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode > 31 && event.charCode < 33)"
+                                                    required  pattern="[a-zA-Z ]*" >
+                                                <span class="err-msg">
+                                                    <div *ngIf="name.touched">
+                                                        <div *ngIf="name.errors && name.errors.required">
+                                                            Name is required
+                                                        </div>
+                                                    </div>
+                                                </span>
+                                                <span class="err-msg">
+                                                    <div *ngIf="name.touched">
+                                                        <div *ngIf="name.errors && name.errors.pattern">
+                                                            Please enter olny Alphabits
+                                                        </div>
+                                                    </div>
+                                                </span>
                                             </div>
                                             <div class="col-md-4">
                                                 <label for="name" style="clear:both;">Tax (%)</label>
                                                 <input type="number" step="0.01" name="percent"
                                                     [(ngModel)]="addtaxs[i].percent" class="form-control"
-                                                    #percent="ngModel" [ngModelOptions]="{standalone: true}">
+                                                    #percent="ngModel" [ngModelOptions]="{standalone: true}"min="1" required>
+                                                    <span class="err-msg">
+                                                        <div *ngIf="percent.touched">
+                                                            <div *ngIf="percent.errors && percent.errors.required">
+                                                                Tax (%) is required
+                                                            </div>
+                                                        </div>
+                                                    </span>
                                             </div>
                                         </div>
                                     </div>
                                 </div><!-- /.box-body -->
                                 <div class="box-footer">
                                     <button type="submit" (click)="updatetax(name,percent,item.id)"
-                                        class="btn btn-primary">Save</button>
+                                        class="btn btn-primary" [disabled]="!f.valid">Update</button>
                                 </div>
                             </div><!-- /.box -->
                         </form>

@@ -25,19 +25,48 @@
                                     <div class="col-md-4">
                                         <label for="name" style="clear:both;"> Name</label>
                                         <input type="text" [(ngModel)]="adds[i].name" class="form-control"
-                                            #name="ngModel" [ngModelOptions]="{standalone: true}">
+                                            #name="ngModel" [ngModelOptions]="{standalone: true}" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode > 31 && event.charCode < 33) || (event.charCode > 47 && event.charCode < 58)"
+                                            required pattern="[a-zA-Z ]*">
+                                        <span class="err-msg">
+                                            <div *ngIf="name.touched">
+                                                <div *ngIf="name.errors && name.errors.required">
+                                                    Name is required
+                                                </div>
+                                            </div>
+                                        </span>
+                                        <span class="err-msg">
+                                            <div *ngIf="name.touched">
+                                                <div *ngIf="name.errors && name.errors.pattern">
+                                                    Please enter olny Alphabits
+                                                </div>
+                                            </div>
+                                        </span>
                                     </div>
                                     <div class="col-md-4">
                                         <label for="name" style="clear:both;">Description</label>
                                         <textarea [(ngModel)]="adds[i].description" class="form-control"
                                             #description="ngModel" [ngModelOptions]="{standalone: true}"
-                                            class="form-control"></textarea>
+                                            class="form-control"  required></textarea>
+                                            <span class="err-msg">
+                                                <div *ngIf="description.touched">
+                                                    <div *ngIf="description.errors && description.errors.required">
+                                                        Description is required
+                                                    </div>
+                                                </div>
+                                            </span>
                                     </div>
                                     <div class="col-md-4">
                                         <label for="name" style="clear:both;">Notification Date</label>
                                         <input type="date" [(ngModel)]="adds[i].date_time" class="form-control"
                                             #date_time="ngModel" [ngModelOptions]="{standalone: true}"
-                                            class="form-control datetimepicker">
+                                            class="form-control datetimepicker" required>
+                                            <span class="err-msg">
+                                                <div *ngIf="date_time.touched">
+                                                    <div *ngIf="date_time.errors && date_time.errors.required">
+                                                        Date is required
+                                                    </div>
+                                                </div>
+                                            </span>
                                     </div>
                                 </div>
                             </div>

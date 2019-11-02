@@ -20,19 +20,34 @@
                     <!-- /.box-header -->
                     <!-- form start -->
 
-                    <form *ngFor="let item of addapointments;let i = index;">
+                    <form *ngFor="let item of addapointments;let i = index;" #f="ngForm">
                         <div class="box-body">
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-4">
                                         <label for="name" style="clear:both;"> Title</label>
                                         <input type="text" name="title" [(ngModel)]="addapointments[i].title"
-                                            class="form-control" #title="ngModel" [ngModelOptions]="{standalone: true}">
+                                            class="form-control" #title="ngModel" [ngModelOptions]="{standalone: true}"onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode > 31 && event.charCode < 33)"
+                                            required pattern="[a-zA-Z ]*">
+                                          <span class="err-msg">
+                                            <div *ngIf="title.touched">
+                                              <div *ngIf="title.errors && natitleme.errors.required">
+                                                Title is required
+                                              </div>
+                                            </div>
+                                          </span>
+                                          <span class="err-msg">
+                                            <div *ngIf="title.touched">
+                                                <div *ngIf="title.errors && title.errors.pattern">
+                                                    Please enter olny Alphabits
+                                                </div>
+                                            </div>
+                                        </span>
                                     </div>
                                     <div class="col-md-4">
                                         <label for="name" style="clear:both;">Contact</label>
-                                        <select name="name" [(ngModel)]="addapointments[i].contact" class="form-control"
-                                            #name="ngModel" [ngModelOptions]="{standalone: true}"
+                                        <select name="contact" [(ngModel)]="addapointments[i].contact" class="form-control"
+                                            #contact="ngModel" [ngModelOptions]="{standalone: true}"
                                             class="form-control chzn">
                                             <option value="">--Select Contact--</option>
                                             <option value={{addapointments[i].contact}} selected="selected">
@@ -43,7 +58,14 @@
                                         <label for="name" style="clear:both;">Motive</label>
                                         <textarea name="motive" [(ngModel)]="addapointments[i].motive"
                                             class="form-control" #motive="ngModel"
-                                            [ngModelOptions]="{standalone: true}"></textarea>
+                                            [ngModelOptions]="{standalone: true}"required></textarea>
+                                            <span class="err-msg">
+                                                <div *ngIf="motive.touched">
+                                                    <div *ngIf="motive.errors && motive.errors.required">
+                                                        Motive is required
+                                                    </div>
+                                                </div>
+                                            </span>
                                     </div>
                                 </div>
                             </div>
@@ -54,13 +76,27 @@
                                         <label for="name" style="clear:both;">Date</label>
                                         <input type="date" name="date_time" [(ngModel)]="addapointments[i].date_time"
                                             class="form-control" #date_time="ngModel"
-                                            [ngModelOptions]="{standalone: true}" class="form-control datetimepicker">
+                                            [ngModelOptions]="{standalone: true}" class="form-control datetimepicker"required>
+                                            <span class="err-msg">
+                                                <div *ngIf="date_time.touched">
+                                                    <div *ngIf="date_time.errors && date_time.errors.required">
+                                                        Date is required
+                                                    </div>
+                                                </div>
+                                            </span>
                                     </div>
                                     <div class="col-md-4">
                                         <label for="name" style="clear:both;">Notes</label>
                                         <textarea name="notes" [(ngModel)]="addapointments[i].notes"
                                             class="form-control" #notes="ngModel" [ngModelOptions]="{standalone: true}"
-                                            class="form-control"></textarea>
+                                            class="form-control"required></textarea>
+                                            <span class="err-msg">
+                                                <div *ngIf="notes.touched">
+                                                    <div *ngIf="notes.errors && notes.errors.required">
+                                                        Notes is required
+                                                    </div>
+                                                </div>
+                                            </span>
                                     </div>
                                 </div>
                             </div>
@@ -69,7 +105,7 @@
 
                         <div class="box-footer">
                             <button type="submit" class="btn btn-primary"
-                                (click)="updateappointment(title, name, motive, date_time,notes, item.id)">Save</button>
+                                (click)="updateappointment(title, contact, motive, date_time,notes, item.id)" [disabled]="!f.valid" >Update</button>
                         </div>
                     </form>
                 </div><!-- /.box -->
@@ -77,3 +113,25 @@
         </div>
     </section>
 </div>
+
+<div class="modal fade successmechPopup" tabindex="-1" role="dialog">
+    <div class="modal-dialog  modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="myModalLabel">Appointment Update</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>
+            <i class="fa fa-check fa-2"></i>&nbsp;
+            <span>Appointment Updated sucessfully</span>
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" (click)="redirect()" class="btn btn-danger" data-dismiss="modal">close</button>
+        </div>
+      </div>
+    </div>
+  </div>

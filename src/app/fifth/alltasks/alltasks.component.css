@@ -383,3 +383,6 @@ background-color: red!important;
 .bg-orange {
     background-color: orange!important;
 }
+input.form-control.input-sm {
+    margin-left: 10px;
+}

@@ -17,9 +17,7 @@
 .modal-header {
     background: #b0dbf5;
 }
-.modal-title{
-    /* margin: 0 auto; */
-}
+
 .modal-footer{
     margin: 0 auto;
 }
@@ -341,4 +339,7 @@ table {
 
 .table-striped>tbody>tr:nth-of-type(odd) {
     background-color: #f1f1f1;
+}
+input.form-control.input-sm {
+    margin-left: 10px;
 }

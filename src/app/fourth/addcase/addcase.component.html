@@ -48,7 +48,7 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-3">
-                                        <b>Case Category <span>*</span></b>
+                                        <label for="name" style="clear:both;">Case Category <span>*</span></label>
                                     </div>
                                     <div class="col-md-4">
                                         <ng-multiselect-dropdown [placeholder]="'Select an Category'"
@@ -71,7 +71,7 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-3">
-                                        <b>Notes <span>*</span></b>
+                                        <label for="name" style="clear:both;">Notes <span>*</span></label>
                                     </div>
                                     <div class="col-md-8">
                                         <angular-editor [ngModelOptions]="{standalone: true}" [(ngModel)]="cases.notes"
@@ -90,7 +90,7 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-3">
-                                        <b>Result </b>
+                                        <label for="name" style="clear:both;">Result </label>
                                     </div>
                                     <div class="col-md-8">
                                         <angular-editor [ngModelOptions]="{standalone: true}" [(ngModel)]="cases.result"
