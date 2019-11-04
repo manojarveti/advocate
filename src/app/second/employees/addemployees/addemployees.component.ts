@@ -4,6 +4,9 @@ import { AddemployeesService } from './addemployees.service';
 import { Router } from '@angular/router';
 import Adddepartments from 'src/app/second/departments/adddepartments/adddepartments';
 import { AdddepartmentService } from 'src/app/second/departments/adddepartments/adddepartments.service';
+import Adduserrole from './../../user-role/adduserrole/adduserrole';
+import {AdduserroleService} from './../../user-role/adduserrole/adduserrole.service';
+import { from } from 'rxjs';
 declare var $: any;
 @Component({
   selector: 'app-addemployees',
@@ -20,6 +23,7 @@ export class AddemployeesComponent implements OnInit {
   selectedfile;
   userEmp:any={}
   newdesig:any={}
+  adduserroles:any;
 user={
   employee_id:"",
   name:"",
@@ -40,7 +44,7 @@ user={
 }
   dept_name: any;
 
-  constructor(private adddepartmentService: AdddepartmentService,private addemployeesService: AddemployeesService,private router: Router) { 
+  constructor(private adddepartmentService: AdddepartmentService,private addemployeesService: AddemployeesService,private router: Router, private adduserroleService: AdduserroleService) { 
     this.getdepartment();
   }
   getFileDetails(e) {
@@ -106,7 +110,18 @@ user={
     }
   );
   }
+  gettodolist(): void {
+    this.adduserroleService.getAll().subscribe(
+      (res: Adduserrole[]) => {
+        this.adduserroles = res;
+      },
+      (err) => {
+        this.error = err;
+      }
+    );
+  }
   ngOnInit() {
+   this.gettodolist(); 
   }
 
 }

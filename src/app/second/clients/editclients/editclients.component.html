@@ -1,24 +1,23 @@
-
-    <section class="content-header">
-        <h1>
-            Applicants <small>Edit</small>
-        </h1>
-        <ol class="breadcrumb">
-            <li><a [routerLink]="['/main/dashboard']"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-            <li><a [routerLink]="['/main/hrmange/clients']">Applicants</a></li>
-            <li class="active"><b>Edit</b></li>
-        </ol>
-    </section>
-    <div class="container">
+<section class="content-header">
+    <h1>
+        Applicants <small>Edit</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a [routerLink]="['/main/dashboard']"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+        <li><a [routerLink]="['/main/hrmange/clients']">Applicants</a></li>
+        <li class="active"><b>Edit</b></li>
+    </ol>
+</section>
+<div class="container">
     <section class="content">
         <div class="row">
             <!-- left column -->
             <div class="col-md-12">
                 <!-- general form elements -->
                 <div class="box box-primary">
-                   
+
                     <!-- form start -->
-                    <form *ngFor="let item of addclients;let i = index;">
+                    <form *ngFor="let item of addclients;let i = index;" #f="ngForm" name="myForm">
                         <div class="box-body">
                             <div class="form-group">
                                 <div class="row">
@@ -26,22 +25,37 @@
                                         <label for="name" style="clear:both;">Name</label>
                                         <input type="text" name="name" [(ngModel)]="addclients[i].name"
                                             class="form-control" #name="ngModel" [ngModelOptions]="{standalone: true}"
-                                            class="form-control">
+                                            onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode > 31 && event.charCode < 33) || (event.charCode > 47 && event.charCode < 58)"
+                                            required pattern="[a-zA-Z ]*">
+                                        <span class="err-msg">
+                                            <div *ngIf="name.touched">
+                                                <div *ngIf="name.errors && name.errors.required">
+                                                    Name is required
+                                                </div>
+                                            </div>
+                                        </span>
+                                        <span class="err-msg">
+                                            <div *ngIf="name.touched">
+                                                <div *ngIf="name.errors && name.errors.pattern">
+                                                    Please enter olny Alphabits
+                                                </div>
+                                            </div>
+                                        </span>
                                     </div>
                                     <div class="col-md-4">
-                                            <label for="gender" style="clear:both;">Gender </label>&nbsp;
-                                            <input type="radio" name="gender" [(ngModel)]="addclients[i].gender"
-                                                #gender="ngModel" [ngModelOptions]="{standalone: true}" value="Male"> Male
-                                            <input type="radio" name="gender" [(ngModel)]="addclients[i].gender"
-                                                #gender="ngModel" [ngModelOptions]="{standalone: true}" value="Female">
-                                            Female 
+                                        <label for="gender" style="clear:both;">Gender </label>&nbsp;
+                                        <input type="radio" name="gender" [(ngModel)]="addclients[i].gender"
+                                            #gender="ngModel" [ngModelOptions]="{standalone: true}" value="Male"> Male
+                                        <input type="radio" name="gender" [(ngModel)]="addclients[i].gender"
+                                            #gender="ngModel" [ngModelOptions]="{standalone: true}" value="Female">
+                                        Female
                                     </div>
                                     <div class="col-md-4">
-                                            <label for="dob" style="clear:both;">Date Of Birth</label>
-                                            <input type="date" name="dob" id="dob" [(ngModel)]="addclients[i].dob"
-                                                class="form-control" #dob="ngModel" [ngModelOptions]="{standalone: true}"
-                                                class="form-control datepicker">
-    
+                                        <label for="dob" style="clear:both;">Date Of Birth</label>
+                                        <input type="date" name="dob" id="dob" [(ngModel)]="addclients[i].dob"
+                                            class="form-control" #dob="ngModel" [ngModelOptions]="{standalone: true}"
+                                            class="form-control datepicker">
+
                                     </div>
                                 </div>
                             </div>
@@ -51,31 +65,54 @@
                                     <div class="col-md-4">
                                         <label for="email" style="clear:both;">Email</label>
                                         <input type="text" name="email" [(ngModel)]="addclients[i].email"
-                                            class="form-control" #email="ngModel" [ngModelOptions]="{standalone: true}">
+                                            class="form-control" #email="ngModel" [ngModelOptions]="{standalone: true}"
+                                            pattern="^\S+@(([a-zA-Z0-9]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,6})$"
+                                            required>
+                                        <span class="err-msg">
+                                            <div *ngIf="email.touched">
+                                                <div *ngIf="email.errors && email.errors.required">
+                                                    Email id is required
+                                                </div>
+                                            </div>
+                                        </span>
+                                        <span class="err-msg">
+                                            <div *ngIf="email.touched">
+                                                <div *ngIf="email.errors && email.errors.pattern">
+                                                    Please enter valid Email id
+                                                </div>
+                                            </div>
+                                        </span>
                                     </div>
                                     <div class="col-md-4">
-                                            <label for="username" style="clear:both;">Username</label>
-                                            <input type="text" name="username" [(ngModel)]="addclients[i].username"
-                                                class="form-control" #username="ngModel"
-                                                [ngModelOptions]="{standalone: true}">
+                                        <label for="username" style="clear:both;">Username</label>
+                                        <input type="text" name="username" [(ngModel)]="addclients[i].username"
+                                            class="form-control" #username="ngModel"
+                                            [ngModelOptions]="{standalone: true}">
                                     </div>
                                     <div class="col-md-4">
-                                            <label for="password" style="clear:both;">Password</label>
-                                            <input type="password" name="password" [(ngModel)]="user.password"
-                                                #password="ngModel" class="form-control" class="form-control">
+                                        <label for="password" style="clear:both;">Password</label>
+                                        <input type="password" name="password" [(ngModel)]="user.password"
+                                            #password="ngModel" class="form-control" class="form-control">
+                                        <span class="err-msg">
+                                            <div *ngIf="password.touched">
+                                                <div *ngIf="password.errors && password.errors.required">
+                                                    Password is required
+                                                </div>
+                                            </div>
+                                        </span>
 
                                     </div>
                                 </div>
                             </div>
 
-                           
+
 
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-4">
                                         <label for="password" style="clear:both;">Confirm Password</label>
-                                        <input type="password" name="confirm" value="" class="form-control"  [(ngModel)]="user.confirm"
-                                        #confirm="ngModel"  [pattern]="user.password">
+                                        <input type="password" name="confirm" value="" class="form-control"
+                                            [(ngModel)]="user.confirm" #confirm="ngModel" [pattern]="user.password">
                                         <span class="err-msg">
                                             <div aria-hidden="true">
                                                 <div *ngIf="confirm.errors && confirm.errors.pattern">
@@ -85,22 +122,37 @@
                                         </span>
                                     </div>
                                     <div class="col-md-4">
-                                            <label for="phone" style="clear:both;">Phone</label>
-                                            <input type="text" name="phone" [(ngModel)]="addclients[i].phone"
-                                                class="form-control" #phone="ngModel" [ngModelOptions]="{standalone: true}">
+                                        <label for="phone" style="clear:both;">Phone</label>
+                                        <input type="text" name="phone" [(ngModel)]="addclients[i].phone"
+                                            class="form-control" #phone="ngModel" [ngModelOptions]="{standalone: true}"
+                                            pattern="[0-9]{10}" required>
+                                        <span class="err-msg">
+                                            <div *ngIf="phone.touched">
+                                                <div *ngIf="phone.errors && phone.errors.required">
+                                                    Mobile no is required
+                                                </div>
+                                            </div>
+                                        </span>
+                                        <span class="err-msg">
+                                            <div *ngIf="phone.touched">
+                                                <div *ngIf="phone.errors && phone.errors.pattern">
+                                                    Please enter valid Mobile no
+                                                </div>
+                                            </div>
+                                        </span>
                                     </div>
                                     <div class="col-md-4">
-                                            <label for="contact" style="clear:both;">Address</label>
-                                            <textarea name="address" class="form-control"
-                                                [(ngModel)]="addclients[i].address" class="form-control" #address="ngModel"
-                                                [ngModelOptions]="{standalone: true}"></textarea>
+                                        <label for="contact" style="clear:both;">Address</label>
+                                        <textarea name="address" class="form-control"
+                                            [(ngModel)]="addclients[i].address" class="form-control" #address="ngModel"
+                                            [ngModelOptions]="{standalone: true}"></textarea>
                                     </div>
                                 </div>
                             </div>
                         </div><!-- /.box-body -->
 
                         <div class="box-footer">
-                            <button type="submit" class="btn btn-primary"
+                            <button type="submit" class="btn btn-primary" [disabled]="!f.valid"
                                 (click)="updateclients(name, gender, dob, email, username, password, phone, address, item.id)">Update</button>
                         </div>
                     </form>
@@ -111,23 +163,23 @@
 </div>
 
 <div class="modal fade successmechPopup" tabindex="-1" role="dialog">
-        <div class="modal-dialog  modal-sm" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Applicant Update</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p>
-                        <i class="fa fa-check fa-2"></i>&nbsp;
-                        <span>Applicant Updated sucessfully</span>
-                    </p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" (click)="redirect()" class="btn btn-danger" data-dismiss="modal">close</button>
-                </div>
+    <div class="modal-dialog  modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Applicant Update</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    <i class="fa fa-check fa-2"></i>&nbsp;
+                    <span>Applicant Updated sucessfully</span>
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" (click)="redirect()" class="btn btn-danger" data-dismiss="modal">close</button>
             </div>
         </div>
-      </div>
+    </div>
+</div>

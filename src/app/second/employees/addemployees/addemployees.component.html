@@ -89,9 +89,9 @@
                     <label for="email" style="clear:both;">User Role <span>*</span></label>
                     <select name="user_role" class="form-control chzn" [(ngModel)]="user.user_role"
                       #user_role="ngModel">
-                      <option value="">--Select User Role---</option>
-                      <option value="1">Admin</option>
-                      <option value="2">Staff</option>
+                      <option value="" [selected]=true>Please select</option>
+                      <option *ngFor="let item of adduserroles;let i = index;" value={{adduserroles[i].id}}>
+                        {{adduserroles[i].user_type}}</option>
                     </select>
                   </div>
                   <div class="col-md-4">
