@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import leavenotification from './leavenotification';
 import { loginService } from '../../login/login.service';
 import { CookieService } from 'ngx-cookie-service';
-
+declare var $:any;
 
 @Component({
   selector: 'app-leavenotification',
@@ -14,6 +14,8 @@ import { CookieService } from 'ngx-cookie-service';
 export class LeavenotificationComponent implements OnInit {
   addleaveserv: Addleaveservice[];
   addleaveserv1:any;
+  addleaveserv2:any;
+  addleaveserv3:any;
   error = '';
   success = '';
   p=1;
@@ -58,6 +60,31 @@ details:any;
       }
     );
   }
+
+  deletenotice(data: string | number) {
+    this.addleaveserv2=data;
+    console.log(this.addleaveserv2);
+    $('.deleteRequest').modal('show');
+  }
+
+  deletenoticedata(){
+    $('.deleteRequest').modal('hide');
+    this.resetErrors();
+
+    this.addleaveservice.deleteleavenotify(this.addleaveserv2)
+      .subscribe(
+        (res) => {
+          this.addleaveserv3 = res;
+          if(this.addleaveserv3.output==true)
+        {
+          $('.successmechPopup').modal('show');
+         // this.router.navigate(["/main/dashboard"]);
+        }
+        this.getleavenotify();
+        },
+        (err) => this.error = err
+      );
+  }  
 
   statusupdate(id: string | number) {
     this.resetErrors();

@@ -126,6 +126,7 @@ import { DocumentsComponent } from './third/documents/documents.component';
 import { AdddocumentsComponent } from './third/documents/adddocuments/adddocuments.component';
 import { EditdocumentsComponent } from './third/documents/editdocuments/editdocuments.component';
 import { ManageComponent } from './third/documents/manage/manage.component';
+import { MyleavesComponent } from './second/attendance/myleaves/myleaves.component';
 
 
 const appRoutes: Routes = [
@@ -140,6 +141,7 @@ const appRoutes: Routes = [
     path: 'main', component: HomeLayoutComponent,
     children: [
       { path: 'dashboard', component: FirstComponent },
+      { path: 'myleaves', component: MyleavesComponent },
       { path: 'hrmange', component: SecondComponent },
       { path: 'cases', component: ThirdComponent },
       { path: 'casestudy', component: FourthComponent },
@@ -400,6 +402,7 @@ const appRoutes: Routes = [
     AdddocumentsComponent,
     EditdocumentsComponent,
     ManageComponent,
+    MyleavesComponent,
 
   ],
   imports: [

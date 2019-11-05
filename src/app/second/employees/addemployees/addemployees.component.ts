@@ -111,8 +111,8 @@ user={
   );
   }
   gettodolist(): void {
-    this.adduserroleService.getAll().subscribe(
-      (res: Adduserrole[]) => {
+    this.adddepartmentService.getuserrole().subscribe(
+      (res:any) => {
         this.adduserroles = res;
       },
       (err) => {

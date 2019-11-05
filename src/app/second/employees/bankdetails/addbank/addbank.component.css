@@ -162,3 +162,6 @@ button, input, optgroup, select, textarea {
     font: inherit;
     color: inherit;
 }
+span{
+    color: red;
+}

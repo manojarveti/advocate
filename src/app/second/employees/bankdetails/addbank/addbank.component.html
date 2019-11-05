@@ -26,7 +26,7 @@
               <div class="form-group">
                 <div class="row">
                   <div class="col-md-4">
-                    <label for="name" style="clear:both;">Account Holder Name</label>
+                    <label for="name" style="clear:both;">Account Holder Name <span>*</span></label>
                     <input type="text" name="userid" value= ""  [(ngModel)]="user.userid" #userid="ngModel" style="display:none">
                     <input type="text" name="accountholdername"  value="" [(ngModel)]="user.accountholdername" #accountholdername="ngModel" class="form-control" 
                     onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode > 31 && event.charCode < 33) || (event.charCode > 47 && event.charCode < 58)"
@@ -47,7 +47,7 @@
                 </span>
                   </div>
                   <div class="col-md-4">
-                    <label for="name" style="clear:both;">Account Number</label>
+                    <label for="name" style="clear:both;">Account Number <span>*</span></label>
                     <input type="text" name="account_number" value="" [(ngModel)]="user.account_number" #account_number="ngModel" class="form-control" pattern="[0-9]*" required>
                     <span class="err-msg">
                       <div *ngIf="account_number.touched">
@@ -65,7 +65,7 @@
                   </span>
                   </div>
                   <div class="col-md-4">
-                    <label for="name" style="clear:both;">Bank Name</label>
+                    <label for="name" style="clear:both;">Bank Name <span>*</span></label>
                     <input type="text" name="bank_name" value="" [(ngModel)]="user.bank_name" #bank_name="ngModel"  class="form-control" required pattern="[a-zA-Z ]*">
                     <span class="err-msg">
                       <div *ngIf="bank_name.touched">
@@ -87,8 +87,8 @@
               <div class="form-group">
                 <div class="row">
                   <div class="col-md-4">
-                    <label for="name" style="clear:both;">IFSC Code</label>
-                    <input type="text" name="ifsc_code" value="" [(ngModel)]="user.ifsc_code" #ifsc_code="ngModel" class="form-control" required>
+                    <label for="name" style="clear:both;">IFSC Code <span>*</span></label>
+                    <input type="text" name="ifsc_code" value="" [(ngModel)]="user.ifsc_code" #ifsc_code="ngModel" class="form-control" required onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode > 31 && event.charCode < 33) || (event.charCode > 47 && event.charCode < 58)">
                     <span class="err-msg">
                       <div *ngIf="ifsc_code.touched">
                           <div *ngIf="ifsc_code.errors && ifsc_code.errors.required">
@@ -98,8 +98,8 @@
                   </span>
                   </div>
                   <div class="col-md-4">
-                    <label for="name" style="clear:both;">PAN Number</label>
-                    <input type="text" name="pan_number" value="" [(ngModel)]="user.pan_number" #pan_number="ngModel" class="form-control" required>
+                    <label for="name" style="clear:both;">PAN Number <span>*</span></label>
+                    <input type="text" name="pan_number" value="" [(ngModel)]="user.pan_number" #pan_number="ngModel" class="form-control" required onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode > 31 && event.charCode < 33) || (event.charCode > 47 && event.charCode < 58)">
                     <span class="err-msg">
                       <div *ngIf="pan_number.touched">
                           <div *ngIf="pan_number.errors && pan_number.errors.required">
@@ -109,7 +109,7 @@
                   </span>
                   </div>
                   <div class="col-md-4">
-                    <label for="name" style="clear:both;">Branch Name</label>
+                    <label for="name" style="clear:both;">Branch Name <span>*</span></label>
                     <input type="text" name="branch" value="" [(ngModel)]="user.branch" #branch="ngModel" class="form-control" required pattern="[a-zA-Z ]*">
                     <span class="err-msg">
                       <div *ngIf="branch.touched">

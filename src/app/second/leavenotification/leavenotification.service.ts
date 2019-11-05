@@ -43,6 +43,19 @@ import leavenotification from './leavenotification';
       catchError(this.handleError));
   }
 
+  deleteleavenotify(id: number): Observable<leavenotification[]> {
+    const params = new HttpParams()
+      .set('id', id.toString());
+
+    return this.http.delete(`${this.baseUrl}/hr/leave_notification/delete`, { params: params })
+      .pipe(map((res:any) => {
+        const filteredAdds = this.leavenotification.filter((car) => {
+          return +car['id'] !== +id;
+        });
+        return res;
+      }),
+      catchError(this.handleError));
+  }
   private handleError(error: HttpErrorResponse) {
     console.log(error);
 

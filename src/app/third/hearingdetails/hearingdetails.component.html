@@ -59,8 +59,8 @@
                                     <div class="col-md-3">
                                         <b>Attachement Document</b>
                                     </div>
-                                    <div class="col-md-4">
-                                        <a class="btn btn-default" download="" target="_blank"><i
+                                    <div class="col-md-4" *ngIf="item.hearing_docs!='null'">
+                                        <a download href="C:/xampp/htdocs/advocate_api/cases/case/{{item.hearing_docs}}" class="btn btn-default" download="" target="_blank"><i
                                                 class="fa fa-download"></i> Attachment</a>
 
                                     </div>

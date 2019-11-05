@@ -58,8 +58,8 @@
                                             [(ngModel)]="addemployees[i].user_role" #user_role="ngModel"
                                             [ngModelOptions]="{standalone: true}">
                                             <option value="">--Select User Role---</option>
-                                            <option value="1">Admin</option>
-                                            <option value="2" selected="selected">Staff</option>
+                                            <option *ngFor="let item of adduserroles;let i = index;" value={{adduserroles[i].id}}>
+                                                {{adduserroles[i].user_type}}</option>
                                         </select>
                                     </div>
                                     <div class="col-md-4">

@@ -1,15 +1,14 @@
-
-    <section class="content-header">
-        <h1>
-            Extended Date's Of Case No : Z2223 <small>Assult</small>
-        </h1>
-        <ol class="breadcrumb">
-            <li><a [routerLink]="['/main/dashboard']"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-            <li><a [routerLink]="['/main/cases/allcases']">Cases</a></li>
-            <li class="active">Extended Dates</li>
-        </ol>
-    </section>
-    <div class="container">
+<section class="content-header">
+    <h1>
+        Extended Date's Of Case No : Z2223 <small>Assult</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a [routerLink]="['/main/dashboard']"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+        <li><a [routerLink]="['/main/cases/allcases']">Cases</a></li>
+        <li class="active">Extended Dates</li>
+    </ol>
+</section>
+<div class="container">
     <section class="content">
         <div class="row">
             <!-- left column -->
@@ -84,7 +83,7 @@
                                 </div>
                             </div>
                         </div>
-
+                    </form>
 
                         <div class="box-body table-responsive" style="margin-top:10px">
                             <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
@@ -95,8 +94,9 @@
                                         </div>
                                         <div class="col-sm-6">
                                             <div id="example1_filter" class="dataTables_filter">
-                                                <label>Search:<input type="search" class="form-control"
-                                                        placeholder="" aria-controls="example1" style="margin-left: 10px;"></label>
+                                                <label>Search:<input type="search" class="form-control" placeholder=""
+                                                        aria-controls="example1" [(ngModel)]="searchText"
+                                                        style="margin-left: 10px;"></label>
                                             </div>
                                         </div>
                                     </div>
@@ -144,22 +144,27 @@
                                                     <td>{{item.next_date}}</td>
                                                     <td>{{item.last_date}}</td>
                                                     <td>{{item.notes}}</td>
-                                                    <td> <a target="_blank" style="margin-left:20px;"
-                                                            data-toggle="tooltip" data-placement="bottom"
-                                                            title="Attachment"><i class="fa fa-download"></i>
-                                                        </a>
-
+                                                    <td>
+                                                        <div *ngIf="item.hearing_docs!='null'"> <a download
+                                                                href="C:/xampp/htdocs/advocate_api/cases/case/{{item.hearing_docs}}"
+                                                                target="_blank" style="margin-left:20px;"
+                                                                data-toggle="tooltip" data-placement="bottom"
+                                                                title="Attachment"><i class="fa fa-download"></i>
+                                                            </a>
+                                                        </div>
                                                     </td>
 
                                                     <td width="30%" *ngFor="let item2 of details;let i = index;">
 
-                                                        <a *ngIf="item2.access.access21 == true" [routerLink]="['/main/cases/hearingdetails', item.id]"
+                                                        <a *ngIf="item2.access.access21 == true"
+                                                            [routerLink]="['/main/cases/hearingdetails', item.id]"
                                                             style="margin-left:20px;" data-toggle="tooltip"
                                                             data-placement="bottom" title="View"><i
                                                                 class="fa fa-eye fa-lg"></i>
                                                         </a>
 
-                                                        <a *ngIf="item2.access.access22 == true" (click)="deletehearing(item.id)"
+                                                        <a *ngIf="item2.access.access22 == true"
+                                                            (click)="deleteact(item.id)"
                                                             style="margin-left:20px;cursor: pointer;"
                                                             data-toggle="tooltip" data-placement="bottom"
                                                             title="Delete"><i class="fa fa-trash fa-lg"></i>
@@ -183,9 +188,54 @@
                                 </div>
                             </div>
                         </div><!-- /.box-body -->
-                    </form>
+                    
                 </div><!-- /.box -->
             </div>
         </div>
     </section>
 </div>
+
+<div class="modal fade deleteRequest" tabindex="-1" role="dialog">
+        <div class="modal-dialog  modal-sm" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="myModalLabel">Delete Request</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>
+                <i class="fa fa-check fa-2"></i>
+                <span>&nbsp;Are you sure Want to Delete ?</span>
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-success" (click)=" deleteactdata()">Yes</button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="modal fade successmechPopup" tabindex="-1" role="dialog">
+        <div class="modal-dialog  modal-sm" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="myModalLabel">Appointment Delete</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>
+                <i class="fa fa-check fa-2"></i>&nbsp;
+                <span>Appointment Deleted sucessfully</span>
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">close</button>
+            </div>
+          </div>
+        </div>
+      </div>

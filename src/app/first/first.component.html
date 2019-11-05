@@ -221,7 +221,7 @@
 						<a *ngIf="item2.access.access118 == true" [routerLink]="['/main/hrmange/attendance']" style="padding-right:7px"
 							class="btn btn-default"><i class="fa fa-user"></i> My
 							Attendance</a>
-						<a *ngIf="item2.access.access119 == true" class="btn btn-default pull-right"><i class="fa fa-plus"></i> My Leaves</a>
+						<a [routerLink]="['/main/myleaves']" class="btn btn-default pull-right"><i class="fa fa-plus"></i> My Leaves</a>
 					</div>
 				</div>
 			</section>
@@ -342,3 +342,25 @@
 	</div>
 	<!-- /.modal-dialog -->
 </div>
+
+<div class="modal fade successmechPopup" tabindex="-1" role="dialog">
+		<div class="modal-dialog  modal-sm" role="document">
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <h4 class="modal-title" id="myModalLabel">Apply Leave</h4>
+			  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			  </button>
+			</div>
+			<div class="modal-body">
+			  <p>
+				<i class="fa fa-check fa-2"></i>&nbsp;
+				<span>Applied Leave sucessfully</span>
+			  </p>
+			</div>
+			<div class="modal-footer">
+			  <button type="button"  class="btn btn-danger" data-dismiss="modal">close</button>
+			</div>
+		  </div>
+		</div>
+	  </div>

@@ -105,7 +105,12 @@ details:any;
     this.firstService.applyleave(leaves).subscribe(
       (res: any[]) => {
         this.addapplyleave = res;
-        $('#apply_leave').modal('hide');
+        if (this.addapplyleave.output == true) {
+          // $('#apply_leave').modal('hide');
+          $('#apply_leave').css("display", "none");
+          $('.successmechPopup').modal('show');
+          // this.router.navigate(["/main/dashboard"]);
+        }
       },
       (err) => {
         this.error = err;

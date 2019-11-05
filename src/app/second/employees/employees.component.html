@@ -79,8 +79,7 @@
                                                 *ngFor="let i = index;let item of addemployees | filter:searchText | paginate: { itemsPerPage: 10, currentPage: p }">
                                                 <td class="sorting_1">{{ (p - 1) * 10 + i +1 }}</td>
                                                 <td>{{item.name |titlecase}}</td>
-                                                <td *ngIf="item.user_role==='1'">Admin</td>
-                                                <td *ngIf="item.user_role==='2'">Staff</td>
+                                                <td>{{item.user_role |titlecase}}</td>
                                                 <td>{{item.status |titlecase}}</td>
 
                                                 <td width="50%">

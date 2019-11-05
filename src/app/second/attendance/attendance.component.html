@@ -1,51 +1,110 @@
-
-    <section class="content-header">
-        <h1>
-            Attendance         
-        </h1>
-        <ol class="breadcrumb">
-            <li><a ><i class="fa fa-dashboard"></i> Dashboard</a></li>
-            <li class="active">Attendance</li>
-        </ol>
-  </section>
-  <div class="container">
-  <section class="content">
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="box">
-              <div class="box-header with-border">
-                  <h3 class="box-title">Attendance</h3>                                    
-              </div><!-- /.box-header -->
-      
-              <div class="box-body " style="margin-top:10px;">
-                  <form method="post">
-          <div class="form-group">
-                        <div class="row">
-                              <div class="col-md-3">
-                            <input type="date" name="date1" value="" class="form-control datepicker" placeholder="Date From">
-                              </div>
-               <div class="col-md-3">
-                            <input type="date" name="date2" value="" class="form-control datepicker" placeholder="Date To">
-                              </div>
-               <div class="col-md-3">
-                            <select name="employee_id" class="form-control">
-                  <option value="">-- Select Employee --</option>
-                                    <option value="4"> Juliet Kamau </option>
-                                    <option value="5"> Tornado </option>
-                                    <option value="6"> kali </option>
-                  
-                </select>
-                              </div>
-              <div class="col-md-1">
-                <input type="submit" name="ok" value="Submit" class="btn btn-primary">
-              </div>
-                          </div>
-                      </div>
-        </form>
-      
-              </div><!-- /.box-body -->
-          </div><!-- /.box -->
-      </div>
-  </div>
+<section class="content-header">
+  <h1>
+    Attendance
+  </h1>
+  <ol class="breadcrumb">
+    <li><a [routerLink]="['/main/dashboard']"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+    <li class="active">Attendance</li>
+  </ol>
 </section>
+<div class="container">
+  <section class="content">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="box">
+          <div class="box-header with-border">
+            <h3 class="box-title">Attendance</h3>
+          </div><!-- /.box-header -->
+
+          <div class="box-body " style="margin-top:10px;">
+            <form method="post">
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-md-3">
+                    <input type="date" name="date1" value="" class="form-control datepicker" placeholder="Date From">
+                  </div>
+                  <div class="col-md-3">
+                    <input type="date" name="date2" value="" class="form-control datepicker" placeholder="Date To">
+                  </div>
+                  <div class="col-md-3">
+                    <select name="employee_id" class="form-control">
+                      <option value="">-- Select Employee --</option>
+                      <option value="4"> Juliet Kamau </option>
+                      <option value="5"> Tornado </option>
+                      <option value="6"> kali </option>
+
+                    </select>
+                  </div>
+                  <div class="col-md-1">
+                    <input type="submit" name="ok" value="Submit" class="btn btn-primary">
+                  </div>
+                </div>
+              </div>
+            </form>
+
+          </div><!-- /.box-body -->
+          <div class="col-sm-12">
+            <div class="row">
+              <table id="example1" class="table table-bordered table-striped dataTable no-footer" role="grid"
+                aria-describedby="example1_info">
+                <thead>
+                  <tr role="row">
+                    <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                      aria-sort="ascending" aria-label="Sr No: activate to sort column descending"
+                      style="width: 149px;">Sr No</th>
+                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                      aria-label="Name: activate to sort column ascending" style="width: 286px;">Name</th>
+                    <th width="20%" class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                      aria-label="Action: activate to sort column ascending" style="width: 254px;">Date</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+
+
+                  <tr class="gc_row odd" role="row"
+                    *ngFor="let i = index;let item of addclients | filter:searchText | paginate: { itemsPerPage: 10, currentPage: p }">
+                    <td class="sorting_1">{{ (p - 1) * 10 + i +1 }}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.phone}}</td>
+
+                    <td width="27%">
+                      <div class="btn-group" *ngFor="let item2 of details;let i = index;">
+
+                        <a *ngIf="item2.access.access45 == true"
+                          [routerLink]="['/main/hrmange/clients/viewclients',item.id]" style="margin-left:20px;"
+                          data-toggle="tooltip" data-placement="bottom" title="View"><i class="fa fa-eye fa-lg"></i>
+                        </a>
+
+                        <a *ngIf="item2.access.access43 == true"
+                          [routerLink]="['/main/hrmange/clients/editclients',item.id]" style="margin-left:20px;"
+                          data-toggle="tooltip" data-placement="bottom" title="Edit"><i class="fa fa-edit fa-lg"></i>
+                        </a>
+
+                        <a *ngIf="item2.access.access44 == true" (click)="deleteclients(item.id)"
+                          style="margin-left:20px;cursor: pointer;" data-toggle="tooltip" data-placement="bottom"
+                          title="Delete"><i class="fa fa-trash fa-lg"></i>
+                        </a>
+
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="col-sm-12">
+              <div class="row">
+                <div class="col-sm-5">
+
+                </div>
+                <div class="col-sm-7" style="text-align: right;">
+                  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><!-- /.box -->
+      </div>
+    </div>
+  </section>
 </div>

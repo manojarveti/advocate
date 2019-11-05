@@ -87,7 +87,22 @@
                                         <label for="username" style="clear:both;">Username</label>
                                         <input type="text" name="username" [(ngModel)]="addclients[i].username"
                                             class="form-control" #username="ngModel"
-                                            [ngModelOptions]="{standalone: true}">
+                                            [ngModelOptions]="{standalone: true}"onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode > 31 && event.charCode < 33) || (event.charCode > 47 && event.charCode < 58)"
+                                            required pattern="[a-zA-Z ]*">
+                                        <span class="err-msg">
+                                            <div *ngIf="username.touched">
+                                                <div *ngIf="username.errors && username.errors.required">
+                                                    User Name is required
+                                                </div>
+                                            </div>
+                                        </span>
+                                        <span class="err-msg">
+                                            <div *ngIf="username.touched">
+                                                <div *ngIf="username.errors && username.errors.pattern">
+                                                    Please enter olny Alphabits
+                                                </div>
+                                            </div>
+                                        </span>
                                     </div>
                                     <div class="col-md-4">
                                         <label for="password" style="clear:both;">Password</label>

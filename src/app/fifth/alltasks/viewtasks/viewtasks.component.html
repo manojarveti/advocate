@@ -37,7 +37,10 @@
                       <label for="email" style="clear:both;">Priority</label>
                     </div>
                     <div class="col-md-4">
-                      {{item.priority}} </div>
+                        <div *ngIf="item.priority==='1'">LOW</div>
+                        <div *ngIf="item.priority==='2'">MEDIUM</div>
+                        <div *ngIf="item.priority==='3'">HIGH</div>
+                      </div>
                   </div>
                 </div>
 

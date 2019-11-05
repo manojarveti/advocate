@@ -15,7 +15,7 @@ export class AdddepartmentService {
   }
   baseUrl = 'http://localhost/advocate_api';
   adddepartment: Adddepartments[];
-
+  adduserroles:any;
   constructor(private http: HttpClient) { }
 
   getAll(): Observable<Adddepartments[]> {
@@ -91,6 +91,15 @@ export class AdddepartmentService {
       map((res) => {
         this.adddepartment = res['data'];
         return this.adddepartment;
+    }),
+    catchError(this.handleError));
+  }
+
+  getuserrole() {
+    return this.http.get(`${this.baseUrl}/hr/department/userrole`).pipe(
+      map((res) => {
+        this.adduserroles = res['data'];
+        return this.adduserroles;
     }),
     catchError(this.handleError));
   }

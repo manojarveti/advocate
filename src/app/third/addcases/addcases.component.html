@@ -16,9 +16,7 @@
       <div class="col-md-12">
         <!-- general form elements -->
         <div class="box box-primary">
-          <div class="box-header with-border">
-            <h3 class="box-title">Add</h3>
-          </div><!-- /.box-header -->
+          <!-- /.box-header -->
           <!-- form start -->
           <form (submit)="addtodolist(cases)" name="addCasesForm" #f="ngForm">
             <div class="box-body">
@@ -52,7 +50,7 @@
                   </div>
                   <div class="col-md-4">
                     <div class="input-group">
-                      <label>Client Name</label>
+                      <label>Applicant Name</label>
                       <select name="client_id" [(ngModel)]="cases.client_id" #client_id="ngModel"
                         class="form-control chzn" required>
                         <option value="">--Select Client--</option>

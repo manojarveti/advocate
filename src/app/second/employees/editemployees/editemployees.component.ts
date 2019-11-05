@@ -39,10 +39,12 @@ client={
 }
 userEmp:any={}
 newdesig:any={}
+adduserroles:any;
 id: number;
   private sub: any;
   constructor(private adddepartmentService: AdddepartmentService,private route: ActivatedRoute, private addemployeesService: AddemployeesService,private router: Router) { 
     this.getdepartment();
+    this.gettodolist();
   }
   fetchtodolist(id: string | number): void {
     this.addemployeesService.fetchAll(+id).subscribe(
@@ -113,5 +115,15 @@ console.log(this.addemp1.output);
       this.error = err;
     }
   );
+  }
+  gettodolist(): void {
+    this.adddepartmentService.getuserrole().subscribe(
+      (res:any) => {
+        this.adduserroles = res;
+      },
+      (err) => {
+        this.error = err;
+      }
+    );
   }
 }

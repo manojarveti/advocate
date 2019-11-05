@@ -4,6 +4,7 @@ import { AddcaseService } from '../addcases/addcase.service';
 import { ActivatedRoute, Router } from "@angular/router";
 import { loginService } from '../../login/login.service';
 import { CookieService } from 'ngx-cookie-service';
+declare var $:any;
 @Component({
   selector: 'app-hearingdates',
   templateUrl: './hearingdates.component.html',
@@ -11,6 +12,7 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class HearingdatesComponent implements OnInit {
   addcases: Addcases[];
+  addcases1:any;
 selectedfile;
 error = '';
   success = '';
@@ -22,6 +24,7 @@ user={
   notes:"",
   case_id:""
 }
+actdata:any;
 roleid;
 details:any;
 subscribedParam = "initial value";
@@ -69,17 +72,43 @@ private sub: any;
     );
   }
 
-  deletehearing(id: string | number) {
-    this.resetErrors();
-    this.addcaseService.deletehear(+id)
-      .subscribe(
-        (res: Addcases[]) => {
-          this.addcases = res;
-          this.fetchtodolist(this.id);
-        },
-        (err) => this.error = err
-      );
+  deleteact(data: string | number) {
+    this.actdata=data;
+    $('.deleteRequest').modal('show');
   }
+
+
+  deleteactdata(){
+    $('.deleteRequest').modal('hide');
+   this.resetErrors();
+
+   this.addcaseService.deletehear(this.actdata)
+     .subscribe(
+       (res: Addcases[]) => {
+         console.log(this.actdata);
+         this.addcases1 = res;
+         if(this.addcases1.output==true)
+         {
+           $('.successmechPopup').modal('show');
+          // this.router.navigate(["/main/dashboard"]);
+         }
+         this.fetchtodolist(this.id);
+         },
+         (err) => this.error = err
+       );
+ }
+
+  // deletehearing(id: string | number) {
+  //   this.resetErrors();
+  //   this.addcaseService.deletehear(+id)
+  //     .subscribe(
+  //       (res: Addcases[]) => {
+  //         this.addcases = res;
+  //         this.fetchtodolist(this.id);
+  //       },
+  //       (err) => this.error = err
+  //     );
+  // }
 
   private resetErrors(){
     this.success = '';

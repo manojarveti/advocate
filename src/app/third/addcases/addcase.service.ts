@@ -303,11 +303,11 @@ storecase(addcase: Addcases): Observable<Addcases[]> {
       .set('id', id.toString());
 
     return this.http.delete(`${this.baseUrl}/cases/case/deletehear`, { params: params })
-      .pipe(map(res => {
+      .pipe(map((res:any) => {
         const filteredAdds = this.addcase.filter((car) => {
           return +car['id'] !== +id;
         });
-        return this.addcase= filteredAdds;
+          return res;
       }),
       catchError(this.handleError));
   }

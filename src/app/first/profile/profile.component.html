@@ -3,8 +3,8 @@
     User Form <small>Add/Update</small>
   </h1>
   <ol class="breadcrumb">
-    <li><a><i class="fa fa-dashboard"></i> Dasbhoard</a></li>
-    <li class="active">Form</li>
+      <li><a [routerLink]="['/main/dashboard']"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+    <li class="active">Personal Profile</li>
   </ol>
 </section>
 <section class="content">
@@ -13,9 +13,7 @@
     <div class="col-md-12">
       <!-- general form elements -->
       <div class="box box-primary">
-        <div class="box-header with-border">
-          <h3 class="box-title">Account </h3>
-        </div><!-- /.box-header -->
+        <!-- /.box-header -->
         <!-- form start -->
         <form method="post" enctype="multipart/form-data">
           <div class="box-body" *ngFor="let item of editprofiles;let i = index;">
@@ -56,7 +54,7 @@
             </div>
             <div class="row">
               <div class="col-md-3"><label></label>
-                <button type="submit" (click)="editprofile(editprofiles)" class="btn btn-primary">Save</button>
+                <button type="submit" (click)="editprofile(editprofiles)" class="btn btn-primary">Update</button>
               </div>
             </div>
           </div>

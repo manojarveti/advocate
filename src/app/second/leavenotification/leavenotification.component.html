@@ -13,9 +13,7 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="box">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">Leave Notification</h3>
-                    </div><!-- /.box-header -->
+                    <!-- /.box-header -->
 
                     <div class="box-body table-responsive">
                         <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
@@ -27,7 +25,7 @@
                                     <div class="col-sm-6">
                                         <div id="example1_filter" class="dataTables_filter"><label>Search:<input
                                                     type="search" class="form-control input-sm" placeholder=""
-                                                    aria-controls="example1"></label></div>
+                                                    aria-controls="example1" [(ngModel)]="searchText"></label></div>
                                     </div>
                                 </div>
                             </div>
@@ -73,7 +71,7 @@
                                                         </a>
 
                                                         <a *ngIf="item2.access.access115 == true" style="margin-left:20px;cursor: pointer;"
-                                                            data-toggle="tooltip" data-placement="bottom"
+                                                            data-toggle="tooltip" data-placement="bottom" (click)="deletenotice(item.id)"
                                                             title="Delete"><i class="fa fa-trash fa-lg"></i>
                                                         </a>
 
@@ -95,3 +93,48 @@
         </div>
     </section>
 </div>
+
+<div class="modal fade deleteRequest" tabindex="-1" role="dialog">
+        <div class="modal-dialog  modal-sm" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="myModalLabel">Delete Request</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>
+                <i class="fa fa-check fa-2"></i>
+                <span>&nbsp;Are you sure Want to Delete ?</span>
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-success" (click)=" deletenoticedata()">Yes</button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="modal fade successmechPopup" tabindex="-1" role="dialog">
+        <div class="modal-dialog  modal-sm" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="myModalLabel">Leave Notification Delete</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>
+                <i class="fa fa-check fa-2"></i>&nbsp;
+                <span>Leave Notification Deleted sucessfully</span>
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">close</button>
+            </div>
+          </div>
+        </div>
+      </div>
